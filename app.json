@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "gym-genius-rn",
-    "slug": "gym-genius-rn",
+    "name": "GymGenius",
+    "scheme": "GymGenius",
+    "slug": "gymgenius",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,6 +26,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
