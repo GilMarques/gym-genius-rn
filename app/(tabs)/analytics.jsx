@@ -1,12 +1,8 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Analytics = () => {
-  return (
-    <View>
-      <Text>Analytics</Text>
-    </View>
-  );
+  return <SafeAreaView className="h-full bg-primary"></SafeAreaView>;
 };
 
 export default Analytics;
