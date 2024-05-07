@@ -2,7 +2,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import React from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import CustomButton from "../../components/CustomButton";
 function secondsToHm(seconds) {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
@@ -13,9 +13,11 @@ function secondsToHm(seconds) {
 function kgToLbs(kg) {
   return Math.round(kg * 2.205);
 }
+const icon_size = 12;
 
 const HistoryCard = ({ data }) => {
   const date = new Date(data.lastPerformed);
+
   return (
     <View className="w-full rounded-2xl border-2 border-gray-200 p-4">
       <View className="flex-row items-center justify-between">
@@ -29,16 +31,16 @@ const HistoryCard = ({ data }) => {
 
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-2">
-          <FontAwesome6 name="clock" size={24} color="white" />
+          <FontAwesome6 name="clock" size={icon_size} color="white" />
           <Text className="text-white">{secondsToHm(data.duration)}</Text>
         </View>
 
         <View className="flex-row items-center gap-2">
-          <FontAwesome6 name="weight-hanging" size={24} color="white" />
+          <FontAwesome6 name="weight-hanging" size={icon_size} color="white" />
           <Text className="text-white">{data.tonnage + " lbs"}</Text>
         </View>
         <View className="flex-row items-center gap-2">
-          <FontAwesome6 name="trophy" size={24} color="white" />
+          <FontAwesome6 name="trophy" size={icon_size} color="white" />
           <Text className="text-white">{data.numRecords + " PRs"}</Text>
         </View>
       </View>
@@ -54,7 +56,13 @@ const HistoryCard = ({ data }) => {
 
 const History = () => {
   return (
-    <SafeAreaView className="h-full bg-primary">
+    <SafeAreaView className="h-full bg-primary p-6">
+      <CustomButton
+        title={<FontAwesome6 name="calendar" size={24} color="black" />}
+        containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
+      />
+
+      <Text className="text-xl text-secondary">April</Text>
       <HistoryCard
         data={{
           title: "Title",

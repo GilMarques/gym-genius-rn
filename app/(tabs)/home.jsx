@@ -3,17 +3,28 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "../../components/CustomButton";
+import SearchInput from "../../components/SearchInput";
 import { useGlobalContext } from "../../context/GlobalProvider";
+
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config.js";
+
+const fullConfig = resolveConfig(tailwindConfig);
+
 const Home = () => {
   const { user } = useGlobalContext();
   const [numberWorkouts, setNumberWorkouts] = useState(0);
 
   return (
-    <SafeAreaView className="h-full bg-primary">
+    <SafeAreaView className="h-full bg-primary p-6">
       {/* <FlatList /> */}
 
       <View className="flex-row items-center gap-2">
-        <FontAwesome6 name="user-circle" size={32} color="#ffd554" />
+        <FontAwesome6
+          name="user-circle"
+          size={32}
+          color={fullConfig.theme.colors.secondary}
+        />
         <View>
           <Text className="text-2xl font-bold text-secondary">
             {user?.username || "User"}
@@ -24,14 +35,21 @@ const Home = () => {
         </View>
       </View>
 
-      <Text className="text-xl font-bold text-secondary">Featured</Text>
+      <View className="flex-row items-center justify-between">
+        <Text className="text-xl font-bold text-secondary">Featured</Text>
+        <FontAwesome6
+          name="add"
+          size={24}
+          color={fullConfig.theme.colors.secondary}
+        />
+      </View>
 
       <CustomButton
-        title={<FontAwesome6 name="add" size={24} color="black" />}
+        title={<FontAwesome6 name="gear" size={24} color="black" />}
         containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
       />
 
-      <FontAwesome6 name="gear" size={24} color="white" />
+      <SearchInput placeholder={"🔎"} />
     </SafeAreaView>
   );
 };
