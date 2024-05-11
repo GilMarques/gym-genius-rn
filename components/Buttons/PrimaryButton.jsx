@@ -1,7 +1,12 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config.js";
 
-const CustomButton = ({
+const fullConfig = resolveConfig(tailwindConfig);
+
+const PrimaryButton = ({
   title,
   handlePress,
   containerStyles,
@@ -16,7 +21,7 @@ const CustomButton = ({
       className={`flex justify-center items-center rounded-md p-1 ${containerStyles} ${
         isLoading ? "opacity-50" : ""
       }`}
-      style={{ backgroundColor: color || "#ffd554" }}
+      style={{ backgroundColor: color || fullConfig.theme.colors.secondary }}
       disabled={isLoading}
     >
       <Text className={`text-lg font-bold text-primary ${textStyles}`}>
@@ -26,4 +31,4 @@ const CustomButton = ({
   );
 };
 
-export default CustomButton;
+export default PrimaryButton;

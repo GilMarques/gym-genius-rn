@@ -2,7 +2,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import React from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomButton from "../../components/CustomButton";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 function secondsToHm(seconds) {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
@@ -57,7 +57,7 @@ const HistoryCard = ({ data }) => {
 const History = () => {
   return (
     <SafeAreaView className="h-full bg-primary p-6">
-      <CustomButton
+      <PrimaryButton
         title={<FontAwesome6 name="calendar" size={24} color="black" />}
         containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
       />

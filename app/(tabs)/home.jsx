@@ -2,8 +2,7 @@ import { FontAwesome6 } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomButton from "../../components/CustomButton";
-import SearchInput from "../../components/SearchInput";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -44,12 +43,10 @@ const Home = () => {
         />
       </View>
 
-      <CustomButton
+      <PrimaryButton
         title={<FontAwesome6 name="gear" size={24} color="black" />}
         containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
       />
-
-      <SearchInput placeholder={"🔎"} />
     </SafeAreaView>
   );
 };

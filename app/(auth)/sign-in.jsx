@@ -3,7 +3,7 @@ import { Alert, Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Link, router } from "expo-router";
-import CustomButton from "../../components/CustomButton";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import FormField from "../../components/FormField";
 import { images } from "../../constants";
 import { useGlobalContext } from "../../context/GlobalProvider";
@@ -63,7 +63,7 @@ const SignIn = () => {
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
           />
-          <CustomButton
+          <PrimaryButton
             title={"Log in"}
             handlePress={submit}
             containerStyles={" mt-7"}

@@ -9,6 +9,15 @@ const GlobalProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [seconds, setSeconds] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prevSeconds) => prevSeconds + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     getCurrentUser()
@@ -37,6 +46,7 @@ const GlobalProvider = ({ children }) => {
         user,
         setUser,
         isLoading,
+        seconds,
       }}
     >
       {children}

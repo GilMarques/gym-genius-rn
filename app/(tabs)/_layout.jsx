@@ -1,21 +1,26 @@
 import { Tabs } from "expo-router";
-import React, { useRef, useState } from "react";
-import { Image, Text, View } from "react-native";
+import React, { useRef } from "react";
+import { Text, View } from "react-native";
 
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import WorkoutBottomSheet from "../../components/WorkoutBottomSheet";
+import { StatusBar } from "expo-status-bar";
 import WorkoutBottomSheetButton from "../../components/WorkoutBottomSheetButton";
-import { icons } from "../../constants";
 
-const TabIcon = ({ icon, color, name, focused }) => {
+import { FontAwesome6, Ionicons } from "@expo/vector-icons";
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "../../tailwind.config.js";
+
+const fullConfig = resolveConfig(tailwindConfig);
+
+const components = {
+  ionicons: Ionicons,
+  fontawesome6: FontAwesome6,
+};
+
+const TabIcon = ({ icon_family, icon_name, color, name, focused }) => {
+  const Icon_component = components[icon_family] || Ionicons;
   return (
     <View className="items-center justify-center">
-      <Image
-        source={icon}
-        resizeMode="contain"
-        tintColor={color}
-        className="h-7 w-7"
-      />
+      <Icon_component name={icon_name} size={20} color={color} />
       <Text
         className={`${focused ? "font-bold" : "font-normal"} text-xs`}
         style={{ color: color }}
@@ -27,8 +32,6 @@ const TabIcon = ({ icon, color, name, focused }) => {
 };
 
 const TabsLayout = () => {
-  const [overlayVisible, setOverlayVisible] = useState(false);
-
   const bottomSheetModalRef = useRef(null);
 
   const snapPoints = ["95%"];
@@ -42,10 +45,10 @@ const TabsLayout = () => {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: "#ffd554",
-
+          tabBarActiveTintColor: fullConfig.theme.colors.secondary,
+          headerShadowVisible: true,
           tabBarStyle: {
-            backgroundColor: "#00031b",
+            backgroundColor: fullConfig.theme.colors.primary,
           },
         }}
       >
@@ -56,9 +59,27 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.home}
+                icon_family={"ionicons"}
+                icon_name={"home-sharp"}
                 color={color}
                 name={"Home"}
+                focused={focused}
+              />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="history"
+          options={{
+            title: "History",
+            headerShown: false,
+            tabBarIcon: ({ color, focused }) => (
+              <TabIcon
+                icon_family={"ionicons"}
+                icon_name={"journal-sharp"}
+                color={color}
+                name={"History"}
                 focused={focused}
               />
             ),
@@ -71,24 +92,10 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.train}
+                icon_family={"fontawesome6"}
+                icon_name={"dumbbell"}
                 color={color}
                 name={"Train"}
-                focused={focused}
-              />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="history"
-          options={{
-            title: "History",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.history}
-                color={color}
-                name={"History"}
                 focused={focused}
               />
             ),
@@ -101,7 +108,8 @@ const TabsLayout = () => {
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
-                icon={icons.analytics}
+                icon_family={"ionicons"}
+                icon_name={"analytics-sharp"}
                 color={color}
                 name={"Analytics"}
                 focused={focused}
@@ -110,23 +118,8 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-
       <WorkoutBottomSheetButton handlePresentModal={handlePresentModal} />
-
-      <BottomSheetModal
-        ref={bottomSheetModalRef}
-        index={0}
-        snapPoints={snapPoints}
-        backgroundStyle={{
-          backgroundColor: "#00031b",
-        }}
-        handleIndicatorStyle={{
-          backgroundColor: "#ffc68a",
-          width: "25%",
-        }}
-      >
-        <WorkoutBottomSheet />
-      </BottomSheetModal>
+      <StatusBar style="light" />
     </>
   );
 };

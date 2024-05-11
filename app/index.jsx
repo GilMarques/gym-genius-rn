@@ -2,16 +2,20 @@ import * as NavigationBar from "expo-navigation-bar";
 import { Redirect, router } from "expo-router";
 import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomButton from "../components/CustomButton";
+import PrimaryButton from "../components/Buttons/PrimaryButton";
 import { images } from "../constants";
 
+import resolveConfig from "tailwindcss/resolveConfig";
 import { useGlobalContext } from "../context/GlobalProvider";
+import tailwindConfig from "../tailwind.config";
 
-NavigationBar.setBackgroundColorAsync("#00031b");
+const fullConfig = resolveConfig(tailwindConfig);
+
+NavigationBar.setBackgroundColorAsync(fullConfig.theme.colors.primary);
 export default function App() {
   const { isLoading, isLoggedIn } = useGlobalContext();
 
-  return <Redirect href={"/train"} />;
+  return <Redirect href={"/home"} />;
   if (!isLoading && isLoggedIn) return <Redirect href={"/home"} />;
   return (
     <>
@@ -32,7 +36,7 @@ export default function App() {
               Track Your Workouts{" "}
             </Text>
 
-            <CustomButton
+            <PrimaryButton
               title={"Get Started"}
               handlePress={() => router.push("/sign-in")}
               containerStyles="w-[70%] mt-7"

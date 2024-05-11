@@ -1,0 +1,1 @@
+Weird gesture behaviour on Exercise List Modal

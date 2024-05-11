@@ -1,11 +1,42 @@
-import { FontAwesome6 } from "@expo/vector-icons";
+import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 const Options = () => {
   return (
     <View>
-      <Text className="text-white">OPT</Text>
+      <FontAwesome6 name="ellipsis" size={15} color="white" />
+    </View>
+  );
+};
+
+const Set = ({ weight, reps, index }) => {
+  const [checked, setChecked] = useState(false);
+  return (
+    <View
+      className="mt-2 flex-row items-center justify-between rounded-md px-2"
+      key={index}
+    >
+      <Text className="text-white">{index + 1}</Text>
+      <Text className="text-white">SetPrevious</Text>
+      <TextInput
+        placeholder={weight ? weight : ""}
+        placeholderTextColor={"#ffffffea"}
+        className="h-8 w-16 rounded-md border-2 border-white text-center text-white"
+      />
+      <TextInput
+        placeholder={reps ? reps : ""}
+        placeholderTextColor={"#ffffffea"}
+        className="h-8 w-16 border-2 border-white text-center text-white"
+      />
+
+      <TouchableOpacity onPress={() => setChecked(!checked)}>
+        {checked ? (
+          <Ionicons name="checkmark-circle" size={24} color="green" />
+        ) : (
+          <Ionicons name="checkmark-circle-outline" size={24} color="white" />
+        )}
+      </TouchableOpacity>
     </View>
   );
 };
@@ -14,17 +45,18 @@ const Exercise = ({ title, index }) => {
   const [sets, setSets] = useState([{ weight: "5", reps: "12" }]);
 
   return (
-    <View>
-      <View className="flex-row justify-between">
+    <View className="p-4">
+      <View className="flex-row items-center justify-between">
         <View className="flex-row space-x-2">
-          <Text className="text-xl font-bold text-white">{index + 1}</Text>
-          <Text className="text-xl font-bold text-secondary">{title}</Text>
+          <Text className="text-xl font-bold text-secondary">
+            {title} (Barbell)
+          </Text>
         </View>
 
         <Options />
       </View>
 
-      <View className="flex-row justify-between px-4">
+      <View className="flex-row justify-between">
         <Text className="text-white">Set</Text>
         <Text className="text-white">Previous</Text>
 
@@ -36,31 +68,16 @@ const Exercise = ({ title, index }) => {
       </View>
 
       {sets.map((set, index) => (
-        <View className="flex-row justify-between px-4" key={index}>
-          <Text className="text-white">{index + 1}</Text>
-          <Text className="text-white">SetPrevious</Text>
-          <TextInput
-            placeholder={set.weight ? set.weight : ""}
-            placeholderTextColor={"#ffffff75"}
-            className="h-8 w-16 rounded-md border-2 border-white text-center text-white"
-          />
-          <TextInput
-            placeholder={set.reps ? set.reps : ""}
-            placeholderTextColor={"#ffffff75"}
-            className="h-8 w-16 border-2 border-white text-center text-white"
-          />
-        </View>
+        <Set key={index} {...set} index={index} />
       ))}
 
       <TouchableOpacity
         onPress={() => setSets([...sets, { weight: "", reps: "12" }])}
       >
-        <View className="flex-row justify-center">
-          <View className="w-[90%] flex-row justify-center rounded-md bg-slate-600 p-2">
-            <Text className="text-white">
-              <FontAwesome6 name="add" size={15} color="white" />
-              Add Set
-            </Text>
+        <View className="mt-2 flex-row justify-center">
+          <View className="w-[90%] flex-row items-center justify-center rounded-md bg-[#ffffff80] p-2">
+            <FontAwesome6 name="add" size={15} color="black" />
+            <Text className="ml-2">Add Set</Text>
           </View>
         </View>
       </TouchableOpacity>
