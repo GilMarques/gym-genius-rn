@@ -1,5 +1,4 @@
 import { FontAwesome6 } from "@expo/vector-icons";
-import { router } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -10,9 +9,7 @@ import PrimaryButton from "./Buttons/PrimaryButton";
 const WorkoutBottomSheetButton = ({ handlePresentModal }) => {
   const { seconds } = useGlobalContext();
   return (
-    <TouchableWithoutFeedback
-      onPress={() => router.push("/(modals)/exerciseList")}
-    >
+    <TouchableWithoutFeedback onPress={handlePresentModal}>
       <View className="absolute -left-1 bottom-[48px] z-10 w-[102%] rounded-t-xl border-x border-t border-[#1a1a1a025] bg-primary px-4">
         <View className="flex-row items-center justify-between p-4">
           <Text>

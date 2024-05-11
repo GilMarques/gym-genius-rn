@@ -1,7 +1,6 @@
 import { FontAwesome6, Octicons } from "@expo/vector-icons";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PopupMenu from "./PopupMenu";
 
 const Template = ({ data, index }) => {
   const date = new Date(data.lastPerformed);
@@ -34,21 +33,6 @@ const Template = ({ data, index }) => {
                 <MenuOption value={2} text="Edit" />
               </MenuOptions>
             </Menu> */}
-            <PopupMenu
-              options={[
-                {
-                  title: "Delete",
-                  icon: "trash",
-                  handlePress: () => console.log("Delete"),
-                },
-                {
-                  title: "Edit",
-                  icon: "edit",
-                  handlePress: () => console.log("Edit"),
-                },
-                ,
-              ]}
-            />
           </View>
         </View>
 

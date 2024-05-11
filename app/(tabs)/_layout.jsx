@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router";
+import { router, Tabs } from "expo-router";
 import React, { useRef } from "react";
 import { Text, View } from "react-native";
 
@@ -35,10 +35,6 @@ const TabsLayout = () => {
   const bottomSheetModalRef = useRef(null);
 
   const snapPoints = ["95%"];
-
-  function handlePresentModal() {
-    bottomSheetModalRef.current?.present();
-  }
 
   return (
     <>
@@ -118,7 +114,9 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-      <WorkoutBottomSheetButton handlePresentModal={handlePresentModal} />
+      <WorkoutBottomSheetButton
+        handlePresentModal={() => router.navigate("/(modals)/exerciseList")}
+      />
       <StatusBar style="light" />
     </>
   );

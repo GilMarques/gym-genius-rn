@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Exercise from "../../components/Exercise";
+import Exercise from "../../components/Exercises/Exercise";
 import FormField from "../../components/FormField";
 const newTemplate = () => {
   const [title, setTitle] = useState("New workout template");

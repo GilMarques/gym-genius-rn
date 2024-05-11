@@ -1,7 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import CustomButton from "./CustomButton";
+import OutlineButton from "./Buttons/OutlineButton";
 
 const DiscardWorkoutModal = () => {
   return (
@@ -14,13 +14,8 @@ const DiscardWorkoutModal = () => {
         will be lost.
       </Text>
       <View className="flex-row justify-around">
-        <CustomButton
-          title="Resume"
-          containerStyles={"border-2 border-white px-4"}
-          color={"transparent"}
-          textStyles={"text-white"}
-        />
-        <CustomButton title="Discard" containerStyles={"px-4"} />
+        <OutlineButton title="Resume" />
+        <PrimaryButton title="Discard" containerStyles={"px-4"} />
       </View>
 
       <TouchableOpacity className="absolute right-4 top-4">

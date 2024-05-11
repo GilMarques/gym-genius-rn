@@ -99,7 +99,7 @@ const Train = () => {
         />
       </ScrollView>
 
-      <CustomButton
+      <PrimaryButton
         title={<FontAwesome6 name="add" size={24} color="black" />}
         containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
         handlePress={() => router.push("/newTemplate")}
