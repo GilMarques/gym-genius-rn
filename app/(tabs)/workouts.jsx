@@ -1,10 +1,8 @@
-import { FontAwesome6 } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import Template from "../../components/Template";
+import TrainTemplate from "../../components/TrainTemplate";
 
 const weekdays = [
   { day: "S", color: "gray" },
@@ -15,10 +13,10 @@ const weekdays = [
   { day: "F", color: "gray" },
   { day: "S", color: "gray" },
 ];
-const Train = () => {
+const Workout = () => {
   return (
     <SafeAreaView className="relative h-full bg-primary px-4">
-      <View className="flex-row items-center justify-between rounded-md">
+      {/* <View className="flex-row items-center justify-between rounded-md">
         {weekdays.map((day, index) => (
           <PrimaryButton
             key={index}
@@ -28,15 +26,17 @@ const Train = () => {
             textStyles={"text-xs text-white"}
           />
         ))}
-      </View>
+      </View> */}
       <ScrollView>
-        <Text className="text-2xl font-bold text-secondary">
-          Active Templates
+        <Text className="my-4 text-center text-2xl font-bold text-white">
+          Active
         </Text>
-        <Template
+        <TrainTemplate
           data={{
+            id: "1",
             title: "Title",
             for: "Monday",
+            color: "blue",
             lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
             exercises: [
               { name: "Exercise 1", sets: 3 },
@@ -45,8 +45,9 @@ const Train = () => {
             ],
           }}
           index={2}
+          onPress={() => router.navigate(`/(modals)/currentTemplate`)}
         />
-        <Template
+        <TrainTemplate
           data={{
             title: "Title",
             for: "Tuesday",
@@ -60,11 +61,9 @@ const Train = () => {
           index={0}
         />
 
-        <Text className="text-2xl font-bold text-secondary">
-          Archived Templates
-        </Text>
+        <Text className="text-2xl font-bold text-white">Archived</Text>
 
-        <Template
+        <TrainTemplate
           data={{
             title: "Title",
             lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
@@ -75,7 +74,7 @@ const Train = () => {
             ],
           }}
         />
-        <Template
+        <TrainTemplate
           data={{
             title: "Title",
             lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
@@ -86,7 +85,7 @@ const Train = () => {
             ],
           }}
         />
-        <Template
+        <TrainTemplate
           data={{
             title: "Title",
             lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
@@ -98,14 +97,8 @@ const Train = () => {
           }}
         />
       </ScrollView>
-
-      <PrimaryButton
-        title={<FontAwesome6 name="add" size={24} color="black" />}
-        containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
-        handlePress={() => router.push("/newTemplate")}
-      />
     </SafeAreaView>
   );
 };
 
-export default Train;
+export default Workout;

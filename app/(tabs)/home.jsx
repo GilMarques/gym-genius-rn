@@ -1,11 +1,11 @@
-import { FontAwesome6 } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 import resolveConfig from "tailwindcss/resolveConfig";
+import PrimaryButton from "../../components/Buttons/PrimaryButton.jsx";
+import HomeTemplate from "../../components/Home/HomeTemplate.jsx";
 import tailwindConfig from "../../tailwind.config.js";
 
 const fullConfig = resolveConfig(tailwindConfig);
@@ -18,14 +18,9 @@ const Home = () => {
     <SafeAreaView className="h-full bg-primary p-6">
       {/* <FlatList /> */}
 
-      <View className="flex-row items-center gap-2">
-        <FontAwesome6
-          name="user-circle"
-          size={32}
-          color={fullConfig.theme.colors.secondary}
-        />
+      <View className="flex-row items-center justify-center gap-2">
         <View>
-          <Text className="text-2xl font-bold text-secondary">
+          <Text className="text-center text-2xl font-bold text-secondary">
             {user?.username || "User"}
           </Text>
           <Text className="font-bold text-white">
@@ -35,18 +30,22 @@ const Home = () => {
       </View>
 
       <View className="flex-row items-center justify-between">
-        <Text className="text-xl font-bold text-secondary">Featured</Text>
-        <FontAwesome6
-          name="add"
-          size={24}
-          color={fullConfig.theme.colors.secondary}
-        />
+        <Text className="text-xl font-bold text-secondary">Active Program</Text>
       </View>
 
-      <PrimaryButton
-        title={<FontAwesome6 name="gear" size={24} color="black" />}
-        containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
+      <HomeTemplate
+        data={{
+          title: "Title",
+          lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
+          exercises: [
+            { name: "Exercise 1", sets: 3 },
+            { name: "Exercise 2", sets: 2 },
+            { name: "Exercise 3", sets: 1 },
+          ],
+        }}
       />
+
+      <PrimaryButton title={"Create New Program"} />
     </SafeAreaView>
   );
 };

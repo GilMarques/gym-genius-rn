@@ -66,32 +66,32 @@ const TabsLayout = () => {
         />
 
         <Tabs.Screen
-          name="history"
+          name="log"
           options={{
-            title: "History",
+            title: "Log",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon_family={"ionicons"}
                 icon_name={"journal-sharp"}
                 color={color}
-                name={"History"}
+                name={"Log"}
                 focused={focused}
               />
             ),
           }}
         />
         <Tabs.Screen
-          name="train"
+          name="workouts"
           options={{
-            title: "Train",
+            title: "Workouts",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon_family={"fontawesome6"}
                 icon_name={"dumbbell"}
                 color={color}
-                name={"Train"}
+                name={"Workouts"}
                 focused={focused}
               />
             ),

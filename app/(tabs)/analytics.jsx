@@ -1,7 +1,5 @@
-import { FontAwesome6 } from "@expo/vector-icons";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import Chart from "../../components/Chart";
 
 const Analytics = () => {
@@ -21,10 +19,6 @@ const Analytics = () => {
   ];
   return (
     <SafeAreaView className="h-full bg-primary">
-      <PrimaryButton
-        title={<FontAwesome6 name="add" size={24} color="black" />}
-        containerStyles={"w-16 h-16 rounded-full absolute bottom-5 right-5"}
-      />
       <Chart data={data} />
     </SafeAreaView>
   );
