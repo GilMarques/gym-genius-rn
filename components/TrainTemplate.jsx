@@ -2,6 +2,7 @@ import { FontAwesome6, Octicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { secondsToHm2 } from "../lib/helper";
 import Template from "./Template";
 
 const HeaderWithShareOptions = ({ title }) => {
@@ -21,13 +22,17 @@ const HeaderWithShareOptions = ({ title }) => {
   );
 };
 
-const SubHeader = ({ weekday, color }) => {
+const SubHeader = ({ weekday, estimatedDuration }) => {
   return (
-    <View className="mt-2 flex-row items-center justify-between">
-      <Text style={{ color: color || "white" }}>{weekday}</Text>
-      <View className="flex-row items-center gap-1">
-        <FontAwesome6 name="clock" size={12} color="white" />
-        <Text className="text-white">Est. 56min</Text>
+    <View className="flex-row items-center justify-end">
+      <View>
+        <Text className="w-full text-right text-white">{weekday}</Text>
+        <View className="flex-row items-center gap-1">
+          <FontAwesome6 name="clock" size={12} color="white" />
+          <Text className="text-white">
+            Est. {secondsToHm2(estimatedDuration)}
+          </Text>
+        </View>
       </View>
     </View>
   );
@@ -38,14 +43,19 @@ const TrainTemplate = ({ data, onPress }) => {
 
   return (
     <Template>
-      <HeaderWithShareOptions title={data.title} />
+      <TouchableOpacity onPress={onPress}>
+        <HeaderWithShareOptions title={data.title} />
 
-      {data.exercises.map((exercise) => (
-        <Text key={exercise.name} className="text-sm text-white">
-          {exercise.sets} x {exercise.name}
-        </Text>
-      ))}
-      <SubHeader weekday={data.for} color={data.color} />
+        {data.exercises.map((exercise) => (
+          <Text key={exercise.name} className="text-sm text-white">
+            {exercise.sets} x {exercise.name}
+          </Text>
+        ))}
+        <SubHeader
+          weekday={data.for}
+          estimatedDuration={data.estimatedDuration}
+        />
+      </TouchableOpacity>
     </Template>
   );
 };

@@ -1,8 +1,11 @@
+import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React from "react";
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import PrimaryButton from "../../components/Buttons/PrimaryButton";
 import TrainTemplate from "../../components/TrainTemplate";
+import { workoutData } from "../../data/exerciseData";
 
 const weekdays = [
   { day: "S", color: "gray" },
@@ -27,76 +30,34 @@ const Workout = () => {
           />
         ))}
       </View> */}
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Text className="my-4 text-center text-2xl font-bold text-white">
           Active
         </Text>
         <TrainTemplate
-          data={{
-            id: "1",
-            title: "Title",
-            for: "Monday",
-            color: "blue",
-            lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
-            exercises: [
-              { name: "Exercise 1", sets: 3 },
-              { name: "Exercise 2", sets: 2 },
-              { name: "Exercise 3", sets: 1 },
-            ],
-          }}
+          data={workoutData[0]}
           index={2}
           onPress={() => router.navigate(`/(modals)/currentTemplate`)}
         />
-        <TrainTemplate
-          data={{
-            title: "Title",
-            for: "Tuesday",
-            lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
-            exercises: [
-              { name: "Exercise 1", sets: 3 },
-              { name: "Exercise 2", sets: 2 },
-              { name: "Exercise 3", sets: 1 },
-            ],
-          }}
-          index={0}
-        />
+        <TrainTemplate data={workoutData[1]} index={0} />
+        <TrainTemplate data={workoutData[2]} index={0} />
 
-        <Text className="text-2xl font-bold text-white">Archived</Text>
+        <Text className="my-4 text-center text-2xl font-bold text-white">
+          Archived
+        </Text>
 
-        <TrainTemplate
-          data={{
-            title: "Title",
-            lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
-            exercises: [
-              { name: "Exercise 1", sets: 3 },
-              { name: "Exercise 2", sets: 2 },
-              { name: "Exercise 3", sets: 1 },
-            ],
-          }}
-        />
-        <TrainTemplate
-          data={{
-            title: "Title",
-            lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
-            exercises: [
-              { name: "Exercise 1", sets: 3 },
-              { name: "Exercise 2", sets: 2 },
-              { name: "Exercise 3", sets: 1 },
-            ],
-          }}
-        />
-        <TrainTemplate
-          data={{
-            title: "Title",
-            lastPerformed: new Date(2024, 3, 26, 12, 30, 15),
-            exercises: [
-              { name: "Exercise 1", sets: 3 },
-              { name: "Exercise 2", sets: 2 },
-              { name: "Exercise 3", sets: 1 },
-            ],
-          }}
-        />
+        <TrainTemplate data={workoutData[0]} />
+        <TrainTemplate data={workoutData[0]} />
+        <TrainTemplate data={workoutData[0]} />
       </ScrollView>
+
+      <View className="absolute bottom-5 right-5">
+        <PrimaryButton
+          title={<Ionicons name="add-sharp" size={24} color="black" />}
+          containerStyles={"rounded-full w-12 h-12"}
+          onPress={() => router.push(`/(modals)/newTemplate`)}
+        />
+      </View>
     </SafeAreaView>
   );
 };

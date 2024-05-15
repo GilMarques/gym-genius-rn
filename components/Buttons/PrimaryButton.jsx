@@ -21,7 +21,10 @@ const PrimaryButton = ({
       className={`flex justify-center items-center rounded-md p-1 ${containerStyles} ${
         isLoading ? "opacity-50" : ""
       }`}
-      style={{ backgroundColor: color || fullConfig.theme.colors.secondary }}
+      style={{
+        backgroundColor: color || fullConfig.theme.colors.secondary,
+        zIndex: 1,
+      }}
       disabled={isLoading}
     >
       <Text className={`text-lg font-bold text-primary ${textStyles}`}>

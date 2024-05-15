@@ -1,7 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import OutlineButton from "./Buttons/OutlineButton";
+import OutlineButton from "../Buttons/OutlineButton";
 
 const DiscardWorkoutModal = () => {
   return (

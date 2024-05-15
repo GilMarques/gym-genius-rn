@@ -16,7 +16,6 @@ import GlobalProvider from "../context/GlobalProvider";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { router, withLayoutContext } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
 
 const { Navigator } = createStackNavigator();
 
@@ -46,6 +45,11 @@ const RootLayout = () => {
               <JsStack.Screen
                 name="(modals)/exerciseList"
                 options={optionsList}
+              />
+
+              <JsStack.Screen
+                name="(modals)/homeMenu"
+                options={optionsHomeMenu}
               />
             </JsStack>
 
@@ -91,20 +95,8 @@ const optionsCurrent = {
   overlayStyle: { borderColor: "#1a1a1a" },
 
   header: () => (
-    <View>
-      <View className="my-4 flex-row items-center justify-center">
-        <View className="w-[20%] rounded-md border-2 border-secondary"></View>
-      </View>
-
-      <View className="flex-row items-center justify-between px-4">
-        <View className="flex-row items-center">
-          <View className="flex-row items-center space-x-2 rounded-md bg-slate-200 p-2">
-            <FontAwesome6 name="play" size={15} color="black" />
-            <Text className="font-bold">time</Text>
-          </View>
-        </View>
-        <PrimaryButton title="Finish" containerStyles={"px-4"} />
-      </View>
+    <View className="mt-4 flex w-[20%] self-center">
+      <View className="rounded-md border-2 border-secondary"></View>
     </View>
   ),
 };
@@ -159,6 +151,34 @@ const optionsList = {
     <TouchableWithoutFeedback onPress={() => router.back()} className="mr-4">
       <Text className="font-bold text-white">Create New</Text>
     </TouchableWithoutFeedback>
+  ),
+
+  cardStyle: { backgroundColor: "#1a1a1a" },
+  overlayStyle: { borderColor: "#1a1a1a" },
+  headerStyle: {
+    backgroundColor: "#1a1a1a",
+  },
+  headerTitleStyle: {
+    color: "#fff",
+  },
+
+  headerTitleAlign: "center",
+  headerShadowVisible: false,
+};
+
+const optionsHomeMenu = {
+  ...TransitionPresets.ModalPresentationIOS,
+
+  gestureEnabled: true,
+  presentation: "modal",
+
+  headerShown: true,
+  title: "Exercises",
+
+  header: () => (
+    <View className="mt-4 flex w-[20%] self-center">
+      <View className="rounded-md border-2 border-secondary"></View>
+    </View>
   ),
 
   cardStyle: { backgroundColor: "#1a1a1a" },

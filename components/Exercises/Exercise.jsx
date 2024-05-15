@@ -2,6 +2,12 @@ import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
+import resolveConfig from "tailwindcss/resolveConfig";
+
+import tailwindConfig from "../../tailwind.config";
+
+const fullConfig = resolveConfig(tailwindConfig);
+
 const Options = () => {
   return (
     <View>
@@ -10,72 +16,102 @@ const Options = () => {
   );
 };
 
+const widthSet = " w-[20%]";
+const widthPrevious = " w-[20%]";
+const widthWeight = " w-[20%]";
+const widthReps = " w-[20%]";
+const widthCheck = " w-[20%]";
 const Set = ({ weight, reps, index }) => {
   const [checked, setChecked] = useState(false);
   return (
-    <View
-      className="mt-2 flex-row items-center justify-between rounded-md px-2"
-      key={index}
-    >
-      <Text className="text-white">{index + 1}</Text>
-      <Text className="text-white">SetPrevious</Text>
-      <TextInput
-        placeholder={weight ? weight : ""}
-        placeholderTextColor={"#ffffffea"}
-        className="h-8 w-16 rounded-md border-2 border-white text-center text-white"
-      />
-      <TextInput
-        placeholder={reps ? reps : ""}
-        placeholderTextColor={"#ffffffea"}
-        className="h-8 w-16 border-2 border-white text-center text-white"
-      />
+    <View className="mt-2 flex-row items-center rounded-md" key={index}>
+      <Text className={"text-white text-center" + widthSet}>{index + 1}</Text>
+      <Text className={"text-white text-center" + widthPrevious}>-</Text>
 
-      <TouchableOpacity onPress={() => setChecked(!checked)}>
-        {checked ? (
-          <Ionicons name="checkmark-circle" size={24} color="green" />
-        ) : (
-          <Ionicons name="checkmark-circle-outline" size={24} color="white" />
-        )}
-      </TouchableOpacity>
+      <View className={"flex items-center justify-center " + widthWeight}>
+        <TextInput
+          placeholder={reps ? reps : ""}
+          placeholderTextColor={"#ffffff"}
+          className={`h-5 w-[60%] rounded-md border   text-center  ${
+            checked
+              ? "text-secondary border-secondary"
+              : "text-white border-white"
+          }`}
+        />
+      </View>
+      <View className={"flex items-center justify-center" + widthReps}>
+        <TextInput
+          placeholder={reps ? reps : ""}
+          placeholderTextColor={"#ffffff"}
+          className={`h-5 w-[60%] rounded-md border text-center  ${
+            checked
+              ? "text-secondary border-secondary"
+              : "text-white border-white"
+          }`}
+        />
+      </View>
+
+      <View className={"flex items-center justify-center " + widthCheck}>
+        <TouchableOpacity onPress={() => setChecked(!checked)}>
+          {checked ? (
+            <View className={"flex items-center justify-center"}>
+              <Ionicons
+                name="checkmark-circle"
+                size={24}
+                color={fullConfig.theme.colors.secondary}
+              />
+            </View>
+          ) : (
+            <View className={"flex items-center justify-center"}>
+              <Ionicons
+                name="checkmark-circle-outline"
+                size={24}
+                color="white"
+              />
+            </View>
+          )}
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
-const Exercise = ({ title, index }) => {
-  const [sets, setSets] = useState([{ weight: "5", reps: "12" }]);
-
+const Exercise = ({ name, equipment, sets, index }) => {
   return (
-    <View className="p-4">
+    <View className="mb-4">
       <View className="flex-row items-center justify-between">
-        <View className="flex-row space-x-2">
-          <Text className="text-xl font-bold text-secondary">
-            {title} (Barbell)
-          </Text>
-        </View>
-
+        <Text className="text-xl font-bold text-secondary">
+          {name} ({equipment})
+        </Text>
         <Options />
       </View>
 
       <View className="flex-row justify-between">
-        <Text className="text-white">Set</Text>
-        <Text className="text-white">Previous</Text>
+        <Text className={"text-white text-center " + widthSet}>Set</Text>
+        <Text className={"text-white text-center " + widthPrevious}>
+          Previous
+        </Text>
 
-        <Text className="text-white">Kg</Text>
-        <Text className="text-white">Reps</Text>
+        <Text className={"text-white text-center " + widthWeight}>Kg</Text>
+        <Text className={"text-white text-center " + widthReps}>Reps</Text>
+        <View
+          className={"flex items-center justify-center " + widthCheck}
+        ></View>
       </View>
-      <View className="flex-row justify-center">
-        <View className="w-[90%] rounded-xl border border-white"></View>
-      </View>
+
+      <View className="w-full self-center rounded-xl border-t border-white" />
 
       {sets.map((set, index) => (
         <Set key={index} {...set} index={index} />
       ))}
 
+      <View className="mt-2 w-full self-center rounded-xl border-t border-white" />
+
       <TouchableOpacity
         onPress={() => setSets([...sets, { weight: "", reps: "12" }])}
       >
         <View className="mt-2 flex-row justify-center">
-          <View className="w-[90%] flex-row items-center justify-center rounded-md bg-[#ffffff80] p-2">
+          <View className="w-[90%] flex-row items-center justify-center rounded-md bg-[#dadada] p-2">
             <FontAwesome6 name="add" size={15} color="black" />
             <Text className="ml-2">Add Set</Text>
           </View>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { getCurrentUser } from "../lib/appwrite";
 
 const GlobalContext = createContext();
@@ -9,15 +9,64 @@ const GlobalProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   const [seconds, setSeconds] = useState(0);
+  const intervalRef = useRef(null);
+  const [currentWorkout, setCurrentWorkout] = useState({
+    id: 3,
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds + 1);
-    }, 1000);
+    title: "Title 3",
+    exercises: [
+      {
+        id: 1,
+        name: "Exercise 1",
+        equipment: "Dumbbell",
+        sets: [
+          {
+            previous: { weight: 0, reps: 0 },
+            current: { weight: null, reps: null },
+          },
+          {
+            previous: { weight: 0, reps: 0 },
+            current: { weight: null, reps: null },
+          },
+          {
+            previous: null,
+            current: { weight: null, reps: null },
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: "Exercise 2",
 
-    return () => clearInterval(interval);
-  }, []);
+        sets: [
+          {
+            previous: null,
+            current: { weight: null, reps: null },
+          },
+        ],
+      },
+      {
+        id: 3,
+        name: "Exercise 3",
+        sets: [
+          { previous: null, current: { weight: null, reps: null } },
+          { previous: null, current: { weight: null, reps: null } },
+        ],
+      },
+    ],
+  });
+
+  // function handleStartTimer() {
+  //   intervalRef.current = setInterval(() => {
+  //     setSeconds((seconds) => seconds + 1);
+  //   }, 1000);
+  // }
+
+  // function handleStopTimer() {
+  //   clearInterval(intervalRef.current);
+  // }
 
   useEffect(() => {
     getCurrentUser()
@@ -46,7 +95,11 @@ const GlobalProvider = ({ children }) => {
         user,
         setUser,
         isLoading,
+
         seconds,
+        setSeconds,
+        currentWorkout,
+        setCurrentWorkout,
       }}
     >
       {children}

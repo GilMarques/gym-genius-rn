@@ -1,12 +1,12 @@
 import { router, Tabs } from "expo-router";
-import React, { useRef } from "react";
+import React from "react";
 import { Text, View } from "react-native";
 
 import { StatusBar } from "expo-status-bar";
-import WorkoutBottomSheetButton from "../../components/WorkoutBottomSheetButton";
 
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import resolveConfig from "tailwindcss/resolveConfig";
+import WorkoutBottomSheetButton from "../../components/WorkoutBottomSheetButton.jsx";
 import tailwindConfig from "../../tailwind.config.js";
 
 const fullConfig = resolveConfig(tailwindConfig);
@@ -32,19 +32,15 @@ const TabIcon = ({ icon_family, icon_name, color, name, focused }) => {
 };
 
 const TabsLayout = () => {
-  const bottomSheetModalRef = useRef(null);
-
-  const snapPoints = ["95%"];
-
   return (
     <>
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
           tabBarActiveTintColor: fullConfig.theme.colors.secondary,
-          headerShadowVisible: true,
           tabBarStyle: {
             backgroundColor: fullConfig.theme.colors.primary,
+            paddingTop: 10,
           },
         }}
       >
@@ -114,9 +110,11 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
+
       <WorkoutBottomSheetButton
-        handlePresentModal={() => router.navigate("/(modals)/exerciseList")}
+        handlePresentModal={() => router.navigate("/(modals)/currentTemplate")}
       />
+
       <StatusBar style="light" />
     </>
   );

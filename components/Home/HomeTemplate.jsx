@@ -2,6 +2,7 @@ import { FontAwesome6, Octicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import PrimaryButton from "../Buttons/PrimaryButton";
 import Template from "../Template";
 
 const HeaderWithShareOptions = ({ title }) => {
@@ -46,6 +47,7 @@ const HomeTemplate = ({ data, onPress }) => {
         </Text>
       ))}
       <SubHeader weekday={data.for} color={data.color} />
+      <PrimaryButton title="Start Day 1" onPress={onPress} />
     </Template>
   );
 };

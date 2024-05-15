@@ -3,6 +3,9 @@ import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
+import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import resolveConfig from "tailwindcss/resolveConfig";
 import PrimaryButton from "../../components/Buttons/PrimaryButton.jsx";
 import HomeTemplate from "../../components/Home/HomeTemplate.jsx";
@@ -16,22 +19,13 @@ const Home = () => {
 
   return (
     <SafeAreaView className="h-full bg-primary p-6">
-      {/* <FlatList /> */}
+      <TouchableOpacity className="flex self-end">
+        <Ionicons name="person-circle-sharp" size={32} color="white" />
+      </TouchableOpacity>
 
-      <View className="flex-row items-center justify-center gap-2">
-        <View>
-          <Text className="text-center text-2xl font-bold text-secondary">
-            {user?.username || "User"}
-          </Text>
-          <Text className="font-bold text-white">
-            {numberWorkouts} recorded workouts
-          </Text>
-        </View>
-      </View>
-
-      <View className="flex-row items-center justify-between">
-        <Text className="text-xl font-bold text-secondary">Active Program</Text>
-      </View>
+      <Text className="text-center text-2xl font-bold text-white">
+        Active Program
+      </Text>
 
       <HomeTemplate
         data={{
@@ -45,7 +39,17 @@ const Home = () => {
         }}
       />
 
-      <PrimaryButton title={"Create New Program"} />
+      <Text className="my-4 text-center text-2xl font-bold text-white">
+        Featured
+      </Text>
+
+      <View className="absolute bottom-5 right-5">
+        <PrimaryButton
+          title={<Ionicons name="menu-sharp" size={24} color="black" />}
+          containerStyles={"rounded-full w-12 h-12"}
+          handlePress={() => router.navigate("/homeMenu")}
+        />
+      </View>
     </SafeAreaView>
   );
 };
