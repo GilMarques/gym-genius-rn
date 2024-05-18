@@ -1,15 +1,15 @@
+import { useGlobalContext } from "context/GlobalProvider";
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useGlobalContext } from "../../context/GlobalProvider";
 
 import { Ionicons } from "@expo/vector-icons";
+import PrimaryButton from "components/Buttons/PrimaryButton.jsx";
+import HomeTemplate from "components/Home/HomeTemplate.jsx";
 import { router } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
-import PrimaryButton from "../../components/Buttons/PrimaryButton.jsx";
-import HomeTemplate from "../../components/Home/HomeTemplate.jsx";
-import tailwindConfig from "../../tailwind.config.js";
 
 const fullConfig = resolveConfig(tailwindConfig);
 

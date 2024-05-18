@@ -1,12 +1,12 @@
 import { FontAwesome6 } from "@expo/vector-icons";
+import { useWorkoutContext } from "context/WorkoutProvider";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useGlobalContext } from "../context/GlobalProvider";
 import { secondsToHourMinuteSecond } from "../lib/helper";
 
 const WorkoutBottomSheetButton = ({ handlePresentModal }) => {
-  const { seconds } = useGlobalContext();
+  const { workoutTimer: seconds } = useWorkoutContext();
   return (
     <TouchableWithoutFeedback onPress={handlePresentModal}>
       <View className="absolute bottom-[48px] z-10 flex w-[101%] self-center rounded-t-xl border-x border-t border-[#444444] bg-primary px-4 pb-2">

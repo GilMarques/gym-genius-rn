@@ -1,11 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
+import PrimaryButton from "components/Buttons/PrimaryButton";
+import TrainTemplate from "components/TrainTemplate";
+import { workoutData } from "data/exerciseData";
 import { router } from "expo-router";
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import TrainTemplate from "../../components/TrainTemplate";
-import { workoutData } from "../../data/exerciseData";
 
 const weekdays = [
   { day: "S", color: "gray" },

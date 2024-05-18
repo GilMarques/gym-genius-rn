@@ -1,6 +1,6 @@
+import Chart from "components/Analytics/Chart";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Chart from "../../components/Analytics/Chart";
 
 const Analytics = () => {
   const data = [

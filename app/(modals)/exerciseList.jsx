@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
-import { data } from "../../data/exerciseData";
+import { data } from "data/exerciseData";
 
-import DropdownSearch from "../../components/DropdownSearch";
-import EmptyState from "../../components/EmptyState";
-import ExerciseListed from "../../components/Exercises/ExerciseListed";
+import DropdownSearch from "components/DropdownSearch";
+import EmptyState from "components/EmptyState";
+import ExerciseListed from "components/Exercises/ExerciseListed";
 
 const exerciseList = () => {
   const [value, setValue] = useState("");

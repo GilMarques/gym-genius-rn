@@ -5,9 +5,9 @@ import { Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
+import WorkoutBottomSheetButton from "components/WorkoutBottomSheetButton";
+import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
-import WorkoutBottomSheetButton from "../../components/WorkoutBottomSheetButton.jsx";
-import tailwindConfig from "../../tailwind.config.js";
 
 const fullConfig = resolveConfig(tailwindConfig);
 

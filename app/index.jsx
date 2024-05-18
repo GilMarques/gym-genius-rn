@@ -1,13 +1,13 @@
+import PrimaryButton from "components/Buttons/PrimaryButton";
+import { images } from "constants";
 import * as NavigationBar from "expo-navigation-bar";
 import { Redirect, router } from "expo-router";
 import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "../components/Buttons/PrimaryButton";
-import { images } from "../constants";
 
+import { useGlobalContext } from "context/GlobalProvider";
+import tailwindConfig from "tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
-import { useGlobalContext } from "../context/GlobalProvider";
-import tailwindConfig from "../tailwind.config";
 
 const fullConfig = resolveConfig(tailwindConfig);
 

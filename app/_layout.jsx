@@ -10,12 +10,14 @@ import {
   GestureHandlerRootView,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
-import { MenuProvider } from "react-native-popup-menu";
-import GlobalProvider from "../context/GlobalProvider";
+
+import GlobalProvider from "context/GlobalProvider";
 
 import { FontAwesome6 } from "@expo/vector-icons";
+import { WorkoutProvider } from "context/WorkoutProvider";
 import { router, withLayoutContext } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { PaperProvider } from "react-native-paper";
 
 const { Navigator } = createStackNavigator();
 
@@ -25,37 +27,39 @@ const RootLayout = () => {
   return (
     <GestureHandlerRootView>
       <View style={{ height: "100%", width: "100%" }}>
-        <MenuProvider>
+        <PaperProvider>
           <GlobalProvider>
-            <JsStack>
-              <JsStack.Screen name="index" options={optionsIndex} />
-              <JsStack.Screen name="(auth)" options={optionsAuth} />
-              <JsStack.Screen name="(tabs)" options={optionsTabs} />
+            <WorkoutProvider>
+              <JsStack>
+                <JsStack.Screen name="index" options={optionsIndex} />
+                <JsStack.Screen name="(auth)" options={optionsAuth} />
+                <JsStack.Screen name="(tabs)" options={optionsTabs} />
 
-              <JsStack.Screen
-                name="(modals)/newTemplate"
-                options={optionsNew}
-              />
+                <JsStack.Screen
+                  name="(modals)/newTemplate"
+                  options={optionsNew}
+                />
 
-              <JsStack.Screen
-                name="(modals)/currentTemplate"
-                options={optionsCurrent}
-              />
+                <JsStack.Screen
+                  name="(modals)/currentTemplate"
+                  options={optionsCurrent}
+                />
 
-              <JsStack.Screen
-                name="(modals)/exerciseList"
-                options={optionsList}
-              />
+                <JsStack.Screen
+                  name="(modals)/exerciseList"
+                  options={optionsList}
+                />
 
-              <JsStack.Screen
-                name="(modals)/homeMenu"
-                options={optionsHomeMenu}
-              />
-            </JsStack>
+                <JsStack.Screen
+                  name="(modals)/homeMenu"
+                  options={optionsHomeMenu}
+                />
+              </JsStack>
 
-            <StatusBar style="light" />
+              <StatusBar style="light" />
+            </WorkoutProvider>
           </GlobalProvider>
-        </MenuProvider>
+        </PaperProvider>
       </View>
     </GestureHandlerRootView>
   );

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Alert, Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import PrimaryButton from "components/Buttons/PrimaryButton";
+import FormField from "components/FormField";
+import { images } from "constants";
+import { useGlobalContext } from "context/GlobalProvider";
 import { Link, router } from "expo-router";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import FormField from "../../components/FormField";
-import { images } from "../../constants";
-import { useGlobalContext } from "../../context/GlobalProvider";
-import { getCurrentUser, signIn } from "../../lib/appwrite";
+import { getCurrentUser, signIn } from "lib/appwrite";
 const SignIn = () => {
   const { setUser, setIsLoggedIn } = useGlobalContext();
   const [isSubmiting, setIsSubmiting] = useState(false);

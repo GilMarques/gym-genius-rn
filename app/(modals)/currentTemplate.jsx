@@ -1,16 +1,21 @@
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
+import PrimaryButton from "components/Buttons/PrimaryButton";
+import Exercise from "components/Exercises/Exercise";
+import {
+  useWorkoutContext,
+  useWorkoutDispatchContext,
+} from "context/WorkoutProvider";
+import { router } from "expo-router";
+import { secondsToHourMinuteSecond } from "lib/helper";
 import React from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import PrimaryButton from "../../components/Buttons/PrimaryButton";
-import Exercise from "../../components/Exercises/Exercise";
-import { useGlobalContext } from "../../context/GlobalProvider";
-import { secondsToHourMinuteSecond } from "../../lib/helper";
 
 const currentTemplate = () => {
-  const { currentWorkout, seconds } = useGlobalContext();
+  const { currentWorkout, workoutTimer: seconds } = useWorkoutContext();
 
+  const dispatch = useWorkoutDispatchContext();
   return (
     <SafeAreaView className="h-full bg-primary">
       <View>
@@ -30,7 +35,6 @@ const currentTemplate = () => {
         </View>
       </View>
       <View className="px-4">
-        {/* <FormField placeholder={"Note"} otherStyles={"text-white"} /> */}
         <ScrollView
           showsVerticalScrollIndicator={false}
           className="my-2 h-[80%]"
@@ -38,7 +42,6 @@ const currentTemplate = () => {
           <View>
             <Text className="text-2xl font-bold text-secondary">
               {currentWorkout.title}
-              <FontAwesome6 name="pencil" size={15} color="white" />
             </Text>
           </View>
 
@@ -46,7 +49,9 @@ const currentTemplate = () => {
             <Exercise key={index} {...exercise} index={index} />
           ))}
 
-          <TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress={() => router.navigate("/(modals)/exerciseList")}
+          >
             <Text className="text-center font-bold text-white">
               ADD EXERCISE
             </Text>

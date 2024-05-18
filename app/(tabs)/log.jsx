@@ -1,13 +1,13 @@
+import LogTemplate from "components/Log/LogTemplate.jsx";
 import React from "react";
 import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import LogTemplate from "../../components/Log/LogTemplate.jsx";
 
+import LogCalendar from "components/Log/LogCalendar.jsx";
+import { historyData } from "data/exerciseData.js";
 import { ScrollView } from "react-native-gesture-handler";
+import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
-import LogCalendar from "../../components/Log/LogCalendar.jsx";
-import { historyData } from "../../data/exerciseData.js";
-import tailwindConfig from "../../tailwind.config.js";
 
 const fullConfig = resolveConfig(tailwindConfig);
 const Log = () => {
