@@ -10,32 +10,6 @@ import {
 export const WorkoutContext = createContext();
 export const WorkoutDispatchContext = createContext();
 
-function addSet(exerciseIndex) {
-  dispatch({ type: "addSet", index: exerciseIndex });
-}
-
-function updateSet(exerciseIndex, setIndex, field, value) {
-  dispatch({
-    type: "updateSet",
-    index: exerciseIndex,
-    setIndex: setIndex,
-    field: field,
-    value: value,
-  });
-}
-
-function removeSet(exerciseIndex, setIndex) {
-  dispatch({ type: "removeSet", index: exerciseIndex });
-}
-
-function addExercise(exerciseId, exerciseName) {
-  dispatch({ type: "addExercise", id: exerciseId, name: exerciseName });
-}
-
-function removeExercise(exerciseIndex) {
-  dispatch({ type: "removeExercise", index: exerciseIndex });
-}
-
 const ACTIONS = {
   ADD_SET: "addSet",
   REMOVE_SET: "removeSet",
@@ -43,60 +17,65 @@ const ACTIONS = {
 };
 
 function workoutReducer(state, action) {
-  // switch (action.type) {
-  //   case ACTIONS.ADD_SET:
-  //     return {
-  //       ...state,
-  //       exercises: state.exercises.map((exercise, index) => {
-  //         if (index === action.index) {
-  //           return {
-  //             ...exercise,
-  //             sets: [...exercise.sets, { previous: null, current: null }],
-  //           };
-  //         }
-  //         return exercise;
-  //       }),
-  //     };
-  //   case ACTIONS.REMOVE_SET:
-  //     return {
-  //       ...state,
-  //       exercises: state.exercises.map((exercise, index) => {
-  //         if (index === action.index) {
-  //           return {
-  //             ...exercise,
-  //             sets: exercise.sets.filter((set, setIndex) => {
-  //               return setIndex !== action.setIndex;
-  //             }),
-  //           };
-  //         }
-  //         return exercise;
-  //       }),
-  //     };
-  //   case ACTIONS.UPDATE_SET:
-  //     return {
-  //       ...state,
-  //       exercises: state.exercises.map((exercise, index) => {
-  //         if (index === action.index) {
-  //           return {
-  //             ...exercise,
-  //             sets: exercise.sets.map((set, setIndex) => {
-  //               if (setIndex === action.setIndex) {
-  //                 return {
-  //                   ...set,
-  //                   [action.field]: action.value,
-  //                 };
-  //               }
-  //               return set;
-  //             }),
-  //           };
-  //         }
-  //         return exercise;
-  //       }),
-  //     };
+  switch (action.type) {
+    case ACTIONS.ADD_SET:
+      const result = {
+        ...state,
+        exercises: state.exercises.map((exercise, index) => {
+          if (index === action.index) {
+            return {
+              ...exercise,
+              sets: [
+                ...exercise.sets,
+                { previous: null, current: { weight: null, reps: null } },
+              ],
+            };
+          }
+          return exercise;
+        }),
+      };
 
-  //   default:
-  //     return state;
-  // }
+      return result;
+    case ACTIONS.REMOVE_SET:
+      return {
+        ...state,
+        exercises: state.exercises.map((exercise, index) => {
+          if (index === action.index) {
+            return {
+              ...exercise,
+              sets: exercise.sets.filter((set, setIndex) => {
+                return setIndex !== action.setIndex;
+              }),
+            };
+          }
+          return exercise;
+        }),
+      };
+    case ACTIONS.UPDATE_SET:
+      return {
+        ...state,
+        exercises: state.exercises.map((exercise, index) => {
+          if (index === action.index) {
+            return {
+              ...exercise,
+              sets: exercise.sets.map((set, setIndex) => {
+                if (setIndex === action.setIndex) {
+                  return {
+                    ...set,
+                    [action.field]: action.value,
+                  };
+                }
+                return set;
+              }),
+            };
+          }
+          return exercise;
+        }),
+      };
+
+    default:
+      return state;
+  }
   return state;
 }
 
@@ -113,6 +92,31 @@ export function WorkoutProvider({ children }) {
   const intervalRef = useRef(null);
   const [currentWorkout, dispatch] = useReducer(workoutReducer, initialWorkout);
 
+  function addSet(exerciseIndex) {
+    dispatch({ type: ACTIONS.ADD_SET, index: exerciseIndex });
+  }
+
+  function updateSet(exerciseIndex, setIndex, field, value) {
+    dispatch({
+      type: "updateSet",
+      index: exerciseIndex,
+      setIndex: setIndex,
+      field: field,
+      value: value,
+    });
+  }
+
+  function removeSet(exerciseIndex, setIndex) {
+    dispatch({ type: ACTIONS.REMOVE_SET, exerciseIndex, setIndex });
+  }
+
+  function addExercise(exerciseId, exerciseName) {
+    dispatch({ type: "addExercise", id: exerciseId, name: exerciseName });
+  }
+
+  function removeExercise(exerciseIndex) {
+    dispatch({ type: "removeExercise", index: exerciseIndex });
+  }
   useEffect(() => {
     setInterval(() => {
       setWorkoutTimer((prevTimer) => prevTimer + 1);
@@ -121,7 +125,9 @@ export function WorkoutProvider({ children }) {
 
   return (
     <WorkoutContext.Provider value={{ currentWorkout, workoutTimer }}>
-      <WorkoutDispatchContext.Provider value={dispatch}>
+      <WorkoutDispatchContext.Provider
+        value={{ dispatch, addSet, removeSet, updateSet }}
+      >
         {children}
       </WorkoutDispatchContext.Provider>
     </WorkoutContext.Provider>

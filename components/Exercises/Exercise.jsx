@@ -4,8 +4,11 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 
+import { useWorkoutDispatchContext } from "context/WorkoutProvider";
 import { Divider, Icon, Menu } from "react-native-paper";
 import tailwindConfig from "../../tailwind.config";
+
+import Animated from "react-native-reanimated";
 
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -14,57 +17,73 @@ const widthPrevious = " w-[20%]";
 const widthWeight = " w-[20%]";
 const widthReps = " w-[20%]";
 const widthCheck = " w-[20%]";
-const Set = ({ weight, reps, index }) => {
+const Set = ({ weight, reps, exerciseIndex, setIndex }) => {
   const [checked, setChecked] = useState(false);
+  const { removeSet, updateSet } = useWorkoutDispatchContext();
   return (
-    <View className="mt-2 flex-row items-center rounded-md" key={index}>
-      <Text className={"text-white text-center" + widthSet}>{index + 1}</Text>
-      <Text className={"text-white text-center" + widthPrevious}>-</Text>
-
-      <View className={"flex items-center justify-center " + widthWeight}>
-        <TextInput
-          placeholder={reps ? reps : ""}
-          placeholderTextColor={"#ffffff"}
-          className={`h-5 w-[60%] rounded-md border   text-center  ${
-            checked
-              ? "text-secondary border-secondary"
-              : "text-white border-white"
-          }`}
-        />
-      </View>
-      <View className={"flex items-center justify-center" + widthReps}>
-        <TextInput
-          placeholder={reps ? reps : ""}
-          placeholderTextColor={"#ffffff"}
-          className={`h-5 w-[60%] rounded-md border text-center  ${
-            checked
-              ? "text-secondary border-secondary"
-              : "text-white border-white"
-          }`}
-        />
+    <View className="mt-2">
+      <View
+        className={
+          "absolute w-full flex-row items-center justify-end bg-red-500 "
+        }
+      >
+        <Ionicons name="trash-sharp" size={24} color="white" />
       </View>
 
-      <View className={"flex items-center justify-center " + widthCheck}>
-        <TouchableOpacity onPress={() => setChecked(!checked)}>
-          {checked ? (
-            <View className={"flex items-center justify-center"}>
-              <Ionicons
-                name="checkmark-circle"
-                size={24}
-                color={fullConfig.theme.colors.secondary}
-              />
-            </View>
-          ) : (
-            <View className={"flex items-center justify-center"}>
-              <Ionicons
-                name="checkmark-circle-outline"
-                size={24}
-                color="white"
-              />
-            </View>
-          )}
-        </TouchableOpacity>
-      </View>
+      <Animated.View
+        className="flex-row items-center border border-primary bg-primary"
+        key={setIndex}
+      >
+        <Text className={"text-white text-center" + widthSet}>
+          {setIndex + 1}
+        </Text>
+        <Text className={"text-white text-center" + widthPrevious}>-</Text>
+
+        <View className={"flex items-center justify-center " + widthWeight}>
+          <TextInput
+            placeholder={reps ? reps : ""}
+            placeholderTextColor={"#ffffff"}
+            className={`h-5 w-[60%] rounded-md border   text-center  ${
+              checked
+                ? "text-secondary border-secondary"
+                : "text-white border-white"
+            }`}
+          />
+        </View>
+        <View className={"flex items-center justify-center" + widthReps}>
+          <TextInput
+            placeholder={reps ? reps : ""}
+            placeholderTextColor={"#ffffff"}
+            className={`h-5 w-[60%] rounded-md border text-center  ${
+              checked
+                ? "text-secondary border-secondary"
+                : "text-white border-white"
+            }`}
+          />
+        </View>
+
+        <View className={"flex items-center justify-center " + widthCheck}>
+          <TouchableOpacity onPress={() => setChecked(!checked)}>
+            {checked ? (
+              <View className={"flex items-center justify-center"}>
+                <Ionicons
+                  name="checkmark-circle"
+                  size={24}
+                  color={fullConfig.theme.colors.secondary}
+                />
+              </View>
+            ) : (
+              <View className={"flex items-center justify-center"}>
+                <Ionicons
+                  name="checkmark-circle-outline"
+                  size={24}
+                  color="white"
+                />
+              </View>
+            )}
+          </TouchableOpacity>
+        </View>
+      </Animated.View>
     </View>
   );
 };
@@ -86,7 +105,7 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
 
 const Exercise = ({ name, equipment, sets, index }) => {
   const [visible, setVisible] = React.useState(false);
-
+  const { addSet, removeSet, updateSet } = useWorkoutDispatchContext();
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
@@ -162,7 +181,7 @@ const Exercise = ({ name, equipment, sets, index }) => {
           Previous
         </Text>
 
-        <Text className={"text-white text-center " + widthWeight}>Kg</Text>
+        <Text className={"text-white text-center " + widthWeight}>Weight</Text>
         <Text className={"text-white text-center " + widthReps}>Reps</Text>
         <View
           className={"flex items-center justify-center " + widthCheck}
@@ -171,13 +190,22 @@ const Exercise = ({ name, equipment, sets, index }) => {
 
       <View className="w-full self-center rounded-xl border-t border-white" />
 
-      {sets.map((set, index) => (
-        <Set key={index} {...set} index={index} />
+      {sets.map((set, setIndex) => (
+        <Set
+          key={setIndex}
+          {...set}
+          exerciseIndex={index}
+          setIndex={setIndex}
+        />
       ))}
 
       <View className="mt-2 w-full self-center rounded-xl border-t border-white" />
 
-      <TouchableOpacity onPress={() => {}}>
+      <TouchableOpacity
+        onPress={() => {
+          addSet(index);
+        }}
+      >
         <View className="mt-2 flex-row justify-center">
           <View className="w-[90%] flex-row items-center justify-center rounded-md bg-[#dadada] p-2">
             <FontAwesome6 name="add" size={15} color="black" />
