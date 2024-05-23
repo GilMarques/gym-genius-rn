@@ -7,6 +7,8 @@ import {
   useState,
 } from "react";
 
+import uuid from "react-native-uuid";
+
 export const WorkoutContext = createContext();
 export const WorkoutDispatchContext = createContext();
 
@@ -21,13 +23,17 @@ function workoutReducer(state, action) {
     case ACTIONS.ADD_SET:
       const result = {
         ...state,
-        exercises: state.exercises.map((exercise, index) => {
-          if (index === action.index) {
+        exercises: state.exercises.map((exercise) => {
+          if (exercise.id === action.exerciseId) {
             return {
               ...exercise,
               sets: [
                 ...exercise.sets,
-                { previous: null, current: { weight: null, reps: null } },
+                {
+                  id: uuid.v4(),
+                  previous: { weight: 0, reps: 0 },
+                  current: { weight: null, reps: null },
+                },
               ],
             };
           }
@@ -39,33 +45,12 @@ function workoutReducer(state, action) {
     case ACTIONS.REMOVE_SET:
       return {
         ...state,
-        exercises: state.exercises.map((exercise, index) => {
-          if (index === action.index) {
+        exercises: state.exercises.map((exercise) => {
+          if (exercise.id === action.exerciseId) {
             return {
               ...exercise,
-              sets: exercise.sets.filter((set, setIndex) => {
-                return setIndex !== action.setIndex;
-              }),
-            };
-          }
-          return exercise;
-        }),
-      };
-    case ACTIONS.UPDATE_SET:
-      return {
-        ...state,
-        exercises: state.exercises.map((exercise, index) => {
-          if (index === action.index) {
-            return {
-              ...exercise,
-              sets: exercise.sets.map((set, setIndex) => {
-                if (setIndex === action.setIndex) {
-                  return {
-                    ...set,
-                    [action.field]: action.value,
-                  };
-                }
-                return set;
+              sets: exercise.sets.filter((set) => {
+                return set.id !== action.setId;
               }),
             };
           }
@@ -92,31 +77,32 @@ export function WorkoutProvider({ children }) {
   const intervalRef = useRef(null);
   const [currentWorkout, dispatch] = useReducer(workoutReducer, initialWorkout);
 
-  function addSet(exerciseIndex) {
-    dispatch({ type: ACTIONS.ADD_SET, index: exerciseIndex });
+  function addSet(exerciseId) {
+    dispatch({ type: ACTIONS.ADD_SET, exerciseId });
   }
 
   function updateSet(exerciseIndex, setIndex, field, value) {
     dispatch({
       type: "updateSet",
-      index: exerciseIndex,
-      setIndex: setIndex,
-      field: field,
-      value: value,
+      exerciseIndex,
+      setIndex,
+      field,
+      value,
     });
   }
 
-  function removeSet(exerciseIndex, setIndex) {
-    dispatch({ type: ACTIONS.REMOVE_SET, exerciseIndex, setIndex });
+  function removeSet(exerciseId, setId) {
+    dispatch({ type: ACTIONS.REMOVE_SET, exerciseId, setId });
   }
 
   function addExercise(exerciseId, exerciseName) {
     dispatch({ type: "addExercise", id: exerciseId, name: exerciseName });
   }
 
-  function removeExercise(exerciseIndex) {
-    dispatch({ type: "removeExercise", index: exerciseIndex });
+  function removeExercise(exerciseId) {
+    dispatch({ type: "removeExercise", exerciseId });
   }
+
   useEffect(() => {
     setInterval(() => {
       setWorkoutTimer((prevTimer) => prevTimer + 1);
@@ -135,45 +121,57 @@ export function WorkoutProvider({ children }) {
 }
 
 const initialWorkout = {
-  id: 3,
+  id: uuid.v4(),
   title: "Title 3",
   exercises: [
     {
-      id: 1,
+      id: uuid.v4(),
       name: "Exercise 1",
       equipment: "Dumbbell",
       sets: [
         {
+          id: uuid.v4(),
           previous: { weight: 0, reps: 0 },
           current: { weight: null, reps: null },
         },
         {
+          id: uuid.v4(),
           previous: { weight: 0, reps: 0 },
           current: { weight: null, reps: null },
         },
         {
+          id: uuid.v4(),
           previous: null,
           current: { weight: null, reps: null },
         },
       ],
     },
     {
-      id: 2,
+      id: uuid.v4(),
       name: "Exercise 2",
 
       sets: [
         {
+          id: uuid.v4(),
           previous: null,
           current: { weight: null, reps: null },
         },
       ],
     },
     {
-      id: 3,
+      id: uuid.v4(),
       name: "Exercise 3",
       sets: [
-        { previous: null, current: { weight: null, reps: null } },
-        { previous: null, current: { weight: null, reps: null } },
+        {
+          id: uuid.v4(),
+          previous: null,
+          current: { weight: null, reps: null },
+        },
+        {
+          id: uuid.v4(),
+          previous: null,
+          current: { weight: null, reps: null },
+        },
       ],
     },
   ],

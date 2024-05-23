@@ -1,14 +1,14 @@
-import { FontAwesome6, Ionicons } from "@expo/vector-icons";
-import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { FontAwesome6 } from "@expo/vector-icons";
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 
 import { useWorkoutDispatchContext } from "context/WorkoutProvider";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Divider, Icon, Menu } from "react-native-paper";
 import tailwindConfig from "../../tailwind.config";
-
-import Animated from "react-native-reanimated";
+import Set from "./Set";
 
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -17,76 +17,6 @@ const widthPrevious = " w-[20%]";
 const widthWeight = " w-[20%]";
 const widthReps = " w-[20%]";
 const widthCheck = " w-[20%]";
-const Set = ({ weight, reps, exerciseIndex, setIndex }) => {
-  const [checked, setChecked] = useState(false);
-  const { removeSet, updateSet } = useWorkoutDispatchContext();
-  return (
-    <View className="mt-2">
-      <View
-        className={
-          "absolute w-full flex-row items-center justify-end bg-red-500 "
-        }
-      >
-        <Ionicons name="trash-sharp" size={24} color="white" />
-      </View>
-
-      <Animated.View
-        className="flex-row items-center border border-primary bg-primary"
-        key={setIndex}
-      >
-        <Text className={"text-white text-center" + widthSet}>
-          {setIndex + 1}
-        </Text>
-        <Text className={"text-white text-center" + widthPrevious}>-</Text>
-
-        <View className={"flex items-center justify-center " + widthWeight}>
-          <TextInput
-            placeholder={reps ? reps : ""}
-            placeholderTextColor={"#ffffff"}
-            className={`h-5 w-[60%] rounded-md border   text-center  ${
-              checked
-                ? "text-secondary border-secondary"
-                : "text-white border-white"
-            }`}
-          />
-        </View>
-        <View className={"flex items-center justify-center" + widthReps}>
-          <TextInput
-            placeholder={reps ? reps : ""}
-            placeholderTextColor={"#ffffff"}
-            className={`h-5 w-[60%] rounded-md border text-center  ${
-              checked
-                ? "text-secondary border-secondary"
-                : "text-white border-white"
-            }`}
-          />
-        </View>
-
-        <View className={"flex items-center justify-center " + widthCheck}>
-          <TouchableOpacity onPress={() => setChecked(!checked)}>
-            {checked ? (
-              <View className={"flex items-center justify-center"}>
-                <Ionicons
-                  name="checkmark-circle"
-                  size={24}
-                  color={fullConfig.theme.colors.secondary}
-                />
-              </View>
-            ) : (
-              <View className={"flex items-center justify-center"}>
-                <Ionicons
-                  name="checkmark-circle-outline"
-                  size={24}
-                  color="white"
-                />
-              </View>
-            )}
-          </TouchableOpacity>
-        </View>
-      </Animated.View>
-    </View>
-  );
-};
 
 const MenuItem = ({ leadingIcon, title, onPress }) => {
   return (
@@ -103,7 +33,7 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
   );
 };
 
-const Exercise = ({ name, equipment, sets, index }) => {
+const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
   const [visible, setVisible] = React.useState(false);
   const { addSet, removeSet, updateSet } = useWorkoutDispatchContext();
   const openMenu = () => setVisible(true);
@@ -120,9 +50,9 @@ const Exercise = ({ name, equipment, sets, index }) => {
           visible={visible}
           onDismiss={closeMenu}
           anchor={
-            <TouchableOpacity onPress={openMenu}>
+            <TouchableWithoutFeedback onPress={openMenu}>
               <FontAwesome6 name="ellipsis" size={15} color="white" />
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
           }
           contentStyle={{ backgroundColor: "#1a1a1a" }}
         >
@@ -175,8 +105,8 @@ const Exercise = ({ name, equipment, sets, index }) => {
         </Menu>
       </View>
 
-      <View className="flex-row justify-between">
-        <Text className={"text-white text-center " + widthSet}>Set</Text>
+      <View className="mt-2 flex-row justify-between">
+        <Text className={"text-white  " + widthSet}>Set</Text>
         <Text className={"text-white text-center " + widthPrevious}>
           Previous
         </Text>
@@ -192,10 +122,11 @@ const Exercise = ({ name, equipment, sets, index }) => {
 
       {sets.map((set, setIndex) => (
         <Set
-          key={setIndex}
-          {...set}
-          exerciseIndex={index}
+          key={set.id}
           setIndex={setIndex}
+          exerciseId={id}
+          scrollRef={scrollRef}
+          {...set}
         />
       ))}
 
@@ -203,7 +134,7 @@ const Exercise = ({ name, equipment, sets, index }) => {
 
       <TouchableOpacity
         onPress={() => {
-          addSet(index);
+          addSet(id);
         }}
       >
         <View className="mt-2 flex-row justify-center">
