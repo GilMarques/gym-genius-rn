@@ -27,7 +27,6 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
       onPress={onPress}
       title={title}
       titleStyle={{ color: "white" }}
-      style={{ height: 40 }}
       theme={{ colors: { secondary: "white" } }}
     />
   );
@@ -51,9 +50,10 @@ const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
           onDismiss={closeMenu}
           anchor={
             <TouchableWithoutFeedback onPress={openMenu}>
-              <FontAwesome6 name="ellipsis" size={15} color="white" />
+              <FontAwesome6 name="ellipsis" size={25} color="white" />
             </TouchableWithoutFeedback>
           }
+          className="w-[70%]"
           contentStyle={{ backgroundColor: "#1a1a1a" }}
         >
           <MenuItem
@@ -111,14 +111,14 @@ const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
           Previous
         </Text>
 
-        <Text className={"text-white text-center " + widthWeight}>Weight</Text>
+        <Text className={"text-white text-center " + widthWeight}>kg</Text>
         <Text className={"text-white text-center " + widthReps}>Reps</Text>
         <View
           className={"flex items-center justify-center " + widthCheck}
         ></View>
       </View>
 
-      <View className="w-full self-center rounded-xl border-t border-white" />
+      <Divider />
 
       {sets.map((set, setIndex) => (
         <Set
@@ -130,7 +130,7 @@ const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
         />
       ))}
 
-      <View className="mt-2 w-full self-center rounded-xl border-t border-white" />
+      <Divider className="mt-2" />
 
       <TouchableOpacity
         onPress={() => {

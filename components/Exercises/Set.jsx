@@ -50,7 +50,7 @@ const Set = ({ id, weight, reps, setIndex, scrollRef, exerciseId }) => {
         translateX.value = withTiming(0);
       }
     })
-    .simultaneousWithExternalGesture(scrollRef);
+    .activeOffsetX([-10, 10]);
 
   const rStyle = useAnimatedStyle(() => {
     return {

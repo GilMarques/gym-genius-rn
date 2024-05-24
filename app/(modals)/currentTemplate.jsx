@@ -1,6 +1,7 @@
 import { FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton";
 import Exercise from "components/Exercises/Exercise";
+import RestTimerProgressBar from "components/RestTimerProgressBar";
 import {
   useWorkoutContext,
   useWorkoutDispatchContext,
@@ -13,6 +14,7 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
+
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const currentTemplate = () => {
@@ -67,6 +69,8 @@ const currentTemplate = () => {
           </TouchableWithoutFeedback>
         </ScrollView>
       </View>
+
+      <RestTimerProgressBar value={300} height={5} />
 
       <View className="border-t border-white">
         <TouchableOpacity>
