@@ -5,9 +5,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Ionicons } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton.jsx";
+import CustomTextInput from "components/CustomTextInput";
 import HomeTemplate from "components/Home/HomeTemplate.jsx";
-import RestTimerModal from "components/PopUpModals/RestTimerModal";
-import RestTimerProgressBar from "components/RestTimerProgressBar";
 import { router } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import tailwindConfig from "tailwind.config.js";
@@ -52,10 +51,7 @@ const Home = () => {
           handlePress={() => router.navigate("/homeMenu")}
         />
       </View>
-
-      <RestTimerProgressBar />
-
-      <RestTimerModal />
+      <CustomTextInput />
     </SafeAreaView>
   );
 };
