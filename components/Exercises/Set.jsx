@@ -105,6 +105,11 @@ const Set = ({ id, weight, reps, setIndex, scrollRef, exerciseId }) => {
                     }
                   : null,
               ]}
+              showSoftInputOnFocus={false}
+              selectTextOnFocus={true}
+              onSelectionChange={(e) => {
+                console.log(e.nativeEvent.selection);
+              }}
             />
           </View>
 
@@ -121,6 +126,7 @@ const Set = ({ id, weight, reps, setIndex, scrollRef, exerciseId }) => {
                     }
                   : null,
               ]}
+              showSoftInputOnFocus={false}
             />
           </View>
 
