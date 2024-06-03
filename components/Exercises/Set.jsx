@@ -6,7 +6,6 @@ import { Dimensions, StyleSheet, Text, View } from "react-native";
 import {
   Gesture,
   GestureDetector,
-  TextInput,
   TouchableOpacity,
 } from "react-native-gesture-handler";
 import Animated, {
@@ -17,6 +16,7 @@ import Animated, {
 } from "react-native-reanimated";
 import resolveConfig from "tailwindcss/resolveConfig";
 
+import CustomTextInput from "components/CustomTextInput";
 import tailwindConfig from "../../tailwind.config";
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -93,41 +93,11 @@ const Set = ({ id, weight, reps, setIndex, scrollRef, exerciseId }) => {
           <Text style={styles.textElement}>-</Text>
 
           <View style={styles.fieldElement}>
-            <TextInput
-              placeholder={reps ? reps : ""}
-              placeholderTextColor={"#ffffff"}
-              style={[
-                styles.textInput,
-                checked
-                  ? {
-                      color: fullConfig.theme.colors.secondary,
-                      borderColor: fullConfig.theme.colors.secondary,
-                    }
-                  : null,
-              ]}
-              showSoftInputOnFocus={false}
-              selectTextOnFocus={true}
-              onSelectionChange={(e) => {
-                console.log(e.nativeEvent.selection);
-              }}
-            />
+            <CustomTextInput placeholder={"5"} />
           </View>
 
           <View style={styles.fieldElement}>
-            <TextInput
-              placeholder={reps ? reps : ""}
-              placeholderTextColor={"#ffffff"}
-              style={[
-                styles.textInput,
-                checked
-                  ? {
-                      color: fullConfig.theme.colors.secondary,
-                      borderColor: fullConfig.theme.colors.secondary,
-                    }
-                  : null,
-              ]}
-              showSoftInputOnFocus={false}
-            />
+            <CustomTextInput placeholder={"5"} />
           </View>
 
           <View className="w-[20%] flex-row justify-end">

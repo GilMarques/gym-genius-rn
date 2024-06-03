@@ -23,8 +23,8 @@ const DropdownSearch = ({ value, onChangeText, tags, setTags }) => {
   }, [value]);
   return (
     <View className="">
-      <View className="border-black-200 h-8 w-[90%] flex-row items-center self-center rounded-2xl bg-gray-500 px-4 focus:border-secondary">
-        <Entypo name="magnifying-glass" size={24} color="black" />
+      <View className="border-black-200 mb-4 h-8 w-[90%] flex-row items-center self-center rounded-2xl bg-gray-500 px-4 focus:border-secondary">
+        <Entypo name="magnifying-glass" size={24} color="white" />
         <SelectedTags tags={tags} setTags={setTags} selected={true} />
         <TextInput
           className="flex-1 text-base font-bold text-white"
@@ -39,7 +39,7 @@ const DropdownSearch = ({ value, onChangeText, tags, setTags }) => {
             setTags([]);
           }}
         >
-          <FontAwesome6 name="x" size={24} color="black" />
+          <FontAwesome6 name="x" size={15} color="white" />
         </TouchableOpacity>
       </View>
 

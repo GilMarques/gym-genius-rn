@@ -1,11 +1,12 @@
 import uuid from "react-native-uuid";
 
 let data = [];
+//randomized muscles worked
 for (let i = 0; i < 20; i++) {
   data.push({
     id: uuid.v4(),
     name: `Exercise ${i + 1}`,
-    thumbnail: "https://i.imgur.com/5tj6iQp.png",
+
     musclesWorked: ["Chest", "Back", "Legs"],
   });
 }

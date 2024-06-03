@@ -14,6 +14,8 @@ import {
 import GlobalProvider from "context/GlobalProvider";
 
 import { FontAwesome6 } from "@expo/vector-icons";
+import CustomKeyPad from "components/CustomKeyPad";
+import { KeypadProvider } from "context/KeypadProvider";
 import { WorkoutProvider } from "context/WorkoutProvider";
 import { router, withLayoutContext } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -30,33 +32,36 @@ const RootLayout = () => {
         <PaperProvider>
           <GlobalProvider>
             <WorkoutProvider>
-              <JsStack>
-                <JsStack.Screen name="index" options={optionsIndex} />
-                <JsStack.Screen name="(auth)" options={optionsAuth} />
-                <JsStack.Screen name="(tabs)" options={optionsTabs} />
+              <KeypadProvider>
+                <JsStack>
+                  <JsStack.Screen name="index" options={optionsIndex} />
+                  <JsStack.Screen name="(auth)" options={optionsAuth} />
+                  <JsStack.Screen name="(tabs)" options={optionsTabs} />
 
-                <JsStack.Screen
-                  name="(modals)/newTemplate"
-                  options={optionsNew}
-                />
+                  <JsStack.Screen
+                    name="(modals)/newTemplate"
+                    options={optionsNew}
+                  />
 
-                <JsStack.Screen
-                  name="(modals)/currentTemplate"
-                  options={optionsCurrent}
-                />
+                  <JsStack.Screen
+                    name="(modals)/currentTemplate"
+                    options={optionsCurrent}
+                  />
 
-                <JsStack.Screen
-                  name="(modals)/exerciseList"
-                  options={optionsList}
-                />
+                  <JsStack.Screen
+                    name="(modals)/exerciseList"
+                    options={optionsList}
+                  />
 
-                <JsStack.Screen
-                  name="(modals)/homeMenu"
-                  options={optionsHomeMenu}
-                />
-              </JsStack>
+                  <JsStack.Screen
+                    name="(modals)/homeMenu"
+                    options={optionsHomeMenu}
+                  />
+                </JsStack>
 
-              <StatusBar style="light" />
+                <CustomKeyPad />
+                <StatusBar style="light" />
+              </KeypadProvider>
             </WorkoutProvider>
           </GlobalProvider>
         </PaperProvider>

@@ -5,7 +5,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Ionicons } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton.jsx";
-import CustomTextInput from "components/CustomTextInput";
 import HomeTemplate from "components/Home/HomeTemplate.jsx";
 import { router } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -51,7 +50,6 @@ const Home = () => {
           handlePress={() => router.navigate("/homeMenu")}
         />
       </View>
-      <CustomTextInput />
     </SafeAreaView>
   );
 };

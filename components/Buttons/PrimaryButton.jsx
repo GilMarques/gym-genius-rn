@@ -12,20 +12,20 @@ const PrimaryButton = ({
   containerStyles,
   textStyles,
   color,
-  isLoading,
+  disabled,
 }) => {
   return (
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
       className={`flex justify-center items-center rounded-md p-1 ${containerStyles} ${
-        isLoading ? "opacity-50" : ""
+        disabled ? "opacity-50" : ""
       }`}
       style={{
         backgroundColor: color || fullConfig.theme.colors.secondary,
         zIndex: 1,
       }}
-      disabled={isLoading}
+      disabled={disabled}
     >
       <Text className={`text-lg font-bold text-primary ${textStyles}`}>
         {title}

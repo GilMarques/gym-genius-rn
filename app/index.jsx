@@ -15,7 +15,7 @@ NavigationBar.setBackgroundColorAsync(fullConfig.theme.colors.primary);
 export default function App() {
   const { isLoading, isLoggedIn } = useGlobalContext();
 
-  return <Redirect href={"/home"} />;
+  return <Redirect href={"/exerciseList"} />;
   if (!isLoading && isLoggedIn) return <Redirect href={"/home"} />;
   return (
     <>
