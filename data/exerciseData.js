@@ -1,15 +1,21 @@
 import uuid from "react-native-uuid";
 
 let data = [];
-//randomized muscles worked
+
+//randomized css color
+function randomColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
 for (let i = 0; i < 20; i++) {
   data.push({
     id: uuid.v4(),
     name: `Exercise ${i + 1}`,
 
     musclesWorked: ["Chest", "Back", "Legs"],
+    color: randomColor(),
   });
 }
+console.log(data);
 
 let muscleGroups = [
   //Chest

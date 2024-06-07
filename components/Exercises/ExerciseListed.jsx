@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableNativeFeedback, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 const ExerciseListed = ({
@@ -8,10 +8,11 @@ const ExerciseListed = ({
   thumbnail,
   musclesWorked,
   checkedIndex,
+  color,
   onPress,
 }) => {
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
+    <TouchableNativeFeedback onPress={onPress}>
       <View className="w-full self-center px-2">
         <View className="flex-row items-center justify-between p-2">
           <View className="flex-row items-center gap-2">
@@ -19,7 +20,12 @@ const ExerciseListed = ({
               {thumbnail ? (
                 <Image source={{ uri: thumbnail }} className="h-full w-full" />
               ) : (
-                <View className="h-full w-full items-center justify-center rounded-md bg-slate-200">
+                <View
+                  className={
+                    "h-full w-full items-center justify-center rounded-md"
+                  }
+                  style={{ backgroundColor: color }}
+                >
                   <Text className="text-lg font-bold">
                     {name
                       .split(" ")
@@ -59,7 +65,7 @@ const ExerciseListed = ({
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableNativeFeedback>
   );
 };
 

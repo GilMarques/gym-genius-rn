@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-const Search = () => {
+const HistoryCard = () => {
   return (
     <View>
-      <Text>Search</Text>
+      <Text>HistoryCard</Text>
     </View>
   );
 };
 
-export default Search;
+export default HistoryCard;

@@ -13,10 +13,11 @@ import {
 
 import GlobalProvider from "context/GlobalProvider";
 
-import { FontAwesome6 } from "@expo/vector-icons";
+import { Feather, FontAwesome6 } from "@expo/vector-icons";
 import CustomKeyPad from "components/CustomKeyPad";
 import { KeypadProvider } from "context/KeypadProvider";
 import { WorkoutProvider } from "context/WorkoutProvider";
+import { data } from "data/exerciseData";
 import { router, withLayoutContext } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { PaperProvider } from "react-native-paper";
@@ -56,6 +57,11 @@ const RootLayout = () => {
                   <JsStack.Screen
                     name="(modals)/homeMenu"
                     options={optionsHomeMenu}
+                  />
+
+                  <JsStack.Screen
+                    name="(modals)/search/[exerciseId]"
+                    options={optionsSearch}
                   />
                 </JsStack>
 
@@ -201,6 +207,43 @@ const optionsHomeMenu = {
 
   headerTitleAlign: "center",
   headerShadowVisible: false,
+};
+
+const optionsSearch = ({ route }) => {
+  const { name } = data.find((e) => e.id === route.params.exerciseId);
+  return {
+    ...TransitionPresets.ModalPresentationIOS,
+
+    gestureEnabled: true,
+    presentation: "modal",
+
+    headerShown: true,
+    title: name,
+
+    headerLeft: () => (
+      <TouchableWithoutFeedback onPress={() => router.back()} className="ml-4">
+        <Feather name="x" size={24} color="white" />
+      </TouchableWithoutFeedback>
+    ),
+
+    headerRight: () => (
+      <TouchableWithoutFeedback onPress={() => {}} className="mr-4">
+        <Feather name="edit-3" size={24} color="white" />
+      </TouchableWithoutFeedback>
+    ),
+
+    cardStyle: { backgroundColor: "#1a1a1a" },
+    overlayStyle: { borderColor: "#1a1a1a" },
+    headerStyle: {
+      backgroundColor: "#1a1a1a",
+    },
+    headerTitleStyle: {
+      color: "#fff",
+    },
+
+    headerTitleAlign: "center",
+    headerShadowVisible: false,
+  };
 };
 
 export default RootLayout;
