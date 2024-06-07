@@ -75,6 +75,7 @@ export function useWorkoutDispatchContext() {
 export function WorkoutProvider({ children }) {
   const [workoutTimer, setWorkoutTimer] = useState(0);
   const intervalRef = useRef(null);
+
   const [currentWorkout, dispatch] = useReducer(workoutReducer, initialWorkout);
 
   function addSet(exerciseId) {
