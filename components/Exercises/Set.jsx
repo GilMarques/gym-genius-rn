@@ -25,7 +25,15 @@ const TRANSLATE_X_THRESHOLD = SCREEN_WIDTH * 0.15;
 
 const LIST_ITEM_HEIGHT = 30;
 
-const Set = ({ id, weight, reps, setIndex, scrollRef, exerciseId }) => {
+const Set = ({
+  id,
+  weight,
+  reps,
+  setIndex,
+  scrollRef,
+  exerciseId,
+  onComplete,
+}) => {
   const translateX = useSharedValue(0);
   const itemHeight = useSharedValue(LIST_ITEM_HEIGHT);
   const marginTop = useSharedValue(10);
@@ -101,7 +109,18 @@ const Set = ({ id, weight, reps, setIndex, scrollRef, exerciseId }) => {
           </View>
 
           <View className="w-[20%] flex-row justify-end">
-            <TouchableOpacity onPress={() => setChecked(!checked)}>
+            <TouchableOpacity
+              onPress={() => {
+                setChecked((prev) => {
+                  if (prev) {
+                    return false;
+                  } else {
+                    onComplete();
+                    return true;
+                  }
+                });
+              }}
+            >
               <Ionicons
                 name={checked ? "checkmark-circle" : "checkmark-circle-outline"}
                 size={24}

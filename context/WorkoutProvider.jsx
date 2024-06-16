@@ -74,6 +74,12 @@ export function useWorkoutDispatchContext() {
 
 export function WorkoutProvider({ children }) {
   const [workoutTimer, setWorkoutTimer] = useState(0);
+
+  const [restTimer, setRestTimer] = useState({
+    start: Date.now(),
+    duration: 0,
+  });
+
   const intervalRef = useRef(null);
 
   const [currentWorkout, dispatch] = useReducer(workoutReducer, initialWorkout);
@@ -104,6 +110,13 @@ export function WorkoutProvider({ children }) {
     dispatch({ type: "removeExercise", exerciseId });
   }
 
+  function startTimer(value) {
+    setRestTimer({
+      start: Date.now(),
+      duration: value,
+    });
+  }
+
   useEffect(() => {
     setInterval(() => {
       setWorkoutTimer((prevTimer) => prevTimer + 1);
@@ -111,9 +124,19 @@ export function WorkoutProvider({ children }) {
   }, []);
 
   return (
-    <WorkoutContext.Provider value={{ currentWorkout, workoutTimer }}>
+    <WorkoutContext.Provider
+      value={{ currentWorkout, workoutTimer, restTimer }}
+    >
       <WorkoutDispatchContext.Provider
-        value={{ dispatch, addSet, removeSet, updateSet }}
+        value={{
+          dispatch,
+          addSet,
+          removeSet,
+          updateSet,
+          startTimer,
+          addExercise,
+          removeExercise,
+        }}
       >
         {children}
       </WorkoutDispatchContext.Provider>

@@ -34,7 +34,8 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
 
 const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
   const [visible, setVisible] = React.useState(false);
-  const { addSet, removeSet, updateSet } = useWorkoutDispatchContext();
+  const { addSet, removeSet, updateSet, startTimer } =
+    useWorkoutDispatchContext();
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
@@ -102,6 +103,13 @@ const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
             title="Auto Rest Timer"
             onPress={() => {}}
           />
+
+          <Divider style={{ width: "90%", alignSelf: "center" }} />
+          <MenuItem
+            leadingIcon="close"
+            title="Remove Exercise"
+            onPress={() => {}}
+          />
         </Menu>
       </View>
 
@@ -126,6 +134,7 @@ const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
           setIndex={setIndex}
           exerciseId={id}
           scrollRef={scrollRef}
+          onComplete={() => startTimer(60)}
           {...set}
         />
       ))}

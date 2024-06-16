@@ -1,3 +1,4 @@
+import { useWorkoutContext } from "context/WorkoutProvider";
 import { getTailwindConfig } from "lib/helper";
 import React, { useEffect } from "react";
 import Animated, {
@@ -7,7 +8,8 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-const RestTimerProgressBar = ({ value, height }) => {
+const RestTimerProgressBar = ({ height }) => {
+  const { restTimer } = useWorkoutContext();
   const animatedValue = useSharedValue(100);
   const conf = getTailwindConfig();
   const rStyle = useAnimatedStyle(() => {
@@ -17,12 +19,14 @@ const RestTimerProgressBar = ({ value, height }) => {
   });
 
   useEffect(() => {
+    console.log(restTimer);
+    animatedValue.value = 100;
     animatedValue.value = withTiming(0, {
-      duration: value * 1000,
+      duration: restTimer.duration * 1000,
       easing: Easing.linear,
       useNativeDriver: true,
     });
-  }, [value]);
+  }, [restTimer.start]);
 
   return (
     <Animated.View

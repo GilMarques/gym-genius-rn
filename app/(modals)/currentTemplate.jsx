@@ -18,9 +18,14 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const currentTemplate = () => {
-  const { currentWorkout, workoutTimer: seconds } = useWorkoutContext();
+  const {
+    currentWorkout,
+    workoutTimer: seconds,
+    restTimer,
+  } = useWorkoutContext();
   const scrollRef = useRef();
   const dispatch = useWorkoutDispatchContext();
+
   return (
     <SafeAreaView className="h-full bg-primary">
       <View>
@@ -70,7 +75,7 @@ const currentTemplate = () => {
         </ScrollView>
       </View>
 
-      <RestTimerProgressBar value={300} height={5} />
+      <RestTimerProgressBar value={restTimer} height={5} />
 
       <View className="border-t border-white">
         <TouchableOpacity>
