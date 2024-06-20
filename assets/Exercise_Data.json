@@ -1,0 +1,2075 @@
+[
+    {
+        "id": 1,
+        "name": "Behind the Neck Press",
+        "path": "../assets/exercise_collection/Barbell/Behind_the_Neck_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Bench Press",
+        "path": "../assets/exercise_collection/Barbell/Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Bent Over Row",
+        "path": "../assets/exercise_collection/Barbell/Bent_Over_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Bicep Curl",
+        "path": "../assets/exercise_collection/Barbell/Bicep_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Bulgarian Split Squat",
+        "path": "../assets/exercise_collection/Barbell/Bulgarian_Split_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Close Grip Bench Press",
+        "path": "../assets/exercise_collection/Barbell/Close_Grip_Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Deadlift",
+        "path": "../assets/exercise_collection/Barbell/Deadlift.gif",
+        "tags": [
+            "Posterior Chain"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Decline Bench Press",
+        "path": "../assets/exercise_collection/Barbell/Decline_Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Finger Curls",
+        "path": "../assets/exercise_collection/Barbell/Finger_Curls.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "French Press",
+        "path": "../assets/exercise_collection/Barbell/French_Press.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Front Raise",
+        "path": "../assets/exercise_collection/Barbell/Front_Raise.gif",
+        "tags": [
+            "Front Delts"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Front Squat",
+        "path": "../assets/exercise_collection/Barbell/Front_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Good Morning",
+        "path": "../assets/exercise_collection/Barbell/Good_Morning.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Guillotine Bench Press",
+        "path": "../assets/exercise_collection/Barbell/Guillotine_Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "High Bar Squat",
+        "path": "../assets/exercise_collection/Barbell/High_Bar_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Hip Thrust",
+        "path": "../assets/exercise_collection/Barbell/Hip_Thrust.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Incline Bench Press",
+        "path": "../assets/exercise_collection/Barbell/Incline_Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "JM Press",
+        "path": "../assets/exercise_collection/Barbell/JM_Press.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Low Bar Squat",
+        "path": "../assets/exercise_collection/Barbell/Low_Bar_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Lunge",
+        "path": "../assets/exercise_collection/Barbell/Lunge.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Pendlay Row",
+        "path": "../assets/exercise_collection/Barbell/Pendlay_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Pullover",
+        "path": "../assets/exercise_collection/Barbell/Pullover.gif",
+        "tags": [
+            "Lats"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Rack Pull",
+        "path": "../assets/exercise_collection/Barbell/Rack_Pull.gif",
+        "tags": [
+            "Posterior Chain"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Reverse Bent Over Row",
+        "path": "../assets/exercise_collection/Barbell/Reverse_Bent_Over_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Reverse Grip Curl",
+        "path": "../assets/exercise_collection/Barbell/Reverse_Grip_Curl.gif",
+        "tags": [
+            "Forearms",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Reverse Lunge",
+        "path": "../assets/exercise_collection/Barbell/Reverse_Lunge.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Reverse Wrist Curl",
+        "path": "../assets/exercise_collection/Barbell/Reverse_Wrist_Curl.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Rollout Standing",
+        "path": "../assets/exercise_collection/Barbell/Rollout_Standing.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Rollout",
+        "path": "../assets/exercise_collection/Barbell/Rollout.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Romanian Deadlift",
+        "path": "../assets/exercise_collection/Barbell/Romanian_Deadlift.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Seated Calf Raise",
+        "path": "../assets/exercise_collection/Barbell/Seated_Calf_Raise.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Seated Good Morning",
+        "path": "../assets/exercise_collection/Barbell/Seated_Good_Morning.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings",
+            " Lower Back"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Seated Overhead Press",
+        "path": "../assets/exercise_collection/Barbell/Seated_Overhead_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Shrug",
+        "path": "../assets/exercise_collection/Barbell/Shrug.gif",
+        "tags": [
+            "Traps"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Skullcrusher",
+        "path": "../assets/exercise_collection/Barbell/Skullcrusher.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Standing Calf Raise",
+        "path": "../assets/exercise_collection/Barbell/Standing_Calf_Raise.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Stiff Leg Deadlift",
+        "path": "../assets/exercise_collection/Barbell/Stiff_Leg_Deadlift.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings",
+            " Lower Back"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Sumo Deadlift",
+        "path": "../assets/exercise_collection/Barbell/Sumo_Deadlift.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Tricep Extension",
+        "path": "../assets/exercise_collection/Barbell/Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Upright Row",
+        "path": "../assets/exercise_collection/Barbell/Upright_Row.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "Zercher Squat",
+        "path": "../assets/exercise_collection/Barbell/Zercher_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Zombie Squat",
+        "path": "../assets/exercise_collection/Barbell/Zombie_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Assisted Chin Up",
+        "path": "../assets/exercise_collection/Bodyweight/Assisted_Chin_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Assisted Dips",
+        "path": "../assets/exercise_collection/Bodyweight/Assisted_Dips.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Assisted Neutral Grip Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Assisted_Neutral_Grip_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Assisted Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Assisted_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Assisted Tricep Dip",
+        "path": "../assets/exercise_collection/Bodyweight/Assisted_Tricep_Dip.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Band Assisted Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Band_Assisted_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Bent Knee Windshield",
+        "path": "../assets/exercise_collection/Bodyweight/Bent_Knee_Windshield.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Chin Up",
+        "path": "../assets/exercise_collection/Bodyweight/Chin_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Close Grip Chin Up",
+        "path": "../assets/exercise_collection/Bodyweight/Close_Grip_Chin_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Close Grip Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Close_Grip_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 53,
+        "name": "Decline Inverted Row",
+        "path": "../assets/exercise_collection/Bodyweight/Decline_Inverted_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 54,
+        "name": "Decline Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Decline_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 55,
+        "name": "Decline Sit Up",
+        "path": "../assets/exercise_collection/Bodyweight/Decline_Sit_Up.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 56,
+        "name": "Diamond Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Diamond_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 57,
+        "name": "Dips",
+        "path": "../assets/exercise_collection/Bodyweight/Dips.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 58,
+        "name": "Handstand Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Handstand_Push_Up.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 59,
+        "name": "Hanging Knee Raise",
+        "path": "../assets/exercise_collection/Bodyweight/Hanging_Knee_Raise.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 60,
+        "name": "Hanging Knee Twist",
+        "path": "../assets/exercise_collection/Bodyweight/Hanging_Knee_Twist.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 61,
+        "name": "Hanging Leg Raise",
+        "path": "../assets/exercise_collection/Bodyweight/Hanging_Leg_Raise.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 62,
+        "name": "Hyperextension",
+        "path": "../assets/exercise_collection/Bodyweight/Hyperextension.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings",
+            " Lower Back"
+        ]
+    },
+    {
+        "id": 63,
+        "name": "Incline Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Incline_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 64,
+        "name": "Inverted Row",
+        "path": "../assets/exercise_collection/Bodyweight/Inverted_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 65,
+        "name": "Knee Inverted Rows",
+        "path": "../assets/exercise_collection/Bodyweight/Knee_Inverted_Rows.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 66,
+        "name": "Knee Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Knee_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 67,
+        "name": "Knee Raise CaptainsChair",
+        "path": "../assets/exercise_collection/Bodyweight/Knee_Raise_CaptainsChair.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 68,
+        "name": "Kneeling Triceps Extension",
+        "path": "../assets/exercise_collection/Bodyweight/Kneeling_Triceps_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 69,
+        "name": "L Sit Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/L_Sit_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 70,
+        "name": "Leg Raise Captains Chair",
+        "path": "../assets/exercise_collection/Bodyweight/Leg_Raise_Captains_Chair.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 71,
+        "name": "Lunge",
+        "path": "../assets/exercise_collection/Bodyweight/Lunge.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 72,
+        "name": "Muscle Up",
+        "path": "../assets/exercise_collection/Bodyweight/Muscle_Up.gif",
+        "tags": [
+            "Upper Body"
+        ]
+    },
+    {
+        "id": 73,
+        "name": "Neutral Grip Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Neutral_Grip_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 74,
+        "name": "Nordic Curls",
+        "path": "../assets/exercise_collection/Bodyweight/Nordic_Curls.gif",
+        "tags": [
+            "Hamstrings"
+        ]
+    },
+    {
+        "id": 75,
+        "name": "One Arm Chin Up",
+        "path": "../assets/exercise_collection/Bodyweight/One_Arm_Chin_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 76,
+        "name": "Pistol Squat",
+        "path": "../assets/exercise_collection/Bodyweight/Pistol_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 77,
+        "name": "Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 78,
+        "name": "Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 79,
+        "name": "Reverse Grip Inverted Rows",
+        "path": "../assets/exercise_collection/Bodyweight/Reverse_Grip_Inverted_Rows.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 80,
+        "name": "Ring Dips",
+        "path": "../assets/exercise_collection/Bodyweight/Ring_Dips.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 81,
+        "name": "Ring Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Ring_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 82,
+        "name": "Ring Row",
+        "path": "../assets/exercise_collection/Bodyweight/Ring_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 83,
+        "name": "Russian Twist",
+        "path": "../assets/exercise_collection/Bodyweight/Russian_Twist.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 84,
+        "name": "Single Arm Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Single_Arm_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 85,
+        "name": "Sit Up",
+        "path": "../assets/exercise_collection/Bodyweight/Sit_Up.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 86,
+        "name": "Tricep Extension",
+        "path": "../assets/exercise_collection/Bodyweight/Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 87,
+        "name": "Triceps Dip",
+        "path": "../assets/exercise_collection/Bodyweight/Triceps_Dip.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 88,
+        "name": "Twisting Sit Up",
+        "path": "../assets/exercise_collection/Bodyweight/Twisting_Sit_Up.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 89,
+        "name": "Weighted Chin Up",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Chin_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 90,
+        "name": "Weighted Decline Sit Up",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Decline_Sit_Up.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 91,
+        "name": "Weighted Leg Raise",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Leg_Raise.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 92,
+        "name": "Weighted Muscle Up",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Muscle_Up.gif",
+        "tags": [
+            "Upper Body"
+        ]
+    },
+    {
+        "id": 93,
+        "name": "Weighted One Arm Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_One_Arm_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 94,
+        "name": "Weighted Pull Up",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Pull_Up.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 95,
+        "name": "Weighted Ring Muscle Up",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Ring_Muscle_Up.gif",
+        "tags": [
+            "Upper Body"
+        ]
+    },
+    {
+        "id": 96,
+        "name": "Weighted Russian Twist",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Russian_Twist.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 97,
+        "name": "Weighted Sissy Squat",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Sissy_Squat.gif",
+        "tags": [
+            "Quads"
+        ]
+    },
+    {
+        "id": 98,
+        "name": "Weighted Tricep Dips",
+        "path": "../assets/exercise_collection/Bodyweight/Weighted_Tricep_Dips.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 99,
+        "name": "Wide Grip Push Up",
+        "path": "../assets/exercise_collection/Bodyweight/Wide_Grip_Push_Up.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 100,
+        "name": "Windshield Wipers",
+        "path": "../assets/exercise_collection/Bodyweight/Windshield_Wipers.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 101,
+        "name": "Cable Crunch",
+        "path": "../assets/exercise_collection/Cable/Cable_Crunch.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 102,
+        "name": "Cable Curl",
+        "path": "../assets/exercise_collection/Cable/Cable_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 103,
+        "name": "Cable Fly",
+        "path": "../assets/exercise_collection/Cable/Cable_Fly.gif",
+        "tags": [
+            "Chest"
+        ]
+    },
+    {
+        "id": 104,
+        "name": "Chest Press",
+        "path": "../assets/exercise_collection/Cable/Chest_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 105,
+        "name": "High Row",
+        "path": "../assets/exercise_collection/Cable/High_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Shoulders"
+        ]
+    },
+    {
+        "id": 106,
+        "name": "Kneeling Rear Delt Row",
+        "path": "../assets/exercise_collection/Cable/Kneeling_Rear_Delt_Row.gif",
+        "tags": [
+            "Rear Delts"
+        ]
+    },
+    {
+        "id": 107,
+        "name": "Kneeling Single Arm Pulldown",
+        "path": "../assets/exercise_collection/Cable/Kneeling_Single_Arm_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 108,
+        "name": "Lateral Raise",
+        "path": "../assets/exercise_collection/Cable/Lateral_Raise.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 109,
+        "name": "Monastery Tricep Extension",
+        "path": "../assets/exercise_collection/Cable/Monastery_Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 110,
+        "name": "Overhead Tricep Extension",
+        "path": "../assets/exercise_collection/Cable/Overhead_Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 111,
+        "name": "Pulldown",
+        "path": "../assets/exercise_collection/Cable/Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 112,
+        "name": "Pullover",
+        "path": "../assets/exercise_collection/Cable/Pullover.gif",
+        "tags": [
+            "Lats"
+        ]
+    },
+    {
+        "id": 113,
+        "name": "Rear Delt Row",
+        "path": "../assets/exercise_collection/Cable/Rear_Delt_Row.gif",
+        "tags": [
+            "Rear Delts",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 114,
+        "name": "Reverse Curl",
+        "path": "../assets/exercise_collection/Cable/Reverse_Curl.gif",
+        "tags": [
+            "Forearms",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 115,
+        "name": "Reverse Grip Pulldown",
+        "path": "../assets/exercise_collection/Cable/Reverse_Grip_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 116,
+        "name": "Rope Hammer Curl",
+        "path": "../assets/exercise_collection/Cable/Rope_Hammer_Curl.gif",
+        "tags": [
+            "Forearms",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 117,
+        "name": "Seated Row",
+        "path": "../assets/exercise_collection/Cable/Seated_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 118,
+        "name": "Single Arm Tricep Pushdown",
+        "path": "../assets/exercise_collection/Cable/Single_Arm_Tricep_Pushdown.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 119,
+        "name": "Tricep Pushdown",
+        "path": "../assets/exercise_collection/Cable/Tricep_Pushdown.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 120,
+        "name": "Underhand Pulldown",
+        "path": "../assets/exercise_collection/Cable/Underhand_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 121,
+        "name": "Upright Row",
+        "path": "../assets/exercise_collection/Cable/Upright_Row.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 122,
+        "name": "VBar Pulldown",
+        "path": "../assets/exercise_collection/Cable/VBar_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 123,
+        "name": "VBar Tricep Pushdown",
+        "path": "../assets/exercise_collection/Cable/VBar_Tricep_Pushdown.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 124,
+        "name": "Wide Grip Pulldown",
+        "path": "../assets/exercise_collection/Cable/Wide_Grip_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 125,
+        "name": "Wide Grip Row",
+        "path": "../assets/exercise_collection/Cable/Wide_Grip_Row.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 126,
+        "name": "Wood Chopper",
+        "path": "../assets/exercise_collection/Cable/Wood_Chopper.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 127,
+        "name": "Arnold Press",
+        "path": "../assets/exercise_collection/Dumbbell/Arnold_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 128,
+        "name": "Bench Press",
+        "path": "../assets/exercise_collection/Dumbbell/Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 129,
+        "name": "Bent Over Row",
+        "path": "../assets/exercise_collection/Dumbbell/Bent_Over_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 130,
+        "name": "Bicep Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Bicep_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 131,
+        "name": "Bulgarian Split Squat",
+        "path": "../assets/exercise_collection/Dumbbell/Bulgarian_Split_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 132,
+        "name": "Calf Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Calf_Raise.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 133,
+        "name": "Chest Fly",
+        "path": "../assets/exercise_collection/Dumbbell/Chest_Fly.gif",
+        "tags": [
+            "Chest"
+        ]
+    },
+    {
+        "id": 134,
+        "name": "Concentration Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Concentration_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 135,
+        "name": "Cross Body Hammer Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Cross_Body_Hammer_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 136,
+        "name": "Decline Tricep Extension",
+        "path": "../assets/exercise_collection/Dumbbell/Decline_Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 137,
+        "name": "Farmers Walk",
+        "path": "../assets/exercise_collection/Dumbbell/Farmers_Walk.gif",
+        "tags": [
+            "Traps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 138,
+        "name": "Finger Curls",
+        "path": "../assets/exercise_collection/Dumbbell/Finger_Curls.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 139,
+        "name": "French Press",
+        "path": "../assets/exercise_collection/Dumbbell/French_Press.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 140,
+        "name": "Front Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Front_Raise.gif",
+        "tags": [
+            "Front Delts"
+        ]
+    },
+    {
+        "id": 141,
+        "name": "Goblet Squat",
+        "path": "../assets/exercise_collection/Dumbbell/Goblet_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 142,
+        "name": "Hammer Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Hammer_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 143,
+        "name": "Hammer Preacher Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Hammer_Preacher_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 144,
+        "name": "Hammer Press",
+        "path": "../assets/exercise_collection/Dumbbell/Hammer_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 145,
+        "name": "Incline Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Incline_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 146,
+        "name": "Incline Hammer Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Incline_Hammer_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 147,
+        "name": "Incline Hammer Press",
+        "path": "../assets/exercise_collection/Dumbbell/Incline_Hammer_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 148,
+        "name": "Kroc Row",
+        "path": "../assets/exercise_collection/Dumbbell/Kroc_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 149,
+        "name": "Lateral Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Lateral_Raise.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 150,
+        "name": "Lunge",
+        "path": "../assets/exercise_collection/Dumbbell/Lunge.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 151,
+        "name": "Neutral Wrist Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Neutral_Wrist_Curl.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 152,
+        "name": "Preacher Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Preacher_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 153,
+        "name": "Pullover",
+        "path": "../assets/exercise_collection/Dumbbell/Pullover.gif",
+        "tags": [
+            "Lats"
+        ]
+    },
+    {
+        "id": 154,
+        "name": "Rear Delt Fly",
+        "path": "../assets/exercise_collection/Dumbbell/Rear_Delt_Fly.gif",
+        "tags": [
+            "Rear Delts"
+        ]
+    },
+    {
+        "id": 155,
+        "name": "Reverse Grip Row",
+        "path": "../assets/exercise_collection/Dumbbell/Reverse_Grip_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 156,
+        "name": "Reverse Wrist Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Reverse_Wrist_Curl.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 157,
+        "name": "Romanian Deadlift",
+        "path": "../assets/exercise_collection/Dumbbell/Romanian_Deadlift.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 158,
+        "name": "Seated Bicep Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Seated_Bicep_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 159,
+        "name": "Seated Calf Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Seated_Calf_Raise.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 160,
+        "name": "Seated Hammer Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Seated_Hammer_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 161,
+        "name": "Seated Shoulder Press",
+        "path": "../assets/exercise_collection/Dumbbell/Seated_Shoulder_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 162,
+        "name": "Single Arm Row",
+        "path": "../assets/exercise_collection/Dumbbell/Single_Arm_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 163,
+        "name": "Single Leg Deadlift",
+        "path": "../assets/exercise_collection/Dumbbell/Single_Leg_Deadlift.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 164,
+        "name": "Spider Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Spider_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 165,
+        "name": "Standing Calf Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Standing_Calf_Raise.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 166,
+        "name": "Step Up",
+        "path": "../assets/exercise_collection/Dumbbell/Step_Up.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 167,
+        "name": "Supported Lateral Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Supported_Lateral_Raise.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 168,
+        "name": "Tricep Extension",
+        "path": "../assets/exercise_collection/Dumbbell/Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 169,
+        "name": "Triceps Extension",
+        "path": "../assets/exercise_collection/Dumbbell/Triceps_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 170,
+        "name": "Upright Row",
+        "path": "../assets/exercise_collection/Dumbbell/Upright_Row.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 171,
+        "name": "Weighted Pistol Squat",
+        "path": "../assets/exercise_collection/Dumbbell/Weighted_Pistol_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 172,
+        "name": "Wrist Curl",
+        "path": "../assets/exercise_collection/Dumbbell/Wrist_Curl.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 173,
+        "name": "Y Raise",
+        "path": "../assets/exercise_collection/Dumbbell/Y_Raise.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 174,
+        "name": "Bicep Curl",
+        "path": "../assets/exercise_collection/EZ/Bicep_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 175,
+        "name": "Close Grip Bench Press",
+        "path": "../assets/exercise_collection/EZ/Close_Grip_Bench_Press.gif",
+        "tags": [
+            "Triceps",
+            " Chest"
+        ]
+    },
+    {
+        "id": 176,
+        "name": "Decline Skullcrusher",
+        "path": "../assets/exercise_collection/EZ/Decline_Skullcrusher.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 177,
+        "name": "French Press",
+        "path": "../assets/exercise_collection/EZ/French_Press.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 178,
+        "name": "JM Press",
+        "path": "../assets/exercise_collection/EZ/JM_Press.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 179,
+        "name": "Preacher Curl",
+        "path": "../assets/exercise_collection/EZ/Preacher_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 180,
+        "name": "Pullover",
+        "path": "../assets/exercise_collection/EZ/Pullover.gif",
+        "tags": [
+            "Lats"
+        ]
+    },
+    {
+        "id": 181,
+        "name": "Reverse Grip Bicep Curl",
+        "path": "../assets/exercise_collection/EZ/Reverse_Grip_Bicep_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 182,
+        "name": "Skullcrusher",
+        "path": "../assets/exercise_collection/EZ/Skullcrusher.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 183,
+        "name": "Spider Curl",
+        "path": "../assets/exercise_collection/EZ/Spider_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 184,
+        "name": "Calf Raise on Leg Press",
+        "path": "../assets/exercise_collection/Machine/Calf_Raise_on_Leg_Press.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 185,
+        "name": "Chest Fly",
+        "path": "../assets/exercise_collection/Machine/Chest_Fly.gif",
+        "tags": [
+            "Chest"
+        ]
+    },
+    {
+        "id": 186,
+        "name": "Hip Abductor",
+        "path": "../assets/exercise_collection/Machine/Hip_Abductor.gif",
+        "tags": [
+            "Abductors"
+        ]
+    },
+    {
+        "id": 187,
+        "name": "Hip Adduction",
+        "path": "../assets/exercise_collection/Machine/Hip_Adduction.gif",
+        "tags": [
+            "Adductors"
+        ]
+    },
+    {
+        "id": 188,
+        "name": "Leg Curl",
+        "path": "../assets/exercise_collection/Machine/Leg_Curl.gif",
+        "tags": [
+            "Hamstrings"
+        ]
+    },
+    {
+        "id": 189,
+        "name": "Leg Extension",
+        "path": "../assets/exercise_collection/Machine/Leg_Extension.gif",
+        "tags": [
+            "Quads"
+        ]
+    },
+    {
+        "id": 190,
+        "name": "Leg Press",
+        "path": "../assets/exercise_collection/Machine/Leg_Press.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 191,
+        "name": "Lying Leg Curl",
+        "path": "../assets/exercise_collection/Machine/Lying_Leg_Curl.gif",
+        "tags": [
+            "Hamstrings"
+        ]
+    },
+    {
+        "id": 192,
+        "name": "Machine Calf Raise",
+        "path": "../assets/exercise_collection/Machine/Machine_Calf_Raise.gif",
+        "tags": [
+            "Calves"
+        ]
+    },
+    {
+        "id": 193,
+        "name": "Machine Chest Press",
+        "path": "../assets/exercise_collection/Machine/Machine_Chest_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 194,
+        "name": "Machine Crunch",
+        "path": "../assets/exercise_collection/Machine/Machine_Crunch.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 195,
+        "name": "Machine Deadlift",
+        "path": "../assets/exercise_collection/Machine/Machine_Deadlift.gif",
+        "tags": [
+            "Posterior Chain"
+        ]
+    },
+    {
+        "id": 196,
+        "name": "Machine Decline Chest Press",
+        "path": "../assets/exercise_collection/Machine/Machine_Decline_Chest_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 197,
+        "name": "Machine Dip",
+        "path": "../assets/exercise_collection/Machine/Machine_Dip.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 198,
+        "name": "Machine Good Morning",
+        "path": "../assets/exercise_collection/Machine/Machine_Good_Morning.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings"
+        ]
+    },
+    {
+        "id": 199,
+        "name": "Machine Hammer Preacher Curl",
+        "path": "../assets/exercise_collection/Machine/Machine_Hammer_Preacher_Curl.gif",
+        "tags": [
+            "Biceps",
+            " Forearms"
+        ]
+    },
+    {
+        "id": 200,
+        "name": "Machine Incline Press",
+        "path": "../assets/exercise_collection/Machine/Machine_Incline_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 201,
+        "name": "Machine Lateral Raise",
+        "path": "../assets/exercise_collection/Machine/Machine_Lateral_Raise.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    },
+    {
+        "id": 202,
+        "name": "Machine Neutral Grip Press",
+        "path": "../assets/exercise_collection/Machine/Machine_Neutral_Grip_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 203,
+        "name": "Machine Pulldown",
+        "path": "../assets/exercise_collection/Machine/Machine_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 204,
+        "name": "Machine Pullover",
+        "path": "../assets/exercise_collection/Machine/Machine_Pullover.gif",
+        "tags": [
+            "Lats"
+        ]
+    },
+    {
+        "id": 205,
+        "name": "Machine Row",
+        "path": "../assets/exercise_collection/Machine/Machine_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 206,
+        "name": "Machine Shoulder Press",
+        "path": "../assets/exercise_collection/Machine/Machine_Shoulder_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 207,
+        "name": "Machine Shrug",
+        "path": "../assets/exercise_collection/Machine/Machine_Shrug.gif",
+        "tags": [
+            "Traps"
+        ]
+    },
+    {
+        "id": 208,
+        "name": "Machine Tricep Dip",
+        "path": "../assets/exercise_collection/Machine/Machine_Tricep_Dip.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 209,
+        "name": "Machine Tricep Extension",
+        "path": "../assets/exercise_collection/Machine/Machine_Tricep_Extension.gif",
+        "tags": [
+            "Triceps"
+        ]
+    },
+    {
+        "id": 210,
+        "name": "Neutral Grip Machine Row",
+        "path": "../assets/exercise_collection/Machine/Neutral_Grip_Machine_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 211,
+        "name": "Preacher Curl",
+        "path": "../assets/exercise_collection/Machine/Preacher_Curl.gif",
+        "tags": [
+            "Biceps"
+        ]
+    },
+    {
+        "id": 212,
+        "name": "Reverse Fly",
+        "path": "../assets/exercise_collection/Machine/Reverse_Fly.gif",
+        "tags": [
+            "Rear Delts"
+        ]
+    },
+    {
+        "id": 213,
+        "name": "Reverse Grip Machine Pulldown",
+        "path": "../assets/exercise_collection/Machine/Reverse_Grip_Machine_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 214,
+        "name": "Reverse Grip Machine Row",
+        "path": "../assets/exercise_collection/Machine/Reverse_Grip_Machine_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 215,
+        "name": "Reverse Grip T Bar Row",
+        "path": "../assets/exercise_collection/Machine/Reverse_Grip_T_Bar_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 216,
+        "name": "Reverse Hyperextension",
+        "path": "../assets/exercise_collection/Machine/Reverse_Hyperextension.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings",
+            " Lower Back"
+        ]
+    },
+    {
+        "id": 217,
+        "name": "Single Arm Machine Pulldown",
+        "path": "../assets/exercise_collection/Machine/Single_Arm_Machine_Pulldown.gif",
+        "tags": [
+            "Lats",
+            " Upper Back"
+        ]
+    },
+    {
+        "id": 218,
+        "name": "T Bar Row",
+        "path": "../assets/exercise_collection/Machine/T_Bar_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 219,
+        "name": "Ab Wheel",
+        "path": "../assets/exercise_collection/Other/Ab_Wheel.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 220,
+        "name": "Band Assisted Ab Wheel",
+        "path": "../assets/exercise_collection/Other/Band_Assisted_Ab_Wheel.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 221,
+        "name": "Belt Squat",
+        "path": "../assets/exercise_collection/Other/Belt_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 222,
+        "name": "Landmine Twist",
+        "path": "../assets/exercise_collection/Other/Landmine_Twist.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 223,
+        "name": "Seal Row",
+        "path": "../assets/exercise_collection/Other/Seal_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 224,
+        "name": "Standing Ab Wheel",
+        "path": "../assets/exercise_collection/Other/Standing_Ab_Wheel.gif",
+        "tags": [
+            "Abs"
+        ]
+    },
+    {
+        "id": 225,
+        "name": "Trap Bar Deadlift",
+        "path": "../assets/exercise_collection/Other/Trap_Bar_Deadlift.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 226,
+        "name": "Wrist Roller",
+        "path": "../assets/exercise_collection/Other/Wrist_Roller.gif",
+        "tags": [
+            "Forearms"
+        ]
+    },
+    {
+        "id": 227,
+        "name": "AD Press",
+        "path": "../assets/exercise_collection/Smith/AD_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 228,
+        "name": "Behind The Neck Press",
+        "path": "../assets/exercise_collection/Smith/Behind_The_Neck_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 229,
+        "name": "Bench Press",
+        "path": "../assets/exercise_collection/Smith/Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 230,
+        "name": "Bent Over Row",
+        "path": "../assets/exercise_collection/Smith/Bent_Over_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats"
+        ]
+    },
+    {
+        "id": 231,
+        "name": "Bulgarian Split Squat",
+        "path": "../assets/exercise_collection/Smith/Bulgarian_Split_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 232,
+        "name": "Chair Squat",
+        "path": "../assets/exercise_collection/Smith/Chair_Squat.gif",
+        "tags": [
+            "Quads"
+        ]
+    },
+    {
+        "id": 233,
+        "name": "Close Grip Bench Press",
+        "path": "../assets/exercise_collection/Smith/Close_Grip_Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 234,
+        "name": "Deadlift",
+        "path": "../assets/exercise_collection/Smith/Deadlift.gif",
+        "tags": [
+            "Posterior Chain"
+        ]
+    },
+    {
+        "id": 235,
+        "name": "Front Squat",
+        "path": "../assets/exercise_collection/Smith/Front_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 236,
+        "name": "Good Morning",
+        "path": "../assets/exercise_collection/Smith/Good_Morning.gif",
+        "tags": [
+            "Glutes",
+            " Hamstrings",
+            " Lower Back"
+        ]
+    },
+    {
+        "id": 237,
+        "name": "High Bar Squat",
+        "path": "../assets/exercise_collection/Smith/High_Bar_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 238,
+        "name": "High Row",
+        "path": "../assets/exercise_collection/Smith/High_Row.gif",
+        "tags": [
+            "Upper Back"
+        ]
+    },
+    {
+        "id": 239,
+        "name": "Incline Bench Press",
+        "path": "../assets/exercise_collection/Smith/Incline_Bench_Press.gif",
+        "tags": [
+            "Chest",
+            " Triceps"
+        ]
+    },
+    {
+        "id": 240,
+        "name": "Low Bar Squat",
+        "path": "../assets/exercise_collection/Smith/Low_Bar_Squat.gif",
+        "tags": [
+            "Legs"
+        ]
+    },
+    {
+        "id": 241,
+        "name": "Overhead Press",
+        "path": "../assets/exercise_collection/Smith/Overhead_Press.gif",
+        "tags": [
+            "Shoulders"
+        ]
+    },
+    {
+        "id": 242,
+        "name": "Reverse Grip Bent Over Row",
+        "path": "../assets/exercise_collection/Smith/Reverse_Grip_Bent_Over_Row.gif",
+        "tags": [
+            "Upper Back",
+            " Lats",
+            " Biceps"
+        ]
+    },
+    {
+        "id": 243,
+        "name": "Shrug",
+        "path": "../assets/exercise_collection/Smith/Shrug.gif",
+        "tags": [
+            "Traps"
+        ]
+    },
+    {
+        "id": 244,
+        "name": "Upright Row",
+        "path": "../assets/exercise_collection/Smith/Upright_Row.gif",
+        "tags": [
+            "Side Delts"
+        ]
+    }
+]

@@ -1,21 +1,7 @@
-import uuid from "react-native-uuid";
-
-let data = [];
-
 //randomized css color
 function randomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-for (let i = 0; i < 20; i++) {
-  data.push({
-    id: uuid.v4(),
-    name: `Exercise ${i + 1}`,
-
-    musclesWorked: ["Chest", "Back", "Legs"],
-    color: randomColor(),
-  });
-}
-console.log(data);
 
 let muscleGroups = [
   //Chest
@@ -123,4 +109,16 @@ let historyData = [
 ];
 
 let searchTags = [...equipment, ...muscleGroups];
+import data from "../assets/Exercise_Data.json";
+console.log(data);
+// fetch(jsonData)
+//   .then((res) => {
+//     if (!res.ok) {
+//       throw new Error(`HTTP error! Status: ${res.status}`);
+//     }
+//     return res.json();
+//   })
+//   .then((data) => console.log(data))
+//   .catch((error) => console.log("Unable to fetch data:", error));
+
 export { data, equipment, historyData, muscleGroups, searchTags, workoutData };

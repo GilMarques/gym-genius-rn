@@ -32,7 +32,7 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
   );
 };
 
-const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
+const Exercise = ({ id, name, sets, scrollRef }) => {
   const [visible, setVisible] = React.useState(false);
   const { addSet, removeSet, updateSet, startTimer } =
     useWorkoutDispatchContext();
@@ -42,9 +42,7 @@ const Exercise = ({ id, name, equipment, sets, scrollRef }) => {
   return (
     <View className="mb-4">
       <View className="flex-row items-center justify-between">
-        <Text className="text-xl font-bold text-secondary">
-          {name} ({equipment || "Other"})
-        </Text>
+        <Text className="text-xl font-bold text-secondary">{name}</Text>
 
         <Menu
           visible={visible}

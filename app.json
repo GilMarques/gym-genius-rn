@@ -30,7 +30,14 @@
     },
     "plugins": [
       "expo-router",
-      "expo-video"
+      "expo-video",
+      [
+        "expo-asset",
+  
+        {
+          "assets": ["./assets/exercise_collection/*/*.gif"]
+        }
+      ]
     ],
     "experiments": {
       "tsconfigPaths": true

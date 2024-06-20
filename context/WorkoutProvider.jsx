@@ -58,10 +58,28 @@ function workoutReducer(state, action) {
         }),
       };
 
+    case ACTIONS.ADD_EXERCISE:
+      // action.exerciseId;
+      return {
+        ...state,
+        exercises: [
+          ...state.exercises,
+          {
+            name: "",
+            sets: [
+              {
+                id: action.exerciseId,
+                previous: { weight: null, reps: null },
+                current: { weight: null, reps: null },
+              },
+            ],
+          },
+        ],
+      };
+
     default:
       return state;
   }
-  return state;
 }
 
 export function useWorkoutContext() {
@@ -102,8 +120,10 @@ export function WorkoutProvider({ children }) {
     dispatch({ type: ACTIONS.REMOVE_SET, exerciseId, setId });
   }
 
-  function addExercise(exerciseId, exerciseName) {
-    dispatch({ type: "addExercise", id: exerciseId, name: exerciseName });
+  function addExercises(exerciseIds) {
+    for (const exerciseId of exerciseIds) {
+      dispatch({ type: "addExercise", id: exerciseId });
+    }
   }
 
   function removeExercise(exerciseId) {
@@ -134,7 +154,7 @@ export function WorkoutProvider({ children }) {
           removeSet,
           updateSet,
           startTimer,
-          addExercise,
+          addExercises,
           removeExercise,
         }}
       >

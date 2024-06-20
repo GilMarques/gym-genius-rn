@@ -92,7 +92,7 @@ const CustomKeyPad = () => {
     }
   }, [dispatch]);
 
-  const animatedValue = useSharedValue(0);
+  const animatedValue = useSharedValue(-100);
 
   const rStyle = useAnimatedStyle(() => {
     return {
