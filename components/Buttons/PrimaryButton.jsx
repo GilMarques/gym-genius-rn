@@ -26,7 +26,7 @@ const PrimaryButton = ({
       }}
       disabled={disabled}
     >
-      <Text className={`text-lg font-bold text-primary ${textStyles}`}>
+      <Text className={`text-lg font-bold text-white ${textStyles}`}>
         {title}
       </Text>
     </TouchableOpacity>

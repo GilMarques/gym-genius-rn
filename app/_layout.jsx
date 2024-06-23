@@ -210,7 +210,8 @@ const optionsHomeMenu = {
 };
 
 const optionsSearch = ({ route }) => {
-  const { name } = data.find((e) => e.id === route.params.exerciseId);
+  const { name } = data.find((e) => e.id === parseInt(route.params.exerciseId));
+
   return {
     ...TransitionPresets.ModalPresentationIOS,
 

@@ -190,18 +190,7 @@ const initialWorkout = {
         },
       ],
     },
-    {
-      id: uuid.v4(),
-      name: "Exercise 2",
 
-      sets: [
-        {
-          id: uuid.v4(),
-          previous: null,
-          current: { weight: null, reps: null },
-        },
-      ],
-    },
     {
       id: uuid.v4(),
       name: "Exercise 3",

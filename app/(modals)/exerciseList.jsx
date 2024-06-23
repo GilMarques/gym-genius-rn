@@ -9,6 +9,7 @@ import PrimaryButton from "components/Buttons/PrimaryButton";
 import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListed from "components/Exercises/ExerciseListed";
+import { router } from "expo-router";
 
 const exerciseList = () => {
   const [value, setValue] = useState("");
@@ -63,6 +64,10 @@ const exerciseList = () => {
           containerStyles={"px-4 py-2 border-[0.5px] w-[150px]"}
           textStyles={"text-sm"}
           disabled={true}
+          handlePress={() => {
+            console.log(selectedIds);
+            router.back();
+          }}
         />
         <PrimaryButton
           title={`Add Exercises ${
@@ -72,7 +77,10 @@ const exerciseList = () => {
           textStyles={"text-sm"}
           // disabled={selectedIds.length == 0}
           disabled={false}
-          handlePress={() => console.log(selectedIds)}
+          handlePress={() => {
+            console.log(selectedIds);
+            router.back();
+          }}
         />
       </View>
     </View>

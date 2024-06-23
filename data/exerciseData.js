@@ -1,3 +1,5 @@
+import data from "../assets/Exercise_Data.json";
+
 //randomized css color
 function randomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -6,7 +8,7 @@ function randomColor() {
 let muscleGroups = [
   //Chest
   "Chest",
-  // Shoulders
+  "Shoulders",
   "Front Delts",
   "Side Delts",
   "Rear Delts",
@@ -18,7 +20,9 @@ let muscleGroups = [
   "Upper Back",
   "Lats",
   "Lower Back",
-  //Legs
+  "Posterior Chain",
+
+  "Legs",
   "Quads",
   "Hamstrings",
   "Calves",
@@ -109,16 +113,5 @@ let historyData = [
 ];
 
 let searchTags = [...equipment, ...muscleGroups];
-import data from "../assets/Exercise_Data.json";
-console.log(data);
-// fetch(jsonData)
-//   .then((res) => {
-//     if (!res.ok) {
-//       throw new Error(`HTTP error! Status: ${res.status}`);
-//     }
-//     return res.json();
-//   })
-//   .then((data) => console.log(data))
-//   .catch((error) => console.log("Unable to fetch data:", error));
 
 export { data, equipment, historyData, muscleGroups, searchTags, workoutData };

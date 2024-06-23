@@ -95,22 +95,6 @@ const TabsLayout = () => {
             ),
           }}
         />
-        {/* <Tabs.Screen
-          name="analytics"
-          options={{
-            title: "Analytics",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon_family={"ionicons"}
-                icon_name={"analytics-sharp"}
-                color={color}
-                name={"Analytics"}
-                focused={focused}
-              />
-            ),
-          }}
-        /> */}
       </Tabs>
       {currentWorkout != null && (
         <WorkoutBottomSheetButton
