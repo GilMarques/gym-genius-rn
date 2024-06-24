@@ -42,7 +42,7 @@ const Exercise = ({ id, name, sets, scrollRef }) => {
   return (
     <View className="mb-4">
       <View className="flex-row items-center justify-between">
-        <Text className="text-xl font-bold text-secondary">{name}</Text>
+        <Text className="text-xl font-bold text-white">{name}</Text>
 
         <Menu
           visible={visible}

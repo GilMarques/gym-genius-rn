@@ -21,7 +21,7 @@ import tailwindConfig from "../../tailwind.config";
 const fullConfig = resolveConfig(tailwindConfig);
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
-const TRANSLATE_X_THRESHOLD = SCREEN_WIDTH * 0.15;
+const TRANSLATE_X_THRESHOLD = SCREEN_WIDTH * 0.1;
 
 const LIST_ITEM_HEIGHT = 30;
 

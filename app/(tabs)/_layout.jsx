@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import WorkoutBottomSheetButton from "components/WorkoutBottomSheetButton";
+import { TimerProvider } from "context/TimerProvider";
 import { useWorkoutContext } from "context/WorkoutProvider";
 import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -96,13 +97,15 @@ const TabsLayout = () => {
           }}
         />
       </Tabs>
-      {currentWorkout != null && (
-        <WorkoutBottomSheetButton
-          handlePresentModal={() =>
-            router.navigate("/(modals)/currentTemplate")
-          }
-        />
-      )}
+      <TimerProvider>
+        {currentWorkout != null && (
+          <WorkoutBottomSheetButton
+            handlePresentModal={() =>
+              router.navigate("/(modals)/currentTemplate")
+            }
+          />
+        )}
+      </TimerProvider>
 
       <StatusBar style="light" />
     </>

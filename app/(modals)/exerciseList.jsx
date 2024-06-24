@@ -9,6 +9,7 @@ import PrimaryButton from "components/Buttons/PrimaryButton";
 import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListed from "components/Exercises/ExerciseListed";
+import { useWorkoutDispatchContext } from "context/WorkoutProvider";
 import { router } from "expo-router";
 
 const exerciseList = () => {
@@ -35,6 +36,8 @@ const exerciseList = () => {
       )
     );
   }, [value, tags]);
+
+  const { addExercises } = useWorkoutDispatchContext();
   return (
     <View style={{ flex: 1 }}>
       <DropdownSearch
@@ -78,7 +81,7 @@ const exerciseList = () => {
           // disabled={selectedIds.length == 0}
           disabled={false}
           handlePress={() => {
-            console.log(selectedIds);
+            addExercises(selectedIds);
             router.back();
           }}
         />

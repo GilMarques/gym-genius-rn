@@ -1,12 +1,13 @@
 import { Feather } from "@expo/vector-icons";
-import { useWorkoutContext } from "context/WorkoutProvider";
+import { useTimerContext } from "context/TimerProvider";
+import { secondsToHourMinuteSecond } from "lib/helper";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { secondsToHourMinuteSecond } from "../lib/helper";
 
 const WorkoutBottomSheetButton = ({ handlePresentModal }) => {
-  const { workoutTimer: seconds } = useWorkoutContext();
+  const { workoutTimer } = useTimerContext();
+
   return (
     <TouchableWithoutFeedback onPress={handlePresentModal}>
       <View className="absolute bottom-[48px] z-10 flex w-[101%] self-center rounded-t-xl border-x border-t border-[#444444] bg-primary">
@@ -14,8 +15,9 @@ const WorkoutBottomSheetButton = ({ handlePresentModal }) => {
           <Text>
             <Feather name="x" size={25} color="white" />
           </Text>
+
           <Text className="text-center text-white">
-            {secondsToHourMinuteSecond(seconds)}
+            {secondsToHourMinuteSecond(workoutTimer)}
           </Text>
         </View>
 

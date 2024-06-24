@@ -105,15 +105,9 @@ const optionsCurrent = {
 
   gestureEnabled: true,
   presentation: "modal",
-
+  headerShown: false,
   cardStyle: { backgroundColor: "#1a1a1a" },
   overlayStyle: { borderColor: "#1a1a1a" },
-
-  header: () => (
-    <View className="mt-4 flex w-[20%] self-center">
-      <View className="rounded-md border-2 border-secondary"></View>
-    </View>
-  ),
 };
 const optionsNew = {
   ...TransitionPresets.ModalPresentationIOS,
