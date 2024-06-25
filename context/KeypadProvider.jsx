@@ -14,17 +14,17 @@ export function KeypadProvider({ children }) {
     dispatch.current = newDispatch;
   };
 
+  const value = {
+    state: { dispatch },
+    actions: {
+      setInputDispatch,
+      keypadVisible: visible,
+      openKeypad: () => setVisible(true),
+      closeKeypad: () => setVisible(false),
+    },
+  };
+
   return (
-    <KeypadContext.Provider
-      value={{
-        dispatch,
-        setInputDispatch,
-        keypadVisible: visible,
-        openKeypad: () => setVisible(true),
-        closeKeypad: () => setVisible(false),
-      }}
-    >
-      {children}
-    </KeypadContext.Provider>
+    <KeypadContext.Provider value={value}>{children}</KeypadContext.Provider>
   );
 }

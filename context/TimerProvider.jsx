@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 export const TimerContext = createContext();
 
@@ -16,7 +16,7 @@ export function TimerProvider({ children }) {
 
   const intervalRef = useRef(null);
 
-  function startTimer(value) {
+  function startTimer() {
     setState("play");
     setWorkoutTimer(0);
     intervalRef.current = setInterval(() => {
@@ -47,15 +47,26 @@ export function TimerProvider({ children }) {
     });
   }
 
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setWorkoutTimer((prevTimer) => {
+        return prevTimer + 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  const value = {
+    state: {
+      state,
+      workoutTimer,
+      restTimer,
+    },
+    actions: { startTimer, resumeTimer, pauseTimer, startRestTimer },
+  };
+
   return (
-    <TimerContext.Provider
-      value={{
-        state,
-        workoutTimer,
-        restTimer,
-      }}
-    >
-      {children}
-    </TimerContext.Provider>
+    <TimerContext.Provider value={value}>{children}</TimerContext.Provider>
   );
 }

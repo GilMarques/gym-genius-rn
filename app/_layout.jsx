@@ -11,11 +11,11 @@ import {
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
 
-import GlobalProvider from "context/GlobalProvider";
-
 import { Feather, FontAwesome6 } from "@expo/vector-icons";
 import CustomKeyPad from "components/CustomKeyPad";
 import { KeypadProvider } from "context/KeypadProvider";
+import { LoginProvider } from "context/LoginProvider";
+import { TimerProvider } from "context/TimerProvider";
 import { WorkoutProvider } from "context/WorkoutProvider";
 import { data } from "data/exerciseData";
 import { router, withLayoutContext } from "expo-router";
@@ -31,45 +31,47 @@ const RootLayout = () => {
     <GestureHandlerRootView>
       <View style={{ height: "100%", width: "100%" }}>
         <PaperProvider>
-          <GlobalProvider>
+          <LoginProvider>
             <WorkoutProvider>
               <KeypadProvider>
-                <JsStack>
-                  <JsStack.Screen name="index" options={optionsIndex} />
-                  <JsStack.Screen name="(auth)" options={optionsAuth} />
-                  <JsStack.Screen name="(tabs)" options={optionsTabs} />
+                <TimerProvider>
+                  <JsStack>
+                    <JsStack.Screen name="index" options={optionsIndex} />
+                    <JsStack.Screen name="(auth)" options={optionsAuth} />
+                    <JsStack.Screen name="(tabs)" options={optionsTabs} />
 
-                  <JsStack.Screen
-                    name="(modals)/newTemplate"
-                    options={optionsNew}
-                  />
+                    <JsStack.Screen
+                      name="(modals)/newTemplate"
+                      options={optionsNew}
+                    />
 
-                  <JsStack.Screen
-                    name="(modals)/currentTemplate"
-                    options={optionsCurrent}
-                  />
+                    <JsStack.Screen
+                      name="(modals)/currentTemplate"
+                      options={optionsCurrent}
+                    />
 
-                  <JsStack.Screen
-                    name="(modals)/exerciseList"
-                    options={optionsList}
-                  />
+                    <JsStack.Screen
+                      name="(modals)/exerciseList"
+                      options={optionsList}
+                    />
 
-                  <JsStack.Screen
-                    name="(modals)/homeMenu"
-                    options={optionsHomeMenu}
-                  />
+                    <JsStack.Screen
+                      name="(modals)/homeMenu"
+                      options={optionsHomeMenu}
+                    />
 
-                  <JsStack.Screen
-                    name="(modals)/search/[exerciseId]"
-                    options={optionsSearch}
-                  />
-                </JsStack>
+                    <JsStack.Screen
+                      name="(modals)/search/[exerciseId]"
+                      options={optionsSearch}
+                    />
+                  </JsStack>
 
-                <CustomKeyPad />
-                <StatusBar style="light" />
+                  <CustomKeyPad />
+                  <StatusBar style="light" />
+                </TimerProvider>
               </KeypadProvider>
             </WorkoutProvider>
-          </GlobalProvider>
+          </LoginProvider>
         </PaperProvider>
       </View>
     </GestureHandlerRootView>

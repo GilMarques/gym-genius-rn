@@ -4,7 +4,6 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 
-import { useWorkoutDispatchContext } from "context/WorkoutProvider";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Divider, Icon, Menu } from "react-native-paper";
 import tailwindConfig from "../../tailwind.config";
@@ -34,8 +33,7 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
 
 const Exercise = ({ id, name, sets, scrollRef }) => {
   const [visible, setVisible] = React.useState(false);
-  const { addSet, removeSet, updateSet, startTimer } =
-    useWorkoutDispatchContext();
+
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);

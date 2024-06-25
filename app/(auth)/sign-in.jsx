@@ -5,11 +5,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import PrimaryButton from "components/Buttons/PrimaryButton";
 import FormField from "components/FormField";
 import { images } from "constants";
-import { useGlobalContext } from "context/GlobalProvider";
+import { useLoginContext } from "context/LoginProvider";
 import { Link, router } from "expo-router";
 import { getCurrentUser, signIn } from "lib/appwrite";
 const SignIn = () => {
-  const { setUser, setIsLoggedIn } = useGlobalContext();
+  const { setUser, setIsLoggedIn } = useLoginContext();
   const [isSubmiting, setIsSubmiting] = useState(false);
   const [form, setForm] = useState({
     email: "",

@@ -1,5 +1,4 @@
 import { Feather, Ionicons } from "@expo/vector-icons";
-import { useWorkoutDispatchContext } from "context/WorkoutProvider";
 import React, { useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 
@@ -40,7 +39,10 @@ const Set = ({
   const opacity = useSharedValue(1);
 
   const [checked, setChecked] = useState(false);
-  const { removeSet, updateSet } = useWorkoutDispatchContext();
+
+  const {
+    actions: { removeSet },
+  } = useWorkoutContext();
 
   const panGesture = Gesture.Pan()
     .onUpdate((event) => {

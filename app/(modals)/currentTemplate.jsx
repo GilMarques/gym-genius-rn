@@ -1,11 +1,8 @@
 import { FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton";
 import Exercise from "components/Exercises/Exercise";
-import { TimerProvider, useTimerContext } from "context/TimerProvider";
-import {
-  useWorkoutContext,
-  useWorkoutDispatchContext,
-} from "context/WorkoutProvider";
+import { useTimerContext } from "context/TimerProvider";
+import { useWorkoutContext } from "context/WorkoutProvider";
 import { router } from "expo-router";
 import { secondsToHourMinuteSecond } from "lib/helper";
 import React, { useRef, useState } from "react";
@@ -17,7 +14,7 @@ import {
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const TimerDisplay = ({ seconds }) => {
+const TimerDisplay = () => {
   const [state, setState] = useState("play");
   const { workoutTimer } = useTimerContext();
   return (
@@ -39,7 +36,7 @@ const TimerDisplay = ({ seconds }) => {
           <>
             <FontAwesome6 name="play" size={15} color="black" />
             <Text className="font-bold">
-              {secondsToHourMinuteSecond(seconds)}
+              {secondsToHourMinuteSecond(workoutTimer)}
             </Text>
           </>
         )}
@@ -49,22 +46,15 @@ const TimerDisplay = ({ seconds }) => {
 };
 
 const currentTemplate = () => {
-  const {
-    title,
-    currentWorkout,
-    workoutTimer: seconds,
-    restTimer,
-  } = useWorkoutContext();
+  const { title, currentWorkout } = useWorkoutContext();
   const scrollRef = useRef();
-  const dispatch = useWorkoutDispatchContext();
 
   return (
     <SafeAreaView className="h-full bg-primary">
       <View>
         <View className="flex-row items-center justify-between px-6">
-          <TimerProvider>
-            <TimerDisplay seconds={seconds} />
-          </TimerProvider>
+          <TimerDisplay />
+
           <PrimaryButton title="Finish" containerStyles={"px-4"} />
         </View>
         <View className="absolute flex self-center">

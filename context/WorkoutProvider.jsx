@@ -2,14 +2,9 @@ import { workoutReducer } from "lib/workoutReducer";
 import { createContext, useContext, useReducer } from "react";
 
 export const WorkoutContext = createContext();
-export const WorkoutDispatchContext = createContext();
 
 export function useWorkoutContext() {
   return useContext(WorkoutContext);
-}
-
-export function useWorkoutDispatchContext() {
-  return useContext(WorkoutDispatchContext);
 }
 
 export function WorkoutProvider({ children }) {
@@ -43,27 +38,22 @@ export function WorkoutProvider({ children }) {
     dispatch({ type: "removeExercise", exerciseId });
   }
 
-  return (
-    <WorkoutContext.Provider
-      value={{
-        currentWorkout,
+  const value = {
+    state: {
+      currentWorkout,
+      title: currentWorkout.title,
+    },
+    actions: {
+      addSet,
+      removeSet,
+      updateSet,
+      addExercises,
+      removeExercise,
+    },
+  };
 
-        title: currentWorkout.title,
-      }}
-    >
-      <WorkoutDispatchContext.Provider
-        value={{
-          dispatch,
-          addSet,
-          removeSet,
-          updateSet,
-          addExercises,
-          removeExercise,
-        }}
-      >
-        {children}
-      </WorkoutDispatchContext.Provider>
-    </WorkoutContext.Provider>
+  return (
+    <WorkoutContext.Provider value={value}>{children}</WorkoutContext.Provider>
   );
 }
 
