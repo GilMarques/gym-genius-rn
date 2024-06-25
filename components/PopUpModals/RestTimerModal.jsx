@@ -1,6 +1,8 @@
+import { Feather } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton";
+import PopUpModal from "components/PopUpModal";
 import React, { useEffect, useRef, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
 const items = [];
@@ -32,6 +34,15 @@ const WheelPicker = ({ items, value, onIndexChange, itemHeight }) => {
         ref={ref}
         data={items}
         snapToInterval={itemHeight}
+        getItemLayout={(_, index) => ({
+          length: itemHeight,
+          offset: itemHeight * index,
+          index,
+        })}
+        onScrollToIndexFailed={({ index }) => {
+          const yOffset = index * itemHeight;
+          ref.current?.scrollTo({ y: yOffset, animated: true });
+        }}
         renderItem={({ item }) => (
           <Text style={[styles.pickerItem, { height: itemHeight }]}>
             {item}
@@ -49,59 +60,72 @@ const WheelPicker = ({ items, value, onIndexChange, itemHeight }) => {
   );
 };
 
-const RestTimerModal = () => {
+const RestTimerModal = ({ visible, setVisible }) => {
   const [value, setValue] = useState(0);
 
   return (
-    <View className="rounded-md bg-[#141414] p-4">
-      <Text className="text-center text-xl font-bold text-white">
-        Rest Timer
-      </Text>
+    <PopUpModal visible={visible} setVisible={setVisible}>
+      <View
+        className="rounded-xl border border-neutral-800 bg-[#141414] p-4"
+        style={{ elevation: 2 }}
+      >
+        <View className="flex-row items-center justify-end">
+          <Text className="absolute w-full text-center text-xl font-bold text-white">
+            Rest Timer
+          </Text>
 
-      <View className="mt-4 flex-row justify-around">
-        <PrimaryButton
-          title="Off"
-          containerStyles={"px-4"}
-          textStyles={"text-sm"}
-          handlePress={() => setValue(0)}
+          <TouchableWithoutFeedback onPress={() => setVisible(false)}>
+            <View className="right-2">
+              <Feather name="x" size={25} color="lightgrey" />
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+
+        <View className="mt-4 flex-row justify-around" style={{ gap: 5 }}>
+          <PrimaryButton
+            title="Off"
+            containerStyles={"px-4 py-2"}
+            textStyles={"text-sm"}
+            handlePress={() => setValue(0)}
+          />
+          <PrimaryButton
+            title="1:00"
+            containerStyles={"px-4 py-2"}
+            textStyles={"text-sm"}
+            handlePress={() => setValue(60)}
+          />
+          <PrimaryButton
+            title="2:00"
+            containerStyles={"px-4 py-2"}
+            textStyles={"text-sm"}
+            handlePress={() => setValue(120)}
+          />
+          <PrimaryButton
+            title="3:00"
+            containerStyles={"px-4 py-2"}
+            textStyles={"text-sm"}
+            handlePress={() => setValue(180)}
+          />
+          <PrimaryButton
+            title="5:00"
+            containerStyles={"px-4 py-2"}
+            textStyles={"text-sm"}
+            handlePress={() => setValue(300)}
+          />
+        </View>
+
+        <WheelPicker
+          items={items}
+          onIndexChange={(item) => {
+            setValue(item * 5);
+          }}
+          value={value / 5}
+          itemHeight={40}
         />
-        <PrimaryButton
-          title="1:00"
-          containerStyles={"px-4"}
-          textStyles={"text-sm"}
-          handlePress={() => setValue(60)}
-        />
-        <PrimaryButton
-          title="2:00"
-          containerStyles={"px-4"}
-          textStyles={"text-sm"}
-          handlePress={() => setValue(120)}
-        />
-        <PrimaryButton
-          title="3:00"
-          containerStyles={"px-4"}
-          textStyles={"text-sm"}
-          handlePress={() => setValue(180)}
-        />
-        <PrimaryButton
-          title="5:00"
-          containerStyles={"px-4"}
-          textStyles={"text-sm"}
-          handlePress={() => setValue(300)}
-        />
+
+        <PrimaryButton title="Start" containerStyles={"px-4"} />
       </View>
-
-      <WheelPicker
-        items={items}
-        onIndexChange={(item) => {
-          setValue(item * 5);
-        }}
-        value={value / 5}
-        itemHeight={40}
-      />
-
-      <PrimaryButton title="Done" containerStyles={"px-4"} />
-    </View>
+    </PopUpModal>
   );
 };
 

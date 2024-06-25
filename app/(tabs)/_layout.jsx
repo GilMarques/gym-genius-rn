@@ -33,7 +33,9 @@ const TabIcon = ({ icon_family, icon_name, color, name, focused }) => {
 };
 
 const TabsLayout = () => {
-  const { currentWorkout } = useWorkoutContext();
+  const {
+    state: { currentWorkout },
+  } = useWorkoutContext();
   return (
     <>
       <Tabs

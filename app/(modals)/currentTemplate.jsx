@@ -1,22 +1,26 @@
 import { FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton";
 import Exercise from "components/Exercises/Exercise";
+import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import { useTimerContext } from "context/TimerProvider";
 import { useWorkoutContext } from "context/WorkoutProvider";
 import { router } from "expo-router";
 import { secondsToHourMinuteSecond } from "lib/helper";
 import React, { useRef, useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import {
   ScrollView,
   TouchableWithoutFeedback,
 } from "react-native-gesture-handler";
+import { Divider } from "react-native-paper";
 
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const TimerDisplay = () => {
   const [state, setState] = useState("play");
-  const { workoutTimer } = useTimerContext();
+  const {
+    state: { workoutTimer },
+  } = useTimerContext();
   return (
     <View className="flex-row items-center">
       <View
@@ -46,27 +50,42 @@ const TimerDisplay = () => {
 };
 
 const currentTemplate = () => {
-  const { title, currentWorkout } = useWorkoutContext();
+  const {
+    state: { title, currentWorkout },
+  } = useWorkoutContext();
   const scrollRef = useRef();
+
+  const [RestTimerModalVisible, setRestTimerModalVisible] = useState(false);
 
   return (
     <SafeAreaView className="h-full bg-primary">
       <View>
         <View className="flex-row items-center justify-between px-6">
-          <TimerDisplay />
+          <View
+            className="flex-row items-center justify-between"
+            style={{ gap: 10 }}
+          >
+            <TimerDisplay />
+            <PrimaryButton
+              title={<MaterialIcons name="alarm" size={20} color="white" />}
+              containerStyles={"px-2"}
+              handlePress={() => setRestTimerModalVisible(true)}
+            />
+          </View>
 
           <PrimaryButton title="Finish" containerStyles={"px-4"} />
         </View>
-        <View className="absolute flex self-center">
-          <Text className="text-xl text-white">{title}</Text>
-        </View>
       </View>
+      <Divider className="mt-4" />
       <View className="px-4">
         <ScrollView
           showsVerticalScrollIndicator={false}
           ref={scrollRef}
           className="my-2 h-[80%]"
         >
+          <View className="mb-4 flex self-center">
+            <Text className="text-xl text-white">{title}</Text>
+          </View>
           {currentWorkout.exercises.map((exercise, exerciseIndex) => (
             <Exercise
               key={exercise.id}
@@ -86,14 +105,10 @@ const currentTemplate = () => {
         </ScrollView>
       </View>
 
-      <View className="border-t border-white">
-        <TouchableOpacity>
-          <View className="mt-2 w-1/3 flex-row items-center justify-between self-end rounded-md border border-white px-4 py-2">
-            <MaterialIcons name="alarm" size={20} color="white" />
-            <Text className="text-white">Rest Timer</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
+      <RestTimerModal
+        visible={RestTimerModalVisible}
+        setVisible={setRestTimerModalVisible}
+      />
     </SafeAreaView>
   );
 };

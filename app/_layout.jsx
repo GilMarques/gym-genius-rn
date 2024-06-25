@@ -104,7 +104,7 @@ const optionsTabs = {
 };
 const optionsCurrent = {
   ...TransitionPresets.ModalPresentationIOS,
-
+  topOffset: 30,
   gestureEnabled: true,
   presentation: "modal",
   headerShown: false,
