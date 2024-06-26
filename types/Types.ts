@@ -9,7 +9,6 @@ export type ExerciseProps = {
     id: string;
 
     previous: { reps: number; weight: number } | null;
-    current: { reps: number; weight: number };
   }[];
 };
 

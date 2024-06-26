@@ -12,17 +12,14 @@ export const initialWorkout: WorkoutProps = {
         {
           id: "a1",
           previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
         },
         {
           id: "a2",
           previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
         },
         {
           id: "a3",
           previous: null,
-          current: { reps: 10, weight: 50 },
         },
       ],
     },
@@ -34,17 +31,14 @@ export const initialWorkout: WorkoutProps = {
         {
           id: "b1",
           previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
         },
         {
           id: "b2",
           previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
         },
         {
           id: "b3",
           previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
         },
       ],
     },

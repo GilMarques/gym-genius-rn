@@ -166,7 +166,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           setIndex={setIndex}
           exerciseId={id}
           scrollRef={scrollRef}
-          onComplete={() => startTimer(restTime)}
+          // onComplete={() => startTimer(restTime)}
           {...set}
         />
       ))}
