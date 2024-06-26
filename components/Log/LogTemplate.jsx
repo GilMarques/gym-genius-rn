@@ -1,7 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import React from "react";
 import { Text, View } from "react-native";
-import { secondsToHm } from "../../lib/helper";
+import { secondsToHM } from "../../lib/helper";
 import Template from "../Template";
 
 const icon_size = 12;
@@ -18,7 +18,7 @@ const HeaderReview = ({ title, duration, tonnage, numRecords }) => {
       <View className="flex-row items-center justify-between">
         <View className="flex-row items-center gap-2">
           <FontAwesome6 name="clock" size={icon_size} color="white" />
-          <Text className="text-white">{secondsToHm(duration)}</Text>
+          <Text className="text-white">{secondsToHM(duration)}</Text>
         </View>
 
         <View className="flex-row items-center gap-2">

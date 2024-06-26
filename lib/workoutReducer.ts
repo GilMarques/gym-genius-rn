@@ -1,29 +1,23 @@
+import { data } from "data/exerciseData";
 import uuid from "react-native-uuid";
+import { Action, WorkoutProps } from "types/Types";
+import { ACTIONS } from "./workoutProviderActions";
 
-export const ACTIONS = {
-  ADD_SET: "addSet",
-  REMOVE_SET: "removeSet",
-  UPDATE_SET: "updateSet",
-  ADD_EXERCISE: "addExercise",
-  REMOVE_EXERCISE: "removeExercise",
-  SWAP_EXERCISE: "swapExercise",
-};
-
-export function workoutReducer(state, action) {
+export function workoutReducer(state: WorkoutProps, action: Action) {
   switch (action.type) {
     case ACTIONS.ADD_SET:
       const result = {
         ...state,
         exercises: state.exercises.map((exercise) => {
-          if (exercise.id === action.exerciseId) {
+          if (exercise.id === action.payload.exerciseId) {
             return {
               ...exercise,
               sets: [
                 ...exercise.sets,
                 {
                   id: uuid.v4(),
-                  previous: { weight: 0, reps: 0 },
-                  current: { weight: null, reps: null },
+                  previous: null,
+                  current: null,
                 },
               ],
             };
@@ -37,11 +31,11 @@ export function workoutReducer(state, action) {
       return {
         ...state,
         exercises: state.exercises.map((exercise) => {
-          if (exercise.id === action.exerciseId) {
+          if (exercise.id === action.payload.exerciseId) {
             return {
               ...exercise,
               sets: exercise.sets.filter((set) => {
-                return set.id !== action.setId;
+                return set.id !== action.payload.setId;
               }),
             };
           }
@@ -50,7 +44,7 @@ export function workoutReducer(state, action) {
       };
 
     case ACTIONS.ADD_EXERCISE:
-      const exercise = data.find((e) => e.id === parseInt(action.id));
+      const exercise = data.find((e) => e.id === action.payload.exerciseId);
       return {
         ...state,
         exercises: [

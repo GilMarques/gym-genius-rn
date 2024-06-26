@@ -27,8 +27,9 @@ const LIST_ITEM_HEIGHT = 30;
 
 const Set = ({
   id,
-  weight,
-  reps,
+
+  previous,
+  current,
   setIndex,
   scrollRef,
   exerciseId,
@@ -101,14 +102,20 @@ const Set = ({
             </View>
           </View>
 
-          <Text style={styles.textElement}>-</Text>
+          <Text style={styles.textElement}>
+            {previous ? previous.weight + " x " + previous.reps : "-"}
+          </Text>
 
           <View style={styles.fieldElement}>
-            <CustomTextInput placeholder={"5"} />
+            <CustomTextInput
+              placeholder={previous ? previous.weight.toString() : ""}
+            />
           </View>
 
           <View style={styles.fieldElement}>
-            <CustomTextInput placeholder={"5"} />
+            <CustomTextInput
+              placeholder={previous ? previous.reps.toString() : ""}
+            />
           </View>
 
           <View className="w-[20%] flex-row justify-end">

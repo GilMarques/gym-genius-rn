@@ -1,12 +1,22 @@
-import { FontAwesome6 } from "@expo/vector-icons";
+import {
+  FontAwesome6,
+  MaterialCommunityIcons,
+  MaterialIcons,
+} from "@expo/vector-icons";
 import React from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import {
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 
 import { useTimerContext } from "context/TimerProvider";
 import { useWorkoutContext } from "context/WorkoutProvider";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { getTailwindConfig, secondsToms } from "lib/helper";
+
 import { Divider, Icon, Menu } from "react-native-paper";
 import tailwindConfig from "../../tailwind.config";
 import Set from "./Set";
@@ -33,7 +43,9 @@ const MenuItem = ({ leadingIcon, title, onPress }) => {
   );
 };
 
-const Exercise = ({ id, name, sets, scrollRef }) => {
+const config = getTailwindConfig();
+
+const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
   const [visible, setVisible] = React.useState(false);
 
   const openMenu = () => setVisible(true);
@@ -120,13 +132,26 @@ const Exercise = ({ id, name, sets, scrollRef }) => {
         </Menu>
       </View>
 
+      <View className="flex-row items-center" style={{ gap: 5 }}>
+        <MaterialIcons
+          name="alarm"
+          size={15}
+          color={config.theme.colors.secondary}
+        />
+        <Text className="text-secondary">
+          {restTime ? secondsToms(restTime) : "Off"}
+        </Text>
+      </View>
+
       <View className="mt-2 flex-row justify-between">
         <Text className={"text-white  " + widthSet}>Set</Text>
         <Text className={"text-white text-center " + widthPrevious}>
           Previous
         </Text>
 
-        <Text className={"text-white text-center " + widthWeight}>kg</Text>
+        <Text className={"text-white text-center " + widthWeight}>
+          <MaterialCommunityIcons name="weight" size={15} color="white" /> kg
+        </Text>
         <Text className={"text-white text-center " + widthReps}>Reps</Text>
         <View
           className={"flex items-center justify-center " + widthCheck}
@@ -141,7 +166,7 @@ const Exercise = ({ id, name, sets, scrollRef }) => {
           setIndex={setIndex}
           exerciseId={id}
           scrollRef={scrollRef}
-          onComplete={() => startTimer(60)}
+          onComplete={() => startTimer(restTime)}
           {...set}
         />
       ))}

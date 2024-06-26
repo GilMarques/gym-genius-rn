@@ -1,9 +1,9 @@
+import { initialWorkout } from "data/initialWorkout";
 import {
   addExercises,
   addSet,
   removeExercise,
   removeSet,
-  updateSet,
 } from "lib/workoutProviderActions";
 import { workoutReducer } from "lib/workoutReducer";
 import { createContext, useContext, useReducer } from "react";
@@ -25,7 +25,6 @@ export function WorkoutProvider({ children }) {
     actions: {
       addSet: addSet(dispatch),
       removeSet: removeSet(dispatch),
-      updateSet: updateSet(dispatch),
       addExercises: addExercises(dispatch),
       removeExercise: removeExercise(dispatch),
     },
@@ -35,33 +34,3 @@ export function WorkoutProvider({ children }) {
     <WorkoutContext.Provider value={value}>{children}</WorkoutContext.Provider>
   );
 }
-
-const initialWorkout: WorkoutProps = {
-  title: "Legs",
-  exercises: [
-    {
-      id: 1,
-      name: "Squats",
-      sets: [
-        {
-          id: "a1",
-          previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
-          isCompleted: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: "Deadlifts",
-      sets: [
-        {
-          id: "b2",
-          previous: { reps: 10, weight: 50 },
-          current: { reps: 10, weight: 50 },
-          isCompleted: false,
-        },
-      ],
-    },
-  ],
-};
