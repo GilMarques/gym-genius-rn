@@ -83,8 +83,8 @@ const currentTemplate = () => {
           ref={scrollRef}
           className="my-2 h-[80%]"
         >
-          <View className="mb-4 flex self-center">
-            <Text className="text-xl text-white">{title}</Text>
+          <View className="mb-2 flex self-center">
+            <Text className="text-2xl font-bold text-white">{title}</Text>
           </View>
           {currentWorkout.exercises.map((exercise, exerciseIndex) => (
             <Exercise

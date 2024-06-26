@@ -4,6 +4,8 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import resolveConfig from "tailwindcss/resolveConfig";
 
+import { useTimerContext } from "context/TimerProvider";
+import { useWorkoutContext } from "context/WorkoutProvider";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Divider, Icon, Menu } from "react-native-paper";
 import tailwindConfig from "../../tailwind.config";
@@ -37,6 +39,14 @@ const Exercise = ({ id, name, sets, scrollRef }) => {
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
+
+  const {
+    actions: { addSet, removeExercise },
+  } = useWorkoutContext();
+
+  const {
+    actions: { startTimer },
+  } = useTimerContext();
   return (
     <View className="mb-4">
       <View className="flex-row items-center justify-between">
@@ -50,6 +60,7 @@ const Exercise = ({ id, name, sets, scrollRef }) => {
               <FontAwesome6 name="ellipsis" size={25} color="white" />
             </TouchableWithoutFeedback>
           }
+          elevation={1}
           className="w-[70%]"
           contentStyle={{ backgroundColor: "#1a1a1a" }}
         >
