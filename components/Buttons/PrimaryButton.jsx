@@ -18,7 +18,7 @@ const PrimaryButton = ({
     <TouchableOpacity
       onPress={handlePress}
       activeOpacity={0.7}
-      className={`flex justify-center items-center rounded-md p-1 ${containerStyles}   border `}
+      className={`flex justify-center items-center rounded-md p-1 ${containerStyles}   `}
       style={{
         backgroundColor: color || fullConfig.theme.colors.secondary,
         opacity: disabled ? 0.5 : 1,

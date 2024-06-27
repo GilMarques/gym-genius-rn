@@ -1,24 +1,24 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import { useTimerContext } from "context/TimerProvider";
-import { secondsToHourMinuteSecond } from "lib/helper";
-import { useState } from "react";
+import { secondsToHourMinuteSecond, secondsToms } from "lib/helper";
 import { Text, View } from "react-native";
-
+import RestTimerProgressBar from "./RestTimerProgressBar";
 export default TimerDisplay = () => {
-  const [state, setState] = useState("play");
   const {
-    state: { workoutTimer },
+    state: { state, workoutTimer, restTimer },
   } = useTimerContext();
+
   return (
-    <View className="flex-row items-center">
+    <View className="w-18 rounded-md bg-[#686868]">
+      {state === "rest" && <RestTimerProgressBar />}
       <View
-        className="flex-row items-center justify-between rounded-md bg-slate-200 p-2"
+        className="flex-row items-center justify-between p-2"
         style={{ gap: 10 }}
       >
         {state === "play" && (
           <>
-            <FontAwesome6 name="play" size={15} color="black" />
-            <Text className="font-bold">
+            <FontAwesome6 name="play" size={15} color="white" />
+            <Text className="font-bold text-white">
               {secondsToHourMinuteSecond(workoutTimer)}
             </Text>
           </>
@@ -26,9 +26,18 @@ export default TimerDisplay = () => {
 
         {state === "pause" && (
           <>
-            <FontAwesome6 name="play" size={15} color="black" />
-            <Text className="font-bold">
+            <FontAwesome6 name="pause" size={15} color="white" />
+            <Text className="font-bold text-white">
               {secondsToHourMinuteSecond(workoutTimer)}
+            </Text>
+          </>
+        )}
+
+        {state === "rest" && (
+          <>
+            <FontAwesome6 name="stopwatch" size={15} color="white" />
+            <Text className="font-bold text-white">
+              {secondsToms(restTimer.current)}
             </Text>
           </>
         )}

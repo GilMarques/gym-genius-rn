@@ -86,14 +86,14 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, onComplete }) => {
 
       <GestureDetector gesture={panGesture}>
         <Animated.View style={[styles.setContainer, rStyle]}>
-          <View className="h-[20px] w-[20%] flex-row self-center">
+          <View className="h-[20px] w-[10%] flex-row self-center">
             <View className="w-fit flex-col items-center">
               <Text className="h-0">Set</Text>
               <Text className="text-white">{setIndex + 1}</Text>
             </View>
           </View>
 
-          <Text style={styles.textElement}>
+          <Text className="w-[30%] text-center text-white">
             {previous ? previous.weight + " x " + previous.reps : "-"}
           </Text>
 

@@ -23,8 +23,8 @@ import Set from "./Set";
 
 const fullConfig = resolveConfig(tailwindConfig);
 
-const widthSet = " w-[20%]";
-const widthPrevious = " w-[20%]";
+const widthSet = " w-[10%]";
+const widthPrevious = " w-[30%]";
 const widthWeight = " w-[20%]";
 const widthReps = " w-[20%]";
 const widthCheck = " w-[20%]";
@@ -57,7 +57,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
   } = useWorkoutContext();
 
   const {
-    actions: { startTimer },
+    actions: { startRestTimer },
   } = useTimerContext();
   return (
     <View className="mb-4">
@@ -166,7 +166,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           setIndex={setIndex}
           exerciseId={id}
           scrollRef={scrollRef}
-          // onComplete={() => startTimer(restTime)}
+          onComplete={restTime ? () => startRestTimer(restTime) : null}
           {...set}
         />
       ))}

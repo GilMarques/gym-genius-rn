@@ -1,3 +1,4 @@
+import { useTimerContext } from "context/TimerProvider";
 import { getTailwindConfig } from "lib/helper";
 import React, { useEffect } from "react";
 import Animated, {
@@ -7,22 +8,22 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
-const RestTimerProgressBar = ({ height }) => {
+const RestTimerProgressBar = () => {
   const {
     state: { restTimer },
   } = useTimerContext();
-  const animatedValue = useSharedValue(100);
+  const animatedValue = useSharedValue(0);
   const conf = getTailwindConfig();
   const rStyle = useAnimatedStyle(() => {
     return {
-      width: animatedValue.value + "%",
+      right: animatedValue.value + "%",
     };
   });
 
   useEffect(() => {
     console.log(restTimer);
-    animatedValue.value = 100;
-    animatedValue.value = withTiming(0, {
+    animatedValue.value = 0;
+    animatedValue.value = withTiming(100, {
       duration: restTimer.duration * 1000,
       easing: Easing.linear,
       useNativeDriver: true,
@@ -31,10 +32,10 @@ const RestTimerProgressBar = ({ height }) => {
 
   return (
     <Animated.View
+      className="absolute bottom-0 left-0 right-0 top-0 rounded-md"
       style={[
         {
-          height: height,
-          backgroundColor: conf.theme.colors.secondary,
+          backgroundColor: "#3f0086",
         },
         rStyle,
       ]}

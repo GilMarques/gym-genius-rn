@@ -23,7 +23,6 @@ const currentTemplate = () => {
   const scrollRef = useRef();
 
   const [restTimerModalVisible, setRestTimerModalVisible] = useState(false);
-
   const [finishWorkoutModalVisible, setFinishWorkoutModalVisible] =
     useState(false);
   return (
