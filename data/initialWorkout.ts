@@ -42,5 +42,24 @@ export const initialWorkout: WorkoutProps = {
         },
       ],
     },
+    {
+      id: 5,
+      name: "Split Squat",
+      restTime: 0,
+      sets: [
+        {
+          id: "c1",
+          previous: { reps: 10, weight: 50 },
+        },
+        {
+          id: "c2",
+          previous: { reps: 10, weight: 50 },
+        },
+        {
+          id: "c3",
+          previous: { reps: 10, weight: 50 },
+        },
+      ],
+    },
   ],
 };

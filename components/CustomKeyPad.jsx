@@ -68,7 +68,10 @@ const BackspaceButton = ({ onPress }) => {
 };
 
 const CustomKeyPad = () => {
-  const { dispatch, keypadVisible, closeKeypad } = useKeypadContext();
+  const {
+    state: { keypadVisible },
+    actions: { dispatch, closeKeypad },
+  } = useKeypadContext();
   const ref = useRef(null);
 
   const backspaceBehavior = useCallback(() => {

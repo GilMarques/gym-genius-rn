@@ -58,12 +58,15 @@ const CustomTextInput = ({ placeholder, checked = false }) => {
     selection: { start: 0, end: 0 },
   });
 
-  const { setInputDispatch, openKeypad, keypadVisible } = useKeypadContext();
+  const {
+    state: { keypadVisible },
+    actions: { setInputDispatch, openKeypad },
+  } = useKeypadContext();
 
   const ref = useRef(null);
 
   useEffect(() => {
-    if (!keypadVisible) {
+    if (!keypadVisible && ref.current) {
       ref.current.blur();
     }
   }, [keypadVisible]);
