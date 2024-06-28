@@ -6,7 +6,7 @@ import OutlineButton from "../Buttons/OutlineButton";
 
 const FinishWorkoutModal = ({ visible, onCancel, onSubmit }) => {
   return (
-    <PopUpModal visible={visible} setVisible={setVisible}>
+    <PopUpModal visible={visible}>
       <Text className="text-center text-2xl font-bold text-white">
         Finish Workout
       </Text>
