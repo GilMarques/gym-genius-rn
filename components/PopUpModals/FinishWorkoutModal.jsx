@@ -4,7 +4,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import OutlineButton from "../Buttons/OutlineButton";
 
-const FinishWorkoutModal = ({ visible, setVisible, onFinish }) => {
+const FinishWorkoutModal = ({ visible, onCancel, onSubmit }) => {
   return (
     <PopUpModal visible={visible} setVisible={setVisible}>
       <Text className="text-center text-2xl font-bold text-white">
@@ -18,12 +18,12 @@ const FinishWorkoutModal = ({ visible, setVisible, onFinish }) => {
         <OutlineButton
           title="Cancel"
           containerStyles={"px-4"}
-          handlePress={() => setVisible(false)}
+          handlePress={onCancel}
         />
         <PrimaryButton
           title="Finish"
           containerStyles={"px-4"}
-          handlePress={onFinish}
+          handlePress={onSubmit}
         />
       </View>
     </PopUpModal>

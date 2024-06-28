@@ -47,10 +47,13 @@ const DotButton = ({ onPress }) => {
   );
 };
 
-const TextButton = ({ text }) => {
+const TextButton = ({ text, visible = true }) => {
   return (
-    <TouchableWithoutFeedback>
-      <View className="flex h-12 w-28 items-center justify-center rounded-md bg-[#323232]">
+    <TouchableWithoutFeedback disabled={!visible}>
+      <View
+        className="flex h-12 w-28 items-center justify-center rounded-md bg-[#323232]"
+        style={{ opacity: visible ? 1 : 0 }}
+      >
         <Text className="font-bold text-white">{text}</Text>
       </View>
     </TouchableWithoutFeedback>
@@ -69,8 +72,8 @@ const BackspaceButton = ({ onPress }) => {
 
 const CustomKeyPad = () => {
   const {
-    state: { keypadVisible },
-    actions: { dispatch, closeKeypad },
+    state: { keypadVisible, dispatch },
+    actions: { closeKeypad },
   } = useKeypadContext();
   const ref = useRef(null);
 
@@ -129,7 +132,7 @@ const CustomKeyPad = () => {
     <Animated.View className="absolute w-full" ref={ref} style={rStyle}>
       <View className="my-2 flex-row justify-around">
         <CloseButton onPress={() => closeKeypad()} />
-        <TextButton text={"RPE"} />
+        <TextButton text={"RPE"} visible={false} />
         <TextButton text={"Next"} />
       </View>
       <View className="bg-[#141414]">

@@ -1,7 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton";
 import PopUpModal from "components/PopUpModal";
-import { useTimerContext } from "context/TimerProvider";
 import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
@@ -61,14 +60,11 @@ const WheelPicker = ({ items, value, onIndexChange, itemHeight }) => {
   );
 };
 
-const RestTimerModal = ({ visible, setVisible }) => {
+const RestTimerModal = ({ visible, buttonTitle, onSubmit }) => {
   const [value, setValue] = useState(0);
-  const {
-    actions: { startRestTimer },
-  } = useTimerContext();
 
   return (
-    <PopUpModal visible={visible} setVisible={setVisible}>
+    <PopUpModal visible={visible}>
       <View className="flex-row items-center justify-end">
         <Text className="absolute w-full text-center text-xl font-bold text-white">
           Rest Timer
@@ -124,12 +120,9 @@ const RestTimerModal = ({ visible, setVisible }) => {
       />
 
       <PrimaryButton
-        title="Start"
+        title={buttonTitle || "Done"}
         containerStyles={"px-4"}
-        handlePress={() => {
-          setVisible(false);
-          startRestTimer(value);
-        }}
+        handlePress={() => onSubmit(value)}
       />
     </PopUpModal>
   );

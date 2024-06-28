@@ -4,6 +4,7 @@ import Exercise from "components/Exercises/Exercise";
 import FinishWorkoutModal from "components/PopUpModals/FinishWorkoutModal";
 import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import TimerDisplay from "components/TimerDisplay";
+import { useTimerContext } from "context/TimerProvider";
 import { useWorkoutContext } from "context/WorkoutProvider";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
@@ -25,6 +26,10 @@ const currentTemplate = () => {
   const [restTimerModalVisible, setRestTimerModalVisible] = useState(false);
   const [finishWorkoutModalVisible, setFinishWorkoutModalVisible] =
     useState(false);
+
+  const {
+    actions: { startRestTimer },
+  } = useTimerContext();
   return (
     <SafeAreaView className="h-full bg-primary">
       <View>
@@ -79,12 +84,16 @@ const currentTemplate = () => {
 
       <RestTimerModal
         visible={restTimerModalVisible}
-        setVisible={setRestTimerModalVisible}
+        onSubmit={(value) => {
+          setRestTimerModalVisible(false);
+          startRestTimer(value);
+        }}
       />
 
       <FinishWorkoutModal
         visible={finishWorkoutModalVisible}
-        setVisible={setFinishWorkoutModalVisible}
+        onSubmit={() => setFinishWorkoutModalVisible(false)}
+        onCancel={() => setFinishWorkoutModalVisible(false)}
       />
     </SafeAreaView>
   );

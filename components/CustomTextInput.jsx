@@ -1,4 +1,5 @@
 import { useKeypadContext } from "context/KeypadProvider";
+import { getTailwindConfig } from "lib/helper";
 import React, { useEffect, useReducer, useRef } from "react";
 import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
@@ -52,7 +53,9 @@ function reducer(state, action) {
   }
 }
 
-const CustomTextInput = ({ placeholder, checked = false }) => {
+const config = getTailwindConfig();
+
+const CustomTextInput = ({ placeholder, isComplete }) => {
   const [state, dispatch] = useReducer(reducer, {
     input: "",
     selection: { start: 0, end: 0 },
@@ -77,7 +80,13 @@ const CustomTextInput = ({ placeholder, checked = false }) => {
         ref={ref}
         placeholder={placeholder}
         placeholderTextColor={"#ffffff"}
-        className="rounded-md border border-white text-center text-white"
+        className="rounded-md border text-center text-white"
+        style={{
+          backgroundColor: isComplete
+            ? config.theme.colors.secondary
+            : "transparent",
+          borderColor: isComplete ? config.theme.colors.tertiary : "white",
+        }}
         cursorColor={"white"}
         value={state.input}
         showSoftInputOnFocus={false}

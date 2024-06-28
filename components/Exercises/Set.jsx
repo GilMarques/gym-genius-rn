@@ -16,6 +16,7 @@ import Animated, {
 import resolveConfig from "tailwindcss/resolveConfig";
 
 import CustomTextInput from "components/CustomTextInput";
+import { useTimerContext } from "context/TimerProvider";
 import { useWorkoutContext } from "context/WorkoutProvider";
 import tailwindConfig from "../../tailwind.config";
 const fullConfig = resolveConfig(tailwindConfig);
@@ -25,7 +26,7 @@ const TRANSLATE_X_THRESHOLD = SCREEN_WIDTH * 0.1;
 
 const LIST_ITEM_HEIGHT = 30;
 
-const Set = ({ id, previous, setIndex, scrollRef, exerciseId, onComplete }) => {
+const Set = ({ id, previous, setIndex, scrollRef, exerciseId, restTime }) => {
   const [isComplete, setIsComplete] = useState(false);
 
   const translateX = useSharedValue(0);
@@ -36,6 +37,10 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, onComplete }) => {
   const {
     actions: { removeSet },
   } = useWorkoutContext();
+
+  const {
+    actions: { startRestTimer },
+  } = useTimerContext();
 
   const panGesture = Gesture.Pan()
     .onUpdate((event) => {
@@ -100,12 +105,14 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, onComplete }) => {
           <View style={styles.fieldElement}>
             <CustomTextInput
               placeholder={previous ? previous.weight.toString() : ""}
+              isComplete={isComplete}
             />
           </View>
 
           <View style={styles.fieldElement}>
             <CustomTextInput
               placeholder={previous ? previous.reps.toString() : ""}
+              isComplete={isComplete}
             />
           </View>
 
@@ -116,7 +123,7 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, onComplete }) => {
                   if (prev) {
                     return false;
                   } else {
-                    onComplete();
+                    startRestTimer(restTime);
                     return true;
                   }
                 });

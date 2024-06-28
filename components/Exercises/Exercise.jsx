@@ -3,7 +3,7 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -13,7 +13,6 @@ import {
 
 import resolveConfig from "tailwindcss/resolveConfig";
 
-import { useTimerContext } from "context/TimerProvider";
 import { useWorkoutContext } from "context/WorkoutProvider";
 import { getTailwindConfig, secondsToms } from "lib/helper";
 
@@ -29,16 +28,16 @@ const widthWeight = " w-[20%]";
 const widthReps = " w-[20%]";
 const widthCheck = " w-[20%]";
 
-const MenuItem = ({ leadingIcon, title, onPress }) => {
+const MenuItem = ({ leadingIcon, title, onPress, color }) => {
   return (
     <Menu.Item
       leadingIcon={(props) => (
-        <Icon source={leadingIcon} color={"white"} size={props.size} />
+        <Icon source={leadingIcon} color={color || "white"} size={props.size} />
       )}
       onPress={onPress}
       title={title}
-      titleStyle={{ color: "white" }}
-      theme={{ colors: { secondary: "white" } }}
+      titleStyle={{ color: color || "white" }}
+      // theme={{ colors: { secondary: color ? color : "red" } }}
     />
   );
 };
@@ -48,6 +47,7 @@ const config = getTailwindConfig();
 const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
   const [visible, setVisible] = React.useState(false);
 
+  const [autoRestTimer, setAutoRestTimer] = useState(restTime);
   const openMenu = () => setVisible(true);
 
   const closeMenu = () => setVisible(false);
@@ -56,9 +56,6 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
     actions: { addSet, removeExercise },
   } = useWorkoutContext();
 
-  const {
-    actions: { startRestTimer },
-  } = useTimerContext();
   return (
     <View className="mb-4">
       <View className="flex-row items-center justify-between">
@@ -76,12 +73,6 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           className="w-[70%]"
           contentStyle={{ backgroundColor: "#1a1a1a" }}
         >
-          <MenuItem
-            leadingIcon="plus-circle-outline"
-            title="Add Warmup Sets"
-            onPress={() => {}}
-          />
-
           <Divider style={{ width: "90%", alignSelf: "center" }} />
           <MenuItem
             leadingIcon={"note-outline"}
@@ -107,7 +98,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           <MenuItem
             leadingIcon={"math-norm"}
             onPress={() => {}}
-            title="Create Superset"
+            title="Add to Superset"
           />
           <Divider style={{ width: "90%", alignSelf: "center" }} />
           <MenuItem
@@ -117,9 +108,10 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           />
 
           <Divider style={{ width: "90%", alignSelf: "center" }} />
+
           <MenuItem
             leadingIcon="alarm"
-            title="Auto Rest Timer"
+            title="Set Rest Timer"
             onPress={() => {}}
           />
 
@@ -128,6 +120,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
             leadingIcon="close"
             title="Remove Exercise"
             onPress={() => {}}
+            color="crimson"
           />
         </Menu>
       </View>
@@ -139,7 +132,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           color={config.theme.colors.secondary}
         />
         <Text className="text-secondary">
-          {restTime ? secondsToms(restTime) : "Off"}
+          {autoRestTimer ? secondsToms(autoRestTimer) : "Off"}
         </Text>
       </View>
 
@@ -166,7 +159,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           setIndex={setIndex}
           exerciseId={id}
           scrollRef={scrollRef}
-          onComplete={restTime ? () => startRestTimer(restTime) : null}
+          restTime={autoRestTimer}
           {...set}
         />
       ))}

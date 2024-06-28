@@ -8,12 +8,14 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 
+const config = getTailwindConfig();
+
 const RestTimerProgressBar = () => {
   const {
     state: { restTimer },
   } = useTimerContext();
   const animatedValue = useSharedValue(0);
-  const conf = getTailwindConfig();
+
   const rStyle = useAnimatedStyle(() => {
     return {
       right: animatedValue.value + "%",
@@ -35,7 +37,7 @@ const RestTimerProgressBar = () => {
       className="absolute bottom-0 left-0 right-0 top-0 rounded-md"
       style={[
         {
-          backgroundColor: "#3f0086",
+          backgroundColor: config.theme.colors.tertiary,
         },
         rStyle,
       ]}
