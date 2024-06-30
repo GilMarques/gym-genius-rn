@@ -40,6 +40,7 @@ const exerciseList = () => {
   const {
     actions: { addExercises },
   } = useWorkoutContext();
+
   return (
     <View style={{ flex: 1 }}>
       <DropdownSearch

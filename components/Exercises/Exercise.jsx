@@ -11,6 +11,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 import { useWorkoutContext } from "context/WorkoutProvider";
 import { getTailwindConfig, secondsToms } from "lib/helper";
 
+import NoteModal from "components/PopUpModals/NoteModal";
 import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import { Divider } from "react-native-paper";
 import tailwindConfig from "../../tailwind.config";
@@ -27,12 +28,14 @@ const widthCheck = " w-[20%]";
 
 const config = getTailwindConfig();
 
-const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
+const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
 
   const [restTimerVisible, setRestTimerVisible] = React.useState(false);
 
+  const [noteModalVisible, setNoteModalVisible] = useState(false);
   const [autoRestTimer, setAutoRestTimer] = useState(restTime);
+  const [exerciseNote, setExerciseNote] = useState(note || "");
 
   const openMenu = () => setMenuVisible(true);
   const closeMenu = () => setMenuVisible(false);
@@ -41,15 +44,24 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
     actions: { addSet, removeExercise },
   } = useWorkoutContext();
 
+  const menuActions = {
+    closeMenu,
+    setRestTimerVisible,
+    removeExercise,
+    setNoteModalVisible,
+  };
+
   return (
     <>
       <View className="mb-4">
         <View className="flex-row items-center justify-between">
           <Text className="text-xl font-bold text-white">{name}</Text>
           <ExerciseMenu
+            exerciseId={id}
             menuVisible={menuVisible}
             openMenu={openMenu}
             closeMenu={closeMenu}
+            menuActions={menuActions}
           />
         </View>
 
@@ -114,6 +126,17 @@ const Exercise = ({ id, restTime, name, sets, scrollRef }) => {
           setAutoRestTimer(value);
           setRestTimerVisible(false);
         }}
+        onClose={() => setRestTimerVisible(false)}
+      />
+
+      <NoteModal
+        visible={noteModalVisible}
+        note={exerciseNote}
+        onSubmit={(value) => {
+          setExerciseNote(value);
+          setNoteModalVisible(false);
+        }}
+        onClose={() => setNoteModalVisible(false)}
       />
     </>
   );

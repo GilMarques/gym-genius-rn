@@ -21,6 +21,7 @@ export type Action =
   | { type: "addSet"; payload: { exerciseId: number } }
   | { type: "removeSet"; payload: { exerciseId: number; setId: string } }
   | { type: "addExercise"; payload: { exerciseId: number } }
-  | { type: "removeExercise"; payload: { exerciseId: number } };
+  | { type: "removeExercise"; payload: { exerciseId: number } }
+  | { type: "setNote"; payload: { exerciseId: number; note: string } };
 
 export type ActionType = (typeof ACTIONS)[keyof typeof ACTIONS];

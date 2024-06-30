@@ -1,53 +1,82 @@
 import { FontAwesome6 } from "@expo/vector-icons";
+import { router } from "expo-router";
 import React from "react";
-import { TouchableWithoutFeedback } from "react-native";
-import { Menu } from "react-native-paper";
+import { TouchableWithoutFeedback, View } from "react-native";
+import { Divider, Menu } from "react-native-paper";
 import { MenuItem } from "./MenuItem";
 
 const items = [
   {
     leadingIcon: "note-outline",
-    onPress: () => {},
     title: "Add Exercise Note",
-    color: "white",
+    onPress: (menuActions, exerciseId) => {
+      menuActions.setNoteModalVisible(true);
+      menuActions.closeMenu();
+    },
   },
 
-  { leadingIcon: "swap-horizontal", onPress: () => {}, title: "Swap Exercise" },
+  {
+    leadingIcon: "swap-horizontal",
+    title: "Swap Exercise",
+    onPress: (menuActions, exerciseId) => {
+      router.navigate(`/(modals)/exerciseList`);
+      menuActions.closeMenu();
+    },
+  },
 
   {
     leadingIcon: "swap-vertical",
-    onPress: () => {},
     title: "Reorder Exercises",
+    onPress: (menuActions, exerciseId) => {
+      menuActions.closeMenu();
+    },
   },
 
   {
     leadingIcon: "math-norm",
-    onPress: () => {},
     title: "Add to Superset",
+    onPress: (menuActions, exerciseId) => {
+      menuActions.closeMenu();
+    },
   },
   {
     leadingIcon: "information-outline",
     title: "View Exercise Info",
-    onPress: () => {},
+    onPress: (menuActions, exerciseId) => {
+      router.navigate(`/(modals)/search/${exerciseId}`);
+      menuActions.closeMenu();
+    },
   },
 
   {
     leadingIcon: "alarm",
     title: "Set Rest Timer",
-    onPress: () => {
-      setRestTimerVisible(true);
+    onPress: (menuActions, exerciseId) => {
+      menuActions.setRestTimerVisible(true);
+      menuActions.closeMenu();
     },
   },
 
   {
     leadingIcon: "close",
     title: "Remove Exercise",
-    onPress: () => {},
+    onPress: (menuActions, exerciseId) => {
+      menuActions.removeExercise(exerciseId);
+      menuActions.closeMenu();
+    },
     color: "crimson",
   },
 ];
 
-const ExerciseMenu = ({ menuVisible, openMenu, closeMenu }) => {
+const ExerciseMenu = ({
+  id,
+  menuVisible,
+  openMenu,
+  closeMenu,
+  menuActions,
+  exerciseId,
+}) => {
+  menuActions["closeMenu"] = closeMenu;
   return (
     <Menu
       visible={menuVisible}
@@ -62,7 +91,16 @@ const ExerciseMenu = ({ menuVisible, openMenu, closeMenu }) => {
       contentStyle={{ backgroundColor: "#1a1a1a" }}
     >
       {items.map((item, index) => (
-        <MenuItem key={index} {...item} />
+        <View key={index}>
+          <MenuItem
+            {...item}
+            menuActions={menuActions}
+            exerciseId={exerciseId}
+          />
+          {index != items.length - 1 && (
+            <Divider style={{ width: "90%", alignSelf: "center" }} />
+          )}
+        </View>
       ))}
     </Menu>
   );

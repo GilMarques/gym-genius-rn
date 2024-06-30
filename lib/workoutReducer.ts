@@ -3,6 +3,7 @@ import uuid from "react-native-uuid";
 import { Action, WorkoutProps } from "types/Types";
 import { ACTIONS } from "./workoutProviderActions";
 
+//TODO: Connect history
 export function workoutReducer(state: WorkoutProps, action: Action) {
   switch (action.type) {
     case ACTIONS.ADD_SET:
@@ -42,7 +43,6 @@ export function workoutReducer(state: WorkoutProps, action: Action) {
           return exercise;
         }),
       };
-
     case ACTIONS.ADD_EXERCISE:
       const exercise = data.find((e) => e.id === action.payload.exerciseId);
       return {
@@ -61,6 +61,28 @@ export function workoutReducer(state: WorkoutProps, action: Action) {
             ],
           },
         ],
+      };
+
+    case ACTIONS.REMOVE_EXERCISE:
+      return {
+        ...state,
+        exercises: state.exercises.filter(
+          (exercise) => exercise.id !== action.payload.exerciseId
+        ),
+      };
+
+    case ACTIONS.SET_NOTE:
+      return {
+        ...state,
+        exercises: state.exercises.map((exercise) => {
+          if (exercise.id === action.payload.exerciseId) {
+            return {
+              ...exercise,
+              note: action.payload.note,
+            };
+          }
+          return exercise;
+        }),
       };
 
     default:

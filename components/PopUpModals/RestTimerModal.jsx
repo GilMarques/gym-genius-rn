@@ -60,7 +60,7 @@ const WheelPicker = ({ items, value, onIndexChange, itemHeight }) => {
   );
 };
 
-const RestTimerModal = ({ visible, buttonTitle, onSubmit }) => {
+const RestTimerModal = ({ visible, buttonTitle, onSubmit, onClose }) => {
   const [value, setValue] = useState(0);
 
   return (
@@ -70,7 +70,7 @@ const RestTimerModal = ({ visible, buttonTitle, onSubmit }) => {
           Rest Timer
         </Text>
 
-        <TouchableWithoutFeedback onPress={() => setVisible(false)}>
+        <TouchableWithoutFeedback onPress={onClose}>
           <View className="right-2">
             <Feather name="x" size={25} color="lightgrey" />
           </View>

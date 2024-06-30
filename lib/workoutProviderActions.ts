@@ -7,6 +7,7 @@ export const ACTIONS = {
   ADD_EXERCISE: "addExercise",
   REMOVE_EXERCISE: "removeExercise",
   SWAP_EXERCISE: "swapExercise",
+  SET_NOTE: "setNote",
 } as const;
 
 export function addSet(dispatch) {
@@ -31,4 +32,15 @@ export function addExercises(dispatch) {
 export function removeExercise(dispatch) {
   return (exerciseId: number) =>
     dispatch({ type: "removeExercise", payload: { exerciseId } });
+}
+
+//TODO: AA
+export function swapExercise(dispatch) {
+  return (from: number, to: number) =>
+    dispatch({ type: "swapExercise", payload: { from, to } });
+}
+
+export function setNote(dispatch) {
+  return (exerciseId: number, note: string) =>
+    dispatch({ type: "setNote", payload: { exerciseId, note } });
 }
