@@ -1,32 +1,17 @@
-import {
-  FontAwesome6,
-  MaterialCommunityIcons,
-  MaterialIcons,
-} from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
 import React, { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
-
-import resolveConfig from "tailwindcss/resolveConfig";
+import { Text, View } from "react-native";
 
 import { useWorkoutContext } from "context/WorkoutProvider";
-import { getTailwindConfig, secondsToms } from "lib/helper";
 
+import PrimaryButton from "components/Buttons/PrimaryButton";
 import NoteModal from "components/PopUpModals/NoteModal";
 import RestTimerModal from "components/PopUpModals/RestTimerModal";
+import RestTimer from "components/RestTimer";
+import TableHeader from "components/TableHeader";
 import { Divider } from "react-native-paper";
-import tailwindConfig from "../../tailwind.config";
 import ExerciseMenu from "./ExerciseMenu";
 import Set from "./Set";
-
-const fullConfig = resolveConfig(tailwindConfig);
-
-const widthSet = " w-[10%]";
-const widthPrevious = " w-[30%]";
-const widthWeight = " w-[20%]";
-const widthReps = " w-[20%]";
-const widthCheck = " w-[20%]";
-
-const config = getTailwindConfig();
 
 const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
@@ -65,34 +50,10 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
           />
         </View>
 
-        <View className="flex-row items-center" style={{ gap: 5 }}>
-          <MaterialIcons
-            name="alarm"
-            size={15}
-            color={config.theme.colors.secondary}
-          />
-          <Text className="text-secondary">
-            {autoRestTimer ? secondsToms(autoRestTimer) : "Off"}
-          </Text>
-        </View>
+        <RestTimer autoRestTimer={autoRestTimer} />
 
-        <View className="mt-2 flex-row justify-between">
-          <Text className={"text-white  " + widthSet}>Set</Text>
-          <Text className={"text-white text-center " + widthPrevious}>
-            Previous
-          </Text>
-
-          <Text className={"text-white text-center " + widthWeight}>
-            <MaterialCommunityIcons name="weight" size={15} color="white" /> kg
-          </Text>
-          <Text className={"text-white text-center " + widthReps}>Reps</Text>
-          <View
-            className={"flex items-center justify-center " + widthCheck}
-          ></View>
-        </View>
-
+        <TableHeader />
         <Divider />
-
         {sets.map((set, setIndex) => (
           <Set
             key={set.id}
@@ -103,21 +64,17 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
             {...set}
           />
         ))}
-
         <Divider className="mt-2" />
 
-        <TouchableOpacity
-          onPress={() => {
-            addSet(id);
-          }}
-        >
-          <View className="mt-2 flex-row justify-center">
-            <View className="w-[90%] flex-row items-center justify-center rounded-md bg-[#dadada] p-2">
-              <FontAwesome6 name="add" size={15} color="black" />
-              <Text className="ml-2">Add Set</Text>
-            </View>
-          </View>
-        </TouchableOpacity>
+        <PrimaryButton
+          title={
+            <Text className="items-center text-black">
+              <FontAwesome6 name="add" size={15} color="black" /> Add Set
+            </Text>
+          }
+          color={"#dadada"}
+          handlePress={() => addSet(id)}
+        />
       </View>
 
       <RestTimerModal
