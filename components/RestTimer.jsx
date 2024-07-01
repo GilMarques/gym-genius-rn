@@ -10,7 +10,7 @@ const RestTimer = ({ autoRestTimer }) => {
       <MaterialIcons
         name="alarm"
         size={15}
-        color={config.theme.colors.secondary}
+        color={config.theme.colors.primary.DEFAULT}
       />
       <Text className="text-primary">
         {autoRestTimer ? secondsToms(autoRestTimer) : "Off"}

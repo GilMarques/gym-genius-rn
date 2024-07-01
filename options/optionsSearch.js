@@ -1,42 +1,57 @@
 import { Feather } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
+import { data } from "data/exerciseData";
 import { router } from "expo-router";
-import { TouchableWithoutFeedback } from "react-native";
+import { Text, TouchableWithoutFeedback, View } from "react-native";
 
 export const optionsSearch = ({ route }) => {
   const { name } = data.find((e) => e.id === parseInt(route.params.exerciseId));
-
   return {
     ...TransitionPresets.ModalPresentationIOS,
 
     gestureEnabled: true,
     presentation: "modal",
 
-    headerShown: true,
-    title: name,
+    header: () => (
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          margin: 16,
+        }}
+      >
+        <TouchableWithoutFeedback onPress={() => router.back()}>
+          <View>
+            <Feather name="x" size={24} color="white" />
+          </View>
+        </TouchableWithoutFeedback>
 
-    headerLeft: () => (
-      <TouchableWithoutFeedback onPress={() => router.back()} className="ml-4">
-        <Feather name="x" size={24} color="white" />
-      </TouchableWithoutFeedback>
+        <Text
+          style={{
+            fontSize: 20,
+            lineHeight: 28,
+            position: "absolute",
+            width: "100%",
+            textAlign: "center",
+            fontWeight: "700",
+            color: "white",
+          }}
+        >
+          {name}
+        </Text>
+
+        <TouchableWithoutFeedback onPress={() => {}}>
+          <Feather name="edit-3" size={24} color="white" />
+        </TouchableWithoutFeedback>
+      </View>
     ),
-
-    headerRight: () => (
-      <TouchableWithoutFeedback onPress={() => {}} className="mr-4">
-        <Feather name="edit-3" size={24} color="white" />
-      </TouchableWithoutFeedback>
-    ),
-
     cardStyle: { backgroundColor: "#1a1a1a" },
     overlayStyle: { borderColor: "#1a1a1a" },
     headerStyle: {
       backgroundColor: "#1a1a1a",
     },
-    headerTitleStyle: {
-      color: "#fff",
-    },
 
-    headerTitleAlign: "center",
     headerShadowVisible: false,
   };
 };

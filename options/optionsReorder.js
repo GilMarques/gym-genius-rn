@@ -1,24 +1,41 @@
-import { FontAwesome6 } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
-import { router } from "expo-router";
-import { TouchableWithoutFeedback } from "react-native";
 
 export const optionsReorder = {
   ...TransitionPresets.ModalPresentationIOS,
-
   gestureEnabled: true,
   presentation: "modal",
-  headerShown: true,
-  title: "Reorder Exercises",
+  header: () => (
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        margin: 16,
+      }}
+    >
+      <TouchableWithoutFeedback onPress={() => router.back()}>
+        <Feather name="x" size={24} color="white" />
+      </TouchableWithoutFeedback>
 
-  headerLeft: () => (
-    <TouchableWithoutFeedback onPress={() => router.back()} className="ml-8">
-      <FontAwesome6 name="x" size={15} color="white" />
-    </TouchableWithoutFeedback>
+      <Text
+        style={{
+          fontSize: 20,
+          lineHeight: 28,
+          position: "absolute",
+          width: "100%",
+          textAlign: "center",
+          fontWeight: "700",
+          color: "white",
+        }}
+      >
+        Reorder Exercises
+      </Text>
+    </View>
   ),
 
   cardStyle: { backgroundColor: "#1a1a1a" },
   overlayStyle: { borderColor: "#1a1a1a" },
+
   headerStyle: {
     backgroundColor: "#1a1a1a",
   },

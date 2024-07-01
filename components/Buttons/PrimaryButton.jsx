@@ -20,7 +20,7 @@ const PrimaryButton = ({
       activeOpacity={0.7}
       className={`flex justify-center items-center rounded-md p-1 ${containerStyles}   `}
       style={{
-        backgroundColor: color || fullConfig.theme.colors.primary,
+        backgroundColor: color || fullConfig.theme.colors.primary.DEFAULT,
         opacity: disabled ? 0.5 : 1,
         zIndex: 1,
       }}

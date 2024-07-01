@@ -1,4 +1,4 @@
-import { Action } from "types/Types";
+import { Action, ExerciseProps } from "types/Types";
 
 export const ACTIONS = {
   ADD_SET: "addSet",
@@ -8,6 +8,7 @@ export const ACTIONS = {
   REMOVE_EXERCISE: "removeExercise",
   SWAP_EXERCISE: "swapExercise",
   SET_NOTE: "setNote",
+  REORDER_EXERCISES: "reorderExercises",
 } as const;
 
 export function addSet(dispatch) {
@@ -43,4 +44,9 @@ export function swapExercise(dispatch) {
 export function setNote(dispatch) {
   return (exerciseId: number, note: string) =>
     dispatch({ type: "setNote", payload: { exerciseId, note } });
+}
+
+export function reorderExercises(dispatch) {
+  return (data: ExerciseProps[]) =>
+    dispatch({ type: "reorderExercises", payload: { data } });
 }

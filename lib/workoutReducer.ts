@@ -85,6 +85,12 @@ export function workoutReducer(state: WorkoutProps, action: Action) {
         }),
       };
 
+    case ACTIONS.REORDER_EXERCISES:
+      return {
+        ...state,
+        exercises: action.payload.data,
+      };
+
     default:
       return state;
   }

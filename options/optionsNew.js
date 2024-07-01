@@ -1,4 +1,3 @@
-import { FontAwesome6 } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
 import { router } from "expo-router";
 import { Text, TouchableWithoutFeedback } from "react-native";
@@ -10,17 +9,40 @@ export const optionsNew = {
   presentation: "modal",
 
   headerShown: true,
-  title: "New Template",
-  headerLeft: () => (
-    <TouchableWithoutFeedback onPress={() => router.back()} className="ml-8">
-      <FontAwesome6 name="x" size={15} color="white" />
-    </TouchableWithoutFeedback>
-  ),
 
-  headerRight: () => (
-    <TouchableWithoutFeedback onPress={() => router.back()} className="mr-8">
-      <Text className="font-bold text-white">SAVE</Text>
-    </TouchableWithoutFeedback>
+  header: () => (
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        margin: 16,
+      }}
+    >
+      <TouchableWithoutFeedback onPress={() => router.back()}>
+        <View>
+          <Feather name="x" size={24} color="white" />
+        </View>
+      </TouchableWithoutFeedback>
+
+      <Text
+        style={{
+          fontSize: 20,
+          lineHeight: 28,
+          position: "absolute",
+          width: "100%",
+          textAlign: "center",
+          fontWeight: "700",
+          color: "white",
+        }}
+      >
+        New Template
+      </Text>
+
+      <TouchableWithoutFeedback onPress={() => {}}>
+        <Text style={{ fontWeight: "700", color: "white" }}>SAVE</Text>
+      </TouchableWithoutFeedback>
+    </View>
   ),
 
   cardStyle: { backgroundColor: "#1a1a1a" },
@@ -28,10 +50,6 @@ export const optionsNew = {
   headerStyle: {
     backgroundColor: "#1a1a1a",
   },
-  headerTitleStyle: {
-    color: "#fff",
-  },
 
-  headerTitleAlign: "center",
   headerShadowVisible: false,
 };

@@ -16,7 +16,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 const Home = () => {
   const { user } = useLoginContext();
   const [numberWorkouts, setNumberWorkouts] = useState(0);
-  router.navigate(`/(modals)/reorderExercises`);
+  router.navigate(`/(modals)/exerciseList`);
   return (
     <SafeAreaView className="h-full bg-background p-6">
       <TouchableOpacity className="flex self-end">

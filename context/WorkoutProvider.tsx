@@ -4,6 +4,7 @@ import {
   addSet,
   removeExercise,
   removeSet,
+  reorderExercises,
 } from "lib/workoutProviderActions";
 import { workoutReducer } from "lib/workoutReducer";
 import { createContext, useContext, useReducer } from "react";
@@ -27,6 +28,7 @@ export function WorkoutProvider({ children }) {
       removeSet: removeSet(dispatch),
       addExercises: addExercises(dispatch),
       removeExercise: removeExercise(dispatch),
+      reorderExercises: reorderExercises(dispatch),
     },
   };
 

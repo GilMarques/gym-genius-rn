@@ -1,7 +1,7 @@
-import { FontAwesome6 } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
 import { router } from "expo-router";
-import { Text, TouchableWithoutFeedback } from "react-native";
+import { Text, TouchableWithoutFeedback, View } from "react-native";
 
 export const optionsList = {
   ...TransitionPresets.ModalPresentationIOS,
@@ -12,18 +12,40 @@ export const optionsList = {
   headerShown: true,
   title: "Exercises",
 
-  headerLeft: () => (
-    <TouchableWithoutFeedback onPress={() => router.back()} className="ml-8">
-      <FontAwesome6 name="x" size={15} color="white" />
-    </TouchableWithoutFeedback>
-  ),
+  header: () => (
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        margin: 16,
+      }}
+    >
+      <TouchableWithoutFeedback onPress={() => router.back()}>
+        <View>
+          <Feather name="x" size={24} color="white" />
+        </View>
+      </TouchableWithoutFeedback>
 
-  headerRight: () => (
-    <TouchableWithoutFeedback onPress={() => router.back()} className="mr-4">
-      <Text className="font-bold text-white">Create New</Text>
-    </TouchableWithoutFeedback>
-  ),
+      <Text
+        style={{
+          fontSize: 20,
+          lineHeight: 28,
+          position: "absolute",
+          width: "100%",
+          textAlign: "center",
+          fontWeight: "700",
+          color: "white",
+        }}
+      >
+        Exercises
+      </Text>
 
+      <TouchableWithoutFeedback onPress={() => {}}>
+        <Text style={{ fontWeight: "700", color: "white" }}>Create New</Text>
+      </TouchableWithoutFeedback>
+    </View>
+  ),
   cardStyle: { backgroundColor: "#1a1a1a" },
   overlayStyle: { borderColor: "#1a1a1a" },
   headerStyle: {

@@ -61,7 +61,6 @@ const Search = () => {
           }}
         />
       </View> */}
-
       <TabView
         renderTabBar={renderTabBar}
         navigationState={state}
