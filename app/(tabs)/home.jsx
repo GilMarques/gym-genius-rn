@@ -16,9 +16,9 @@ const fullConfig = resolveConfig(tailwindConfig);
 const Home = () => {
   const { user } = useLoginContext();
   const [numberWorkouts, setNumberWorkouts] = useState(0);
-
+  router.navigate(`/(modals)/reorderExercises`);
   return (
-    <SafeAreaView className="h-full bg-primary p-6">
+    <SafeAreaView className="h-full bg-background p-6">
       <TouchableOpacity className="flex self-end">
         <Ionicons name="person-circle-sharp" size={32} color="white" />
       </TouchableOpacity>

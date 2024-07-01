@@ -31,7 +31,7 @@ const currentTemplate = () => {
     actions: { startRestTimer },
   } = useTimerContext();
   return (
-    <SafeAreaView className="h-full bg-primary">
+    <SafeAreaView className="h-full bg-background">
       <View>
         <View className="flex-row items-center justify-between px-6">
           <View

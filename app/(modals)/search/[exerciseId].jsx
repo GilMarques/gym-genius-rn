@@ -32,7 +32,7 @@ const renderTabBar = (props) => (
   <TabBar
     {...props}
     indicatorStyle={{ backgroundColor: fullConfig.theme.colors.secondary }}
-    style={{ backgroundColor: fullConfig.theme.colors.primary }}
+    style={{ backgroundColor: fullConfig.theme.colors.background.DEFAULT }}
   />
 );
 

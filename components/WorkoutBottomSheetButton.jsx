@@ -15,7 +15,7 @@ const WorkoutBottomSheetButton = ({ handlePresentModal }) => {
   } = useWorkoutContext();
   return (
     <TouchableWithoutFeedback onPress={handlePresentModal}>
-      <View className="absolute bottom-[48px] z-10 flex w-[101%] self-center rounded-t-xl border-x border-t border-[#444444] bg-primary">
+      <View className="absolute bottom-[48px] z-10 flex w-[101%] self-center rounded-t-xl border-x border-t border-[#444444] bg-background">
         <View className="h-12 w-full flex-row items-center justify-between px-8">
           <Text>
             <Feather name="x" size={25} color="white" />

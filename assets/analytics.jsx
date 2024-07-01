@@ -18,7 +18,7 @@ const Analytics = () => {
     { value: 0 },
   ];
   return (
-    <SafeAreaView className="h-full bg-primary">
+    <SafeAreaView className="h-full bg-background">
       <Chart data={data} />
     </SafeAreaView>
   );

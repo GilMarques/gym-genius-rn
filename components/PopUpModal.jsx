@@ -15,7 +15,7 @@ const PopUpModal = ({ visible, withInput, children, ...rest }) => {
       style={{ backgroundColor: "rgba(0,0,0,0.4)" }}
     >
       <View
-        className="w-[90%] rounded-xl border border-neutral-800 bg-[#141414] p-4"
+        className="w-[90%] rounded-xl border border-neutral-800 bg-background-dark p-4"
         style={{ elevation: 2 }}
       >
         {children}

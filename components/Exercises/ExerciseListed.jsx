@@ -55,7 +55,7 @@ const ExerciseListed = ({
 
           {checkedIndex !== -1 && (
             <View className="absolute right-0 h-full flex-col justify-center">
-              <View className="h-5 w-5 flex-row items-center justify-center rounded-full bg-secondary">
+              <View className="h-5 w-5 flex-row items-center justify-center rounded-full bg-primary">
                 <Text className="absolute text-center text-xs">
                   {checkedIndex + 1}
                 </Text>

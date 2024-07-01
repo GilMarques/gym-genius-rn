@@ -5,7 +5,7 @@ import OutlineButton from "../Buttons/OutlineButton";
 
 const DiscardWorkoutModal = () => {
   return (
-    <View className="rounded-md bg-[#141414] p-4">
+    <View className="rounded-md bg-background-dark p-4">
       <Text className="text-center text-2xl font-bold text-white">
         Discard Workout
       </Text>

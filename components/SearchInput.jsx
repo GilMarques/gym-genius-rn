@@ -12,7 +12,7 @@ const SearchInput = ({
   const [showPassword, setShowPassword] = useState(false);
   return (
     <View className={`space-y-2 ${otherStyles}`}>
-      <View className="border-black-200 h-16 w-full flex-row items-center rounded-2xl bg-gray-500 px-4 focus:border-secondary">
+      <View className="border-black-200 h-16 w-full flex-row items-center rounded-2xl bg-gray-500 px-4 focus:border-primary">
         <Entypo name="magnifying-glass" size={24} color="black" />
         <TextInput
           className="flex-1 text-base font-bold text-white"

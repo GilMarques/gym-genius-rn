@@ -18,7 +18,7 @@ const weekdays = [
 ];
 const Workout = () => {
   return (
-    <SafeAreaView className="relative h-full bg-primary px-4">
+    <SafeAreaView className="relative h-full bg-background px-4">
       {/* <View className="flex-row items-center justify-between rounded-md">
         {weekdays.map((day, index) => (
           <PrimaryButton

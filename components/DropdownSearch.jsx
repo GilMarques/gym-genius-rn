@@ -23,7 +23,7 @@ const DropdownSearch = ({ value, onChangeText, tags, setTags }) => {
   }, [value]);
   return (
     <View className="">
-      <View className="border-black-200 mb-4 h-8 w-[90%] flex-row items-center self-center rounded-2xl bg-gray-500 px-4 focus:border-secondary">
+      <View className="border-black-200 mb-4 h-8 w-[90%] flex-row items-center self-center rounded-2xl bg-gray-500 px-4 focus:border-primary">
         <Entypo name="magnifying-glass" size={24} color="white" />
         <SelectedTags tags={tags} setTags={setTags} selected={true} />
         <TextInput

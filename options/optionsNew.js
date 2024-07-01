@@ -1,5 +1,6 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
+import { router } from "expo-router";
 import { Text, TouchableWithoutFeedback } from "react-native";
 
 export const optionsNew = {

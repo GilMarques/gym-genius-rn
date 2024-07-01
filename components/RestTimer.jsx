@@ -12,7 +12,7 @@ const RestTimer = ({ autoRestTimer }) => {
         size={15}
         color={config.theme.colors.secondary}
       />
-      <Text className="text-secondary">
+      <Text className="text-primary">
         {autoRestTimer ? secondsToms(autoRestTimer) : "Off"}
       </Text>
     </View>

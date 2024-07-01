@@ -1,5 +1,6 @@
 import { Feather } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
+import { router } from "expo-router";
 import { TouchableWithoutFeedback } from "react-native";
 
 export const optionsSearch = ({ route }) => {

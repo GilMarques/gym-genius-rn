@@ -7,13 +7,13 @@ import OutlineButton from "../Buttons/OutlineButton";
 const AddExerciseNoteModal = () => {
   const [value, setValue] = useState("");
   return (
-    <View className="rounded-md bg-[#141414] p-4">
+    <View className="rounded-md bg-background-dark p-4">
       <Text className="text-center text-xl font-bold text-white">
         Exercise Note
       </Text>
 
       <TextInput
-        className="mt-4 h-24 rounded-md bg-[#1a1a1a] p-4 text-white"
+        className="mt-4 h-24 rounded-md bg-background p-4 text-white"
         placeholderTextColor={"#ffffff"}
         placeholder="Enter your notes here..."
         value={value}

@@ -9,7 +9,7 @@ export default TimerDisplay = () => {
   } = useTimerContext();
 
   return (
-    <View className="w-18 rounded-md bg-[#686868]">
+    <View className="w-18 rounded-md bg-gray-500">
       {state === "rest" && <RestTimerProgressBar />}
       <View
         className="flex-row items-center justify-between p-2"

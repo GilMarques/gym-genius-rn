@@ -11,10 +11,10 @@ const newTemplate = () => {
     { title: "Bench Press", sets: 0, reps: 0 },
   ]);
   return (
-    <SafeAreaView className="h-full bg-primary">
+    <SafeAreaView className="h-full bg-background">
       <View className="p-4">
         <View>
-          <Text className="text-2xl font-bold text-secondary">
+          <Text className="text-2xl font-bold text-primary">
             {title} {"  "}
             <FontAwesome6 name="pencil" size={15} color="white" />
           </Text>

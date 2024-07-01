@@ -19,6 +19,7 @@ const components = {
 
 const TabIcon = ({ icon_family, icon_name, color, name, focused }) => {
   const Icon_component = components[icon_family] || Ionicons;
+
   return (
     <View className="items-center justify-center">
       <Icon_component name={icon_name} size={20} color={color} />
@@ -41,9 +42,9 @@ const TabsLayout = () => {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor: fullConfig.theme.colors.secondary,
+          tabBarActiveTintColor: fullConfig.theme.colors.primary.DEFAULT,
           tabBarStyle: {
-            backgroundColor: fullConfig.theme.colors.primary,
+            backgroundColor: fullConfig.theme.colors.background.DEFAULT,
             paddingTop: 10,
           },
         }}

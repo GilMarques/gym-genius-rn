@@ -13,7 +13,7 @@ const KeyPadButton = ({ text, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View
-        className="flex h-12 w-28 items-center justify-center rounded-md bg-[#323232]"
+        className="flex h-12 w-28 items-center justify-center rounded-md bg-background-light"
         style={{
           shadowColor: "#fff",
           shadowOffset: { width: 2, height: 2 },
@@ -30,7 +30,7 @@ const KeyPadButton = ({ text, onPress }) => {
 const CloseButton = ({ onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
-      <View className="flex h-12 w-28 items-center justify-center rounded-md bg-[#323232]">
+      <View className="flex h-12 w-28 items-center justify-center rounded-md bg-background-light">
         <MaterialCommunityIcons name="keyboard-close" size={24} color="white" />
       </View>
     </TouchableWithoutFeedback>
@@ -51,7 +51,7 @@ const TextButton = ({ text, visible = true }) => {
   return (
     <TouchableWithoutFeedback disabled={!visible}>
       <View
-        className="flex h-12 w-28 items-center justify-center rounded-md bg-[#323232]"
+        className="flex h-12 w-28 items-center justify-center rounded-md bg-background-light"
         style={{ opacity: visible ? 1 : 0 }}
       >
         <Text className="font-bold text-white">{text}</Text>
@@ -135,7 +135,7 @@ const CustomKeyPad = () => {
         <TextButton text={"RPE"} visible={false} />
         <TextButton text={"Next"} />
       </View>
-      <View className="bg-[#141414]">
+      <View className="bg-background-dark">
         <View className="mt-2 flex-row justify-around">
           <KeyPadButton text="1" onPress={() => pressBehavior("1")} />
           <KeyPadButton text="2" onPress={() => pressBehavior("2")} />

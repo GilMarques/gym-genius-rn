@@ -38,7 +38,7 @@ const LogCalendar = () => {
       theme={{
         backgroundColor: "transparent",
         calendarBackground: "transparent",
-        textSectionTitleColor: fullConfig.theme.colors.secondary,
+        textSectionTitleColor: fullConfig.theme.colors.primary.DEFAULT,
         monthTextColor: "white",
         arrowColor: "white",
         dayTextColor: "white",

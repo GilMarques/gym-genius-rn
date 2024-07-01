@@ -28,6 +28,7 @@ const items = [
     leadingIcon: "swap-vertical",
     title: "Reorder Exercises",
     onPress: (menuActions, exerciseId) => {
+      router.navigate(`/(modals)/reorderExercises`);
       menuActions.closeMenu();
     },
   },

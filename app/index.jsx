@@ -11,7 +11,9 @@ import resolveConfig from "tailwindcss/resolveConfig";
 
 const fullConfig = resolveConfig(tailwindConfig);
 
-NavigationBar.setBackgroundColorAsync(fullConfig.theme.colors.primary);
+NavigationBar.setBackgroundColorAsync(
+  fullConfig.theme.colors.background.DEFAULT
+);
 export default function App() {
   const { isLoading, isLoggedIn } = useLoginContext();
 
@@ -19,7 +21,7 @@ export default function App() {
   if (!isLoading && isLoggedIn) return <Redirect href={"/home"} />;
   return (
     <>
-      <SafeAreaView className="h-full bg-primary">
+      <SafeAreaView className="h-full bg-background">
         <ScrollView contentContainerStyle={{ height: "100%" }}>
           <View className="min-h-[85vh] w-full items-center justify-center px-4">
             <Text className="text-center text-3xl font-bold text-white">

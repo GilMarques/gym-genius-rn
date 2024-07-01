@@ -12,7 +12,7 @@ const OverlayButton = ({ icon, title, onPress }) => {
     <TouchableOpacity>
       <View className="flex-row items-center justify-end" style={{ gap: 10 }}>
         <Text className="text-white">{title}</Text>
-        <View className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary">
+        <View className="flex h-8 w-8 items-center justify-center rounded-full bg-primary">
           {icon}
         </View>
       </View>

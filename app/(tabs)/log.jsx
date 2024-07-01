@@ -12,7 +12,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 const fullConfig = resolveConfig(tailwindConfig);
 const Log = () => {
   return (
-    <SafeAreaView className="h-full bg-primary p-6">
+    <SafeAreaView className="h-full bg-background p-6">
       <LogCalendar />
       <Text className="mb-2 text-center text-2xl font-bold text-white">
         Recent Workouts

@@ -1,5 +1,6 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
+import { router } from "expo-router";
 import { TouchableWithoutFeedback } from "react-native";
 
 export const optionsReorder = {
@@ -9,8 +10,6 @@ export const optionsReorder = {
   presentation: "modal",
   headerShown: true,
   title: "Reorder Exercises",
-
-  
 
   headerLeft: () => (
     <TouchableWithoutFeedback onPress={() => router.back()} className="ml-8">
