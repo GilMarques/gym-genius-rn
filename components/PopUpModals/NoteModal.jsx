@@ -4,8 +4,8 @@ import PopUpModal from "components/PopUpModal";
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-const NoteModal = ({ visible, onSubmit, onClose }) => {
-  const [value, setValue] = useState("");
+const NoteModal = ({ visible, onSubmit, onClose, note }) => {
+  const [value, setValue] = useState(note);
 
   return (
     <PopUpModal visible={visible}>
@@ -17,10 +17,12 @@ const NoteModal = ({ visible, onSubmit, onClose }) => {
         placeholder="Please enter your notes here"
         placeholderTextColor={"lightgrey"}
         backgroundColor="grey"
-        style={{ height: 100, textAlignVertical: "top" }}
+        style={{ height: 140, textAlignVertical: "center" }}
         className="mt-4 rounded-md px-4 py-2"
         value={value}
         onChangeText={(text) => setValue(text)}
+        multiline={true}
+        maxLength={200}
       />
       <Text className="self-end text-white">{value.length}/200</Text>
 

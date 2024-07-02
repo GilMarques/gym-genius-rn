@@ -29,6 +29,8 @@ export function WorkoutProvider({ children }) {
       addExercises: addExercises(dispatch),
       removeExercise: removeExercise(dispatch),
       reorderExercises: reorderExercises(dispatch),
+      //saveValues: saveValues(dispatch),
+      //saveValuesAndTemplate: saveValuesAndTemplate(dispatch),
     },
   };
 

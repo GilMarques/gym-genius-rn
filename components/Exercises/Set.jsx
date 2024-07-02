@@ -16,8 +16,6 @@ import Animated, {
 import resolveConfig from "tailwindcss/resolveConfig";
 
 import CustomTextInput from "components/CustomTextInput";
-import { useTimerContext } from "context/TimerProvider";
-import { useWorkoutContext } from "context/WorkoutProvider";
 import tailwindConfig from "../../tailwind.config";
 const fullConfig = resolveConfig(tailwindConfig);
 
@@ -34,13 +32,7 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, restTime }) => {
   const marginTop = useSharedValue(10);
   const opacity = useSharedValue(1);
 
-  const {
-    actions: { removeSet },
-  } = useWorkoutContext();
-
-  const {
-    actions: { startRestTimer },
-  } = useTimerContext();
+  const removeSet = () => useWorkoutStore((state) => state.removeSet);
 
   const panGesture = Gesture.Pan()
     .onUpdate((event) => {

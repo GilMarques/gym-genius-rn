@@ -1,8 +1,6 @@
 import { FontAwesome6 } from "@expo/vector-icons";
-import React, { useState } from "react";
-import { Text, View } from "react-native";
-
-import { useWorkoutContext } from "context/WorkoutProvider";
+import React, { useRef, useState } from "react";
+import { Text, TextInput, View } from "react-native";
 
 import PrimaryButton from "components/Buttons/PrimaryButton";
 import NoteModal from "components/PopUpModals/NoteModal";
@@ -10,6 +8,7 @@ import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import RestTimer from "components/RestTimer";
 import TableHeader from "components/TableHeader";
 import { Divider } from "react-native-paper";
+import { useWorkoutStore } from "state/workoutState";
 import ExerciseMenu from "./ExerciseMenu";
 import Set from "./Set";
 
@@ -25,10 +24,8 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
   const openMenu = () => setMenuVisible(true);
   const closeMenu = () => setMenuVisible(false);
 
-  const {
-    actions: { addSet, removeExercise },
-  } = useWorkoutContext();
-
+  const addSet = () => useWorkoutStore((state) => state.addSet);
+  const removeExercise = () => useWorkoutStore((state) => state.removeExercise);
   const menuActions = {
     closeMenu,
     setRestTimerVisible,
@@ -36,6 +33,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
     setNoteModalVisible,
   };
 
+  const noteRef = useRef(null);
   return (
     <>
       <View className="mb-4">
@@ -50,6 +48,17 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
           />
         </View>
 
+        {exerciseNote && (
+          <TextInput
+            className="my-1 rounded-md bg-background-light p-2 text-white"
+            ref={noteRef}
+            value={exerciseNote}
+            onChangeText={(text) => setExerciseNote(text)}
+            multiline={true}
+            maxLength={200}
+            onBlur={() => noteRef.current?.blur()}
+          />
+        )}
         <RestTimer autoRestTimer={autoRestTimer} />
 
         <TableHeader />

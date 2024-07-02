@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 export const TimerContext = createContext();
 
@@ -92,16 +92,6 @@ export function TimerProvider({ children }) {
       };
     });
   }
-
-  useEffect(() => {
-    intervalRef.current = setInterval(() => {
-      setWorkoutTimer((prevTimer) => {
-        return prevTimer + 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(intervalRef.current);
-  }, []);
 
   const value = {
     state: {

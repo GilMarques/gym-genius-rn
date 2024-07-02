@@ -17,9 +17,9 @@ const items = [
 
   {
     leadingIcon: "swap-horizontal",
-    title: "Replace Exercise",
+    title: "Swap Exercise",
     onPress: (menuActions, exerciseId) => {
-      router.navigate(`/(modals)/exerciseList`);
+      router.navigate("/(modals)/swapExercise");
       menuActions.closeMenu();
     },
   },

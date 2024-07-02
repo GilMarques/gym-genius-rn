@@ -9,8 +9,8 @@ import PrimaryButton from "components/Buttons/PrimaryButton";
 import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListed from "components/Exercises/ExerciseListed";
-import { useWorkoutContext } from "context/WorkoutProvider";
 import { router } from "expo-router";
+import { useWorkoutStore } from "state/workoutState";
 
 const exerciseList = () => {
   const [value, setValue] = useState("");
@@ -37,9 +37,8 @@ const exerciseList = () => {
     );
   }, [value, tags]);
 
-  const {
-    actions: { addExercises },
-  } = useWorkoutContext();
+  const addExercises = () =>
+    useWorkoutStore((state) => state.addExercises(selectedIds));
 
   return (
     <View style={{ flex: 1 }}>

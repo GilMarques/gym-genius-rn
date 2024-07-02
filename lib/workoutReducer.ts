@@ -56,7 +56,6 @@ export function workoutReducer(state: WorkoutProps, action: Action) {
               {
                 id: uuid.v4(),
                 previous: { weight: null, reps: null },
-                current: { weight: null, reps: null },
               },
             ],
           },

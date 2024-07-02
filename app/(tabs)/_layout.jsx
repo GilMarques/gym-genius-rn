@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import WorkoutBottomSheetButton from "components/WorkoutBottomSheetButton";
-import { useWorkoutContext } from "context/WorkoutProvider";
+import { useWorkoutStore } from "state/workoutState";
 import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
 
@@ -34,9 +34,8 @@ const TabIcon = ({ icon_family, icon_name, color, name, focused }) => {
 };
 
 const TabsLayout = () => {
-  const {
-    state: { currentWorkout },
-  } = useWorkoutContext();
+  const exercises = useWorkoutStore((state) => state.exercises);
+
   return (
     <>
       <Tabs
@@ -100,7 +99,7 @@ const TabsLayout = () => {
         />
       </Tabs>
 
-      {currentWorkout != null && (
+      {exercises != null && (
         <WorkoutBottomSheetButton
           handlePresentModal={() =>
             router.navigate("/(modals)/currentTemplate")

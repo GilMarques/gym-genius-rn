@@ -4,8 +4,6 @@ import Exercise from "components/Exercises/Exercise";
 import FinishWorkoutModal from "components/PopUpModals/FinishWorkoutModal";
 import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import TimerDisplay from "components/TimerDisplay";
-import { useTimerContext } from "context/TimerProvider";
-import { useWorkoutContext } from "context/WorkoutProvider";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
 import { Text, View } from "react-native";
@@ -16,20 +14,17 @@ import {
 import { Divider } from "react-native-paper";
 
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useWorkoutStore } from "state/workoutState";
 
 const currentTemplate = () => {
-  const {
-    state: { title, currentWorkout },
-  } = useWorkoutContext();
+  const title = useWorkoutStore((state) => state.title);
+  const exercises = useWorkoutStore((state) => state.exercises);
   const scrollRef = useRef();
 
   const [restTimerModalVisible, setRestTimerModalVisible] = useState(false);
   const [finishWorkoutModalVisible, setFinishWorkoutModalVisible] =
     useState(false);
 
-  const {
-    actions: { startRestTimer },
-  } = useTimerContext();
   return (
     <SafeAreaView className="h-full bg-background">
       <View>
@@ -63,7 +58,7 @@ const currentTemplate = () => {
           <View className="mb-2 flex self-center">
             <Text className="text-2xl font-bold text-white">{title}</Text>
           </View>
-          {currentWorkout.exercises.map((exercise, exerciseIndex) => (
+          {exercises.map((exercise, exerciseIndex) => (
             <Exercise
               key={exercise.id}
               exerciseIndex={exerciseIndex}

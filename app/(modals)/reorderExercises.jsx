@@ -1,21 +1,21 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useWorkoutContext } from "context/WorkoutProvider";
 import React from "react";
 import { Text, View } from "react-native";
 import DraggableFlatList, {
   ScaleDecorator,
 } from "react-native-draggable-flatlist";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useWorkoutStore } from "state/workoutState";
 const reorderExercises = () => {
-  const {
-    state: { currentWorkout },
-    actions: { reorderExercises },
-  } = useWorkoutContext();
+  const exercises = useWorkoutStore((state) => state.exercises);
+  const reorderExercises = () =>
+    useWorkoutStore((state) => state.reorderExercises);
 
   return (
-    <View>
+    <SafeAreaView>
       <DraggableFlatList
-        data={currentWorkout.exercises}
+        data={exercises}
         keyExtractor={(item) => item.id}
         onDragEnd={({ data }) => {
           reorderExercises(data);
@@ -25,7 +25,7 @@ const reorderExercises = () => {
             <TouchableWithoutFeedback
               onLongPress={drag}
               onEnd={onDragEnd}
-              delayLongPress={50}
+              delayLongPress={0}
             >
               <View className="mx-8 my-2 flex-row items-center justify-between rounded-md bg-background-light p-2">
                 <View className="flex-row items-center" style={{ gap: 10 }}>
@@ -41,7 +41,7 @@ const reorderExercises = () => {
           </ScaleDecorator>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -7,6 +7,8 @@ import { optionsList } from "options/optionsList";
 import { optionsNew } from "options/optionsNew";
 import { optionsReorder } from "options/optionsReorder";
 import { optionsSearch } from "options/optionsSearch";
+import { optionsSuperset } from "options/optionsSuperset";
+import { optionsSwap } from "options/optionsSwap";
 import { optionsTabs } from "options/optionsTabs";
 
 export {
@@ -19,5 +21,7 @@ export {
   optionsNew,
   optionsReorder,
   optionsSearch,
+  optionsSuperset,
+  optionsSwap,
   optionsTabs,
 };

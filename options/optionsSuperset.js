@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { TransitionPresets } from "@react-navigation/stack";
 import { Text, TouchableWithoutFeedback, View } from "react-native";
 
-export const optionsReorder = {
+export const optionsSuperset = {
   ...TransitionPresets.ModalPresentationIOS,
   gestureEnabled: true,
   presentation: "modal",
@@ -30,7 +30,7 @@ export const optionsReorder = {
           color: "white",
         }}
       >
-        Reorder Exercises
+        Add to Superset
       </Text>
     </View>
   ),

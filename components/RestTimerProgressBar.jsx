@@ -1,4 +1,3 @@
-import { useTimerContext } from "context/TimerProvider";
 import { getTailwindConfig } from "lib/helper";
 import React, { useEffect } from "react";
 import Animated, {
@@ -11,9 +10,6 @@ import Animated, {
 const config = getTailwindConfig();
 
 const RestTimerProgressBar = () => {
-  const {
-    state: { restTimer },
-  } = useTimerContext();
   const animatedValue = useSharedValue(0);
 
   const rStyle = useAnimatedStyle(() => {
