@@ -31,7 +31,7 @@ const swapExercise = () => {
     );
   }, [value, tags]);
 
-  const swapExercise = () => useWorkoutStore((state) => state.swapExercise);
+  const swapExercise = useWorkoutStore((state) => state.swapExercise);
 
   return (
     <View style={{ flex: 1 }}>

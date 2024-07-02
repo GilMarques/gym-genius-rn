@@ -1,31 +1,17 @@
 import { create } from "zustand";
 
-enum TimerToggle {
-  Play,
-  Pause,
-  Rest,
-}
-
 interface TimerState {
   time: number;
-  ref: any;
-  increaseTime: () => void;
-  pause: () => void;
-}
-
-interface Toggle {
-  type: TimerToggle;
-  setType: () => void;
-}
-
-interface RestTimerState {
-  duration: number;
+  intervalRef: any;
+  active: boolean;
+  setRef: (ref) => void;
+  increase: () => void;
 }
 
 export const useStore = create<TimerState>((set) => ({
   time: 0,
-  ref: null,
-  increaseTime: () => set((state) => ({ ...state, time: state.time + 1 })),
-  setRef: (ref) => set((state) => ({ ...state, ref: ref })),
-  pause: () => {},
+  intervalRef: null,
+  active: false,
+  setRef: (ref) => set((state) => ({ ...state, ref: ref, active: true })),
+  increase: () => set((state) => ({ ...state, time: state.time + 1 })),
 }));

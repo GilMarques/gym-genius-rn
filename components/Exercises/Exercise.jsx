@@ -24,8 +24,8 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
   const openMenu = () => setMenuVisible(true);
   const closeMenu = () => setMenuVisible(false);
 
-  const addSet = () => useWorkoutStore((state) => state.addSet);
-  const removeExercise = () => useWorkoutStore((state) => state.removeExercise);
+  const addSet = useWorkoutStore((state) => state.addSet);
+  const removeExercise = useWorkoutStore((state) => state.removeExercise);
   const menuActions = {
     closeMenu,
     setRestTimerVisible,

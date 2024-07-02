@@ -34,7 +34,7 @@ const { Navigator } = createStackNavigator();
 export const JsStack = withLayoutContext(Navigator);
 
 const RootLayout = () => {
-  const increaseCount = useStore((state) => state.increaseTime);
+  const increaseCount = useStore((state) => state.increase);
   useEffect(() => {
     const secondsTimer = setInterval(() => {
       increaseCount();

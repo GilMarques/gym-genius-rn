@@ -1,6 +1,6 @@
 import { data } from "data/exerciseData";
 import { initialWorkout } from "data/initialWorkout";
-import { uuid } from "react-native-uuid";
+import uuid from "react-native-uuid";
 import { ExerciseProps } from "types/Types";
 import { create } from "zustand";
 
@@ -24,10 +24,16 @@ export const useWorkoutStore = create<workoutState>((set) => ({
       ...state,
       exercises: state.exercises.map((exercise) => {
         if (exercise.id === exerciseId) {
-          exercise.sets.push({
-            id: uuid.v4(),
-            previous: { weight: null, reps: null },
-          });
+          return {
+            ...exercise,
+            sets: [
+              ...exercise.sets,
+              {
+                id: uuid.v4() as string,
+                previous: null,
+              },
+            ],
+          };
         }
         return exercise;
       }),
@@ -56,8 +62,8 @@ export const useWorkoutStore = create<workoutState>((set) => ({
           restTime: 0,
           sets: [
             {
-              id: uuid.v4(),
-              previous: { weight: null, reps: null },
+              id: uuid.v4() as string,
+              previous: null,
             },
           ],
         },
@@ -83,8 +89,8 @@ export const useWorkoutStore = create<workoutState>((set) => ({
           restTime: 0,
           sets: [
             {
-              id: uuid.v4(),
-              previous: { weight: null, reps: null },
+              id: uuid.v4() as string,
+              previous: null,
             },
           ],
         };
