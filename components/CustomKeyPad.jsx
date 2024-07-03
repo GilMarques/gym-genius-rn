@@ -1,5 +1,4 @@
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useKeypadContext } from "context/KeypadProvider";
 import React, { useCallback, useEffect, useRef } from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -8,6 +7,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
+import { useKeypadStore } from "stores/keypadStore";
 
 const KeyPadButton = ({ text, onPress }) => {
   return (
@@ -71,10 +71,10 @@ const BackspaceButton = ({ onPress }) => {
 };
 
 const CustomKeyPad = () => {
-  const {
-    state: { keypadVisible, dispatch },
-    actions: { closeKeypad },
-  } = useKeypadContext();
+  const keypadVisible = useKeypadStore((state) => state.visible);
+  const dispatch = useKeypadStore((state) => state.dispatch);
+  const closeKeypad = useKeypadStore((state) => state.close);
+
   const ref = useRef(null);
 
   const backspaceBehavior = useCallback(() => {

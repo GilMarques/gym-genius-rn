@@ -1,8 +1,8 @@
-import { useKeypadContext } from "context/KeypadProvider";
 import { getTailwindConfig } from "lib/helper";
 import React, { useEffect, useReducer, useRef } from "react";
 import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import { useKeypadStore } from "stores/keypadStore";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -61,11 +61,9 @@ const CustomTextInput = ({ placeholder, isComplete }) => {
     selection: { start: 0, end: 0 },
   });
 
-  const {
-    state: { keypadVisible },
-    actions: { setInputDispatch, openKeypad },
-  } = useKeypadContext();
-
+  const keypadVisible = useKeypadStore((state) => state.visible);
+  const setInputDispatch = useKeypadStore((state) => state.setInputDispatch);
+  const openKeypad = useKeypadStore((state) => state.open);
   const ref = useRef(null);
 
   useEffect(() => {
