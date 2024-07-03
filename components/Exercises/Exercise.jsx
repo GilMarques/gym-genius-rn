@@ -36,6 +36,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
         <View className="flex-row items-center justify-between">
           <Text className="text-xl font-bold text-white">{name}</Text>
           <ExerciseMenu
+            noteRef={noteRef}
             exerciseId={id}
             menuVisible={menuVisible}
             openMenu={openMenu}

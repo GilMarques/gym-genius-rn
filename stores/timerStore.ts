@@ -22,7 +22,6 @@ export const startTimer = (increase: () => void, setRef: (ref) => void) => {
     increase();
   }, 1000);
   setRef(intervalRef);
-
   return intervalRef;
 };
 

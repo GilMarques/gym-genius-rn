@@ -77,8 +77,10 @@ const ExerciseMenu = ({
   closeMenu,
   menuActions,
   exerciseId,
+  noteRef,
 }) => {
   menuActions["closeMenu"] = closeMenu;
+
   return (
     <Menu
       visible={menuVisible}
@@ -92,18 +94,21 @@ const ExerciseMenu = ({
       className="w-[70%]"
       contentStyle={{ backgroundColor: "#1a1a1a" }}
     >
-      {items.map((item, index) => (
-        <View key={index}>
-          <MenuItem
-            {...item}
-            menuActions={menuActions}
-            exerciseId={exerciseId}
-          />
-          {index != items.length - 1 && (
-            <Divider style={{ width: "90%", alignSelf: "center" }} />
-          )}
-        </View>
-      ))}
+      {items.map(
+        (item, index) =>
+          !(index == 0 && noteRef.current != null) && (
+            <View key={index}>
+              <MenuItem
+                {...item}
+                menuActions={menuActions}
+                exerciseId={exerciseId}
+              />
+              {index != items.length - 1 && (
+                <Divider style={{ width: "90%", alignSelf: "center" }} />
+              )}
+            </View>
+          )
+      )}
     </Menu>
   );
 };

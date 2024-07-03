@@ -4,8 +4,8 @@ import PopUpModal from "components/PopUpModal";
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-const NoteModal = ({ visible, onSubmit, onClose, note }) => {
-  const [value, setValue] = useState(note);
+const NoteModal = ({ visible, onSubmit, onClose }) => {
+  const [value, setValue] = useState("");
 
   return (
     <PopUpModal visible={visible}>
@@ -14,7 +14,7 @@ const NoteModal = ({ visible, onSubmit, onClose, note }) => {
       </Text>
 
       <TextInput
-        placeholder="Please enter your notes here"
+        placeholder="Please enter your notes here..."
         placeholderTextColor={"lightgrey"}
         backgroundColor="grey"
         style={{ height: 140, textAlignVertical: "center" }}
