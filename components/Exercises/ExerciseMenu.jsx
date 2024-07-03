@@ -1,4 +1,5 @@
 import { FontAwesome6 } from "@expo/vector-icons";
+import { VisibleModals } from "components/PopUpModals/stores/ModalStore";
 import { router } from "expo-router";
 import React from "react";
 import { TouchableWithoutFeedback, View } from "react-native";
@@ -10,7 +11,7 @@ const items = [
     leadingIcon: "note-outline",
     title: "Add Exercise Note",
     onPress: (menuActions, exerciseId) => {
-      menuActions.setNoteModalVisible(true);
+      menuActions.setVisible(VisibleModals.AddExerciseNote);
       menuActions.closeMenu();
     },
   },
@@ -53,7 +54,7 @@ const items = [
     leadingIcon: "alarm",
     title: "Set Rest Timer",
     onPress: (menuActions, exerciseId) => {
-      menuActions.setRestTimerVisible(true);
+      menuActions.setVisible(VisibleModals.SetRestTimer);
       menuActions.closeMenu();
     },
   },

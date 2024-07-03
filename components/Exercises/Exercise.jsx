@@ -3,8 +3,7 @@ import React, { useRef, useState } from "react";
 import { Text, TextInput, View } from "react-native";
 
 import PrimaryButton from "components/Buttons/PrimaryButton";
-import NoteModal from "components/PopUpModals/NoteModal";
-import RestTimerModal from "components/PopUpModals/RestTimerModal";
+import { useModalStore } from "components/PopUpModals/stores/ModalStore";
 import RestTimer from "components/RestTimer";
 import TableHeader from "components/TableHeader";
 import { Divider } from "react-native-paper";
@@ -15,9 +14,6 @@ import Set from "./Set";
 const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
 
-  const [restTimerVisible, setRestTimerVisible] = React.useState(false);
-
-  const [noteModalVisible, setNoteModalVisible] = useState(false);
   const [autoRestTimer, setAutoRestTimer] = useState(restTime);
   const [exerciseNote, setExerciseNote] = useState(note || "");
 
@@ -26,11 +22,11 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
 
   const addSet = useWorkoutStore((state) => state.addSet);
   const removeExercise = useWorkoutStore((state) => state.removeExercise);
+  const setVisible = useModalStore((state) => state.setVisible);
   const menuActions = {
     closeMenu,
-    setRestTimerVisible,
+    setVisible,
     removeExercise,
-    setNoteModalVisible,
   };
 
   const noteRef = useRef(null);
@@ -85,25 +81,6 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
           handlePress={() => addSet(id)}
         />
       </View>
-
-      <RestTimerModal
-        visible={restTimerVisible}
-        onSubmit={(value) => {
-          setAutoRestTimer(value);
-          setRestTimerVisible(false);
-        }}
-        onClose={() => setRestTimerVisible(false)}
-      />
-
-      <NoteModal
-        visible={noteModalVisible}
-        note={exerciseNote}
-        onSubmit={(value) => {
-          setExerciseNote(value);
-          setNoteModalVisible(false);
-        }}
-        onClose={() => setNoteModalVisible(false)}
-      />
     </>
   );
 };

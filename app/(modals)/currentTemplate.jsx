@@ -1,8 +1,6 @@
 import Exercise from "components/Exercises/Exercise";
-import FinishWorkoutModal from "components/PopUpModals/FinishWorkoutModal";
-import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import { router } from "expo-router";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Text, View } from "react-native";
 import {
   ScrollView,
@@ -16,10 +14,6 @@ const currentTemplate = () => {
   const title = useWorkoutStore((state) => state.title);
   const exercises = useWorkoutStore((state) => state.exercises);
   const scrollRef = useRef();
-
-  const [restTimerModalVisible, setRestTimerModalVisible] = useState(false);
-  const [finishWorkoutModalVisible, setFinishWorkoutModalVisible] =
-    useState(false);
 
   return (
     <SafeAreaView className="h-full bg-background">
@@ -41,7 +35,7 @@ const currentTemplate = () => {
             onPress={() => router.navigate("/(modals)/exerciseList")}
           >
             <Text className="mt-2 text-center text-lg font-bold text-white">
-              ADD EXERCISE
+              ADD EXERCISES
             </Text>
           </TouchableWithoutFeedback>
 
@@ -57,20 +51,6 @@ const currentTemplate = () => {
           </TouchableWithoutFeedback>
         </ScrollView>
       </View>
-
-      <RestTimerModal
-        visible={restTimerModalVisible}
-        onSubmit={(value) => {
-          setRestTimerModalVisible(false);
-          startRestTimer(value);
-        }}
-      />
-
-      <FinishWorkoutModal
-        visible={finishWorkoutModalVisible}
-        onSubmit={() => setFinishWorkoutModalVisible(false)}
-        onCancel={() => setFinishWorkoutModalVisible(false)}
-      />
     </SafeAreaView>
   );
 };
