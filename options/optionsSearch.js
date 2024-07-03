@@ -3,6 +3,7 @@ import { TransitionPresets } from "@react-navigation/stack";
 import { data } from "data/exerciseData";
 import { router } from "expo-router";
 import { Text, TouchableWithoutFeedback, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export const optionsSearch = ({ route }) => {
   const { name } = data.find((e) => e.id === parseInt(route.params.exerciseId));
@@ -13,26 +14,21 @@ export const optionsSearch = ({ route }) => {
     presentation: "modal",
 
     header: () => (
-      <View
+      <SafeAreaView
         style={{
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          margin: 16,
+          marginHorizontal: 16,
         }}
       >
-        <TouchableWithoutFeedback onPress={() => router.back()}>
-          <View>
-            <Feather name="x" size={24} color="white" />
-          </View>
-        </TouchableWithoutFeedback>
-
         <Text
           style={{
             fontSize: 20,
             lineHeight: 28,
             position: "absolute",
             width: "100%",
+            bottom: 0,
             textAlign: "center",
             fontWeight: "700",
             color: "white",
@@ -40,11 +36,15 @@ export const optionsSearch = ({ route }) => {
         >
           {name}
         </Text>
-
+        <TouchableWithoutFeedback onPress={() => router.back()}>
+          <View>
+            <Feather name="x" size={24} color="white" />
+          </View>
+        </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => {}}>
           <Feather name="edit-3" size={24} color="white" />
         </TouchableWithoutFeedback>
-      </View>
+      </SafeAreaView>
     ),
     cardStyle: { backgroundColor: "#1a1a1a" },
     overlayStyle: { borderColor: "#1a1a1a" },

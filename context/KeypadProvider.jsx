@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 export const KeypadContext = createContext();
 
@@ -23,10 +23,6 @@ export function KeypadProvider({ children }) {
     },
   };
 
-  useEffect(() => {
-    console.log("visible", visible);
-    console.log("dispatch", dispatch);
-  }, [visible]);
   return (
     <KeypadContext.Provider value={value}>{children}</KeypadContext.Provider>
   );

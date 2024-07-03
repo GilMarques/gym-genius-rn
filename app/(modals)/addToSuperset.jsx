@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 
 const addToSuperset = () => {
   const exercises = useWorkoutStore((state) => state.exercises);

@@ -6,7 +6,7 @@ import DraggableFlatList, {
 } from "react-native-draggable-flatlist";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 const reorderExercises = () => {
   const exercises = useWorkoutStore((state) => state.exercises);
   const reorderExercises = () =>

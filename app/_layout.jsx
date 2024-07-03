@@ -9,7 +9,6 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import CustomKeyPad from "components/CustomKeyPad";
 import { KeypadProvider } from "context/KeypadProvider";
-import { LoginProvider } from "context/LoginProvider";
 import { withLayoutContext } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import {
@@ -27,7 +26,7 @@ import {
   optionsTabs,
 } from "options";
 import { PaperProvider } from "react-native-paper";
-import { useStore } from "state/timerState";
+import { startTimer, useStore } from "stores/timerStore";
 
 const { Navigator } = createStackNavigator();
 
@@ -35,67 +34,64 @@ export const JsStack = withLayoutContext(Navigator);
 
 const RootLayout = () => {
   const increaseCount = useStore((state) => state.increase);
+  const setRef = useStore((state) => state.setRef);
   useEffect(() => {
-    const secondsTimer = setInterval(() => {
-      increaseCount();
-    }, 1000);
-    return () => clearInterval(secondsTimer);
+    const ref = startTimer(increaseCount, setRef);
+    return () => clearInterval(ref);
   }, []);
   return (
     <GestureHandlerRootView>
       <View style={{ height: "100%", width: "100%" }}>
         <PaperProvider>
-          <LoginProvider>
-            <KeypadProvider>
-              <JsStack>
-                <JsStack.Screen name="index" options={optionsIndex} />
-                <JsStack.Screen name="(auth)" options={optionsAuth} />
-                <JsStack.Screen name="(tabs)" options={optionsTabs} />
-                <JsStack.Screen
-                  name="(modals)/newTemplate"
-                  options={optionsNew}
-                />
-                <JsStack.Screen
-                  name="(modals)/currentTemplate"
-                  options={optionsCurrent}
-                />
-                <JsStack.Screen
-                  name="(modals)/exerciseList"
-                  options={optionsList}
-                />
-                <JsStack.Screen
-                  name="(modals)/homeMenu"
-                  options={optionsHomeMenu}
-                />
-                <JsStack.Screen
-                  name="(modals)/search/[exerciseId]"
-                  options={optionsSearch}
-                />
-                <JsStack.Screen
-                  name="(modals)/addExercisesList"
-                  options={optionsAddList}
-                />
+          <KeypadProvider>
+            <JsStack>
+              <JsStack.Screen name="index" options={optionsIndex} />
+              <JsStack.Screen name="(auth)" options={optionsAuth} />
+              <JsStack.Screen name="(tabs)" options={optionsTabs} />
+              <JsStack.Screen
+                name="(modals)/newTemplate"
+                options={optionsNew}
+              />
+              <JsStack.Screen
+                name="(modals)/currentTemplate"
+                options={optionsCurrent}
+              />
+              <JsStack.Screen
+                name="(modals)/exerciseList"
+                options={optionsList}
+              />
+              <JsStack.Screen
+                name="(modals)/homeMenu"
+                options={optionsHomeMenu}
+              />
+              <JsStack.Screen
+                name="(modals)/search/[exerciseId]"
+                options={optionsSearch}
+              />
+              <JsStack.Screen
+                name="(modals)/addExercisesList"
+                options={optionsAddList}
+              />
 
-                <JsStack.Screen
-                  name="(modals)/reorderExercises"
-                  options={optionsReorder}
-                />
+              <JsStack.Screen
+                name="(modals)/reorderExercises"
+                options={optionsReorder}
+              />
 
-                <JsStack.Screen
-                  name="(modals)/swapExercise"
-                  options={optionsSwap}
-                />
+              <JsStack.Screen
+                name="(modals)/swapExercise"
+                options={optionsSwap}
+              />
 
-                <JsStack.Screen
-                  name="(modals)/addToSuperset"
-                  options={optionsSuperset}
-                />
-              </JsStack>
+              <JsStack.Screen
+                name="(modals)/addToSuperset"
+                options={optionsSuperset}
+              />
+            </JsStack>
 
-              <CustomKeyPad />
-              <StatusBar style="light" />
-            </KeypadProvider>
-          </LoginProvider>
+            <CustomKeyPad />
+            <StatusBar style="light" />
+          </KeypadProvider>
         </PaperProvider>
       </View>
     </GestureHandlerRootView>

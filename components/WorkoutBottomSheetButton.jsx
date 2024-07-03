@@ -3,8 +3,8 @@ import { secondsToHourMinuteSecond } from "lib/helper";
 import React from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
-import { useStore } from "state/timerState";
-import { useWorkoutStore } from "state/workoutState";
+import { useStore } from "stores/timerStore";
+import { useWorkoutStore } from "stores/workoutStore";
 
 const WorkoutBottomSheetButton = ({ handlePresentModal }) => {
   const workoutTimer = useStore((state) => state.time);

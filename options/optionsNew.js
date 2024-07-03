@@ -19,12 +19,6 @@ export const optionsNew = {
         margin: 16,
       }}
     >
-      <TouchableWithoutFeedback onPress={() => router.back()}>
-        <View>
-          <Feather name="x" size={24} color="white" />
-        </View>
-      </TouchableWithoutFeedback>
-
       <Text
         style={{
           fontSize: 20,
@@ -38,6 +32,11 @@ export const optionsNew = {
       >
         New Template
       </Text>
+      <TouchableWithoutFeedback onPress={() => router.back()}>
+        <View>
+          <Feather name="x" size={24} color="white" />
+        </View>
+      </TouchableWithoutFeedback>
 
       <TouchableWithoutFeedback onPress={() => {}}>
         <Text style={{ fontWeight: "700", color: "white" }}>SAVE</Text>

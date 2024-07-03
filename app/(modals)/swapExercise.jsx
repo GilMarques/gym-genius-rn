@@ -8,7 +8,7 @@ import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListedForSwap from "components/Exercises/ExerciseListedForSwap";
 import { router } from "expo-router";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 
 const swapExercise = () => {
   const [value, setValue] = useState("");

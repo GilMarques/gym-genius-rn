@@ -5,7 +5,6 @@ import { Redirect, router } from "expo-router";
 import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { useLoginContext } from "context/LoginProvider";
 import tailwindConfig from "tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
 
@@ -15,7 +14,7 @@ NavigationBar.setBackgroundColorAsync(
   fullConfig.theme.colors.background.DEFAULT
 );
 export default function App() {
-  const { isLoading, isLoggedIn } = useLoginContext();
+  // const { isLoading, isLoggedIn } = useLoginContext();
 
   return <Redirect href={`/home`} />;
   if (!isLoading && isLoggedIn) return <Redirect href={"/home"} />;

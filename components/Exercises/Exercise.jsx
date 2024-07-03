@@ -8,7 +8,7 @@ import RestTimerModal from "components/PopUpModals/RestTimerModal";
 import RestTimer from "components/RestTimer";
 import TableHeader from "components/TableHeader";
 import { Divider } from "react-native-paper";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 import ExerciseMenu from "./ExerciseMenu";
 import Set from "./Set";
 

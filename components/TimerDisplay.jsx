@@ -1,7 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import { secondsToHourMinuteSecond, secondsToms } from "lib/helper";
 import { Text, View } from "react-native";
-import { useStore } from "state/timerState";
+import { useStore } from "stores/timerStore";
 import RestTimerProgressBar from "./RestTimerProgressBar";
 export default TimerDisplay = () => {
   const workoutTimer = useStore((state) => state.time);

@@ -10,7 +10,7 @@ import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListed from "components/Exercises/ExerciseListed";
 import { router } from "expo-router";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 
 const exerciseList = () => {
   const [value, setValue] = useState("");

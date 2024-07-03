@@ -15,10 +15,6 @@ export const optionsSuperset = {
         margin: 16,
       }}
     >
-      <TouchableWithoutFeedback onPress={() => router.back()}>
-        <Feather name="x" size={24} color="white" />
-      </TouchableWithoutFeedback>
-
       <Text
         style={{
           fontSize: 20,
@@ -32,6 +28,9 @@ export const optionsSuperset = {
       >
         Add to Superset
       </Text>
+      <TouchableWithoutFeedback onPress={() => router.back()}>
+        <Feather name="x" size={24} color="white" />
+      </TouchableWithoutFeedback>
     </View>
   ),
 

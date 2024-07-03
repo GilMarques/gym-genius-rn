@@ -17,7 +17,19 @@ export const useStore = create<RestTimerState>((set) => ({
   current: 0,
   duration: 0,
   setRef: (ref) => set((state) => ({ ...state, ref: ref })),
-  decrease: () => set((state) => ({ ...state, time: state.current - 1 })),
+  decrease: () =>
+    set((state) => {
+      if (state.current === 0) {
+        clearInterval(state.intervalRef);
+        return {
+          ...state,
+          intervalRef: null,
+          duration: 0,
+          current: 0,
+        };
+      }
+      return { ...state, time: state.current - 1 };
+    }),
   decreaseDuration: () => {
     set((state) => {
       if (state.current - 15 <= 0) {
@@ -44,3 +56,11 @@ export const useStore = create<RestTimerState>((set) => ({
     }));
   },
 }));
+
+export const startTimer = (decrease: () => void, setRef: (ref) => void) => {
+  const intervalRef = setInterval(() => {
+    decrease();
+  }, 1000);
+  setRef(intervalRef);
+  return () => clearInterval(intervalRef);
+};

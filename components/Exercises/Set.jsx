@@ -16,7 +16,7 @@ import Animated, {
 import resolveConfig from "tailwindcss/resolveConfig";
 
 import CustomTextInput from "components/CustomTextInput";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 import tailwindConfig from "../../tailwind.config";
 const fullConfig = resolveConfig(tailwindConfig);
 

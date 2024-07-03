@@ -5,7 +5,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import PrimaryButton from "components/Buttons/PrimaryButton.jsx";
 import HomeTemplate from "components/Home/HomeTemplate.jsx";
-import { useLoginContext } from "context/LoginProvider";
 import { router } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import tailwindConfig from "tailwind.config.js";
@@ -14,7 +13,7 @@ import resolveConfig from "tailwindcss/resolveConfig";
 const fullConfig = resolveConfig(tailwindConfig);
 
 const Home = () => {
-  const { user } = useLoginContext();
+  // const { user } = useLoginContext();
   const [numberWorkouts, setNumberWorkouts] = useState(0);
 
   return (

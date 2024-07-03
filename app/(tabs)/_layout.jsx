@@ -6,7 +6,7 @@ import { StatusBar } from "expo-status-bar";
 
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 import WorkoutBottomSheetButton from "components/WorkoutBottomSheetButton";
-import { useWorkoutStore } from "state/workoutState";
+import { useWorkoutStore } from "stores/workoutStore";
 import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
 
