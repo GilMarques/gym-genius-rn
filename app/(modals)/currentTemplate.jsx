@@ -1,5 +1,5 @@
 import Exercise from "components/Exercises/Exercise";
-import CurrentTemplateHeader from "components/Headers/currentTemplateHeader";
+import CurrentTemplateHeader from "components/Headers/CurrentTemplateHeader";
 import { router } from "expo-router";
 import React, { useRef } from "react";
 import { Text, View } from "react-native";
