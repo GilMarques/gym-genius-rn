@@ -1,10 +1,12 @@
 import HistoryCard from "components/ExerciseInfo/HistoryCard";
+import SearchHeader from "components/Headers/SearchHeader";
 import { useLocalSearchParams } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { getTailwindConfig } from "lib/helper";
 import React, { useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { SceneMap, TabBar, TabView } from "react-native-tab-view";
 
 const fullConfig = getTailwindConfig();
@@ -51,7 +53,8 @@ const Search = () => {
   });
 
   return (
-    <View className="h-full">
+    <SafeAreaView className="h-full">
+      <SearchHeader exerciseId={exerciseId} />
       {/* <View style={{ flex: 1 }}>
         <WebView
           javaScriptEnabled={true}
@@ -73,7 +76,7 @@ const Search = () => {
         initialLayout={{ width: Dimensions.get("window").width }}
         style={styles.container}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 

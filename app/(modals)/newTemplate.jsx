@@ -1,6 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import Exercise from "components/Exercises/Exercise";
 import FormField from "components/FormField";
+import NewTemplateHeader from "components/Headers/NewTemplateHeader";
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
@@ -12,6 +13,7 @@ const newTemplate = () => {
   ]);
   return (
     <SafeAreaView className="h-full bg-background">
+      <NewTemplateHeader />
       <View className="p-4">
         <View>
           <Text className="text-2xl font-bold text-primary">

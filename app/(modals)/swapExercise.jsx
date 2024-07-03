@@ -7,6 +7,7 @@ import PrimaryButton from "components/Buttons/PrimaryButton";
 import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListedForSwap from "components/Exercises/ExerciseListedForSwap";
+import SwapHeader from "components/Headers/SwapHeader";
 import { router } from "expo-router";
 import { useWorkoutStore } from "stores/workoutStore";
 
@@ -34,40 +35,43 @@ const swapExercise = () => {
   const swapExercise = useWorkoutStore((state) => state.swapExercise);
 
   return (
-    <View style={{ flex: 1 }}>
-      <DropdownSearch
-        value={value}
-        onChangeText={setValue}
-        tags={tags}
-        setTags={setTags}
-      />
+    <SafeAreaView>
+      <SwapHeader />
+      <View style={{ flex: 1 }}>
+        <DropdownSearch
+          value={value}
+          onChangeText={setValue}
+          tags={tags}
+          setTags={setTags}
+        />
 
-      <FlatList
-        data={dataFiltered}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <ExerciseListedForSwap
-            {...item}
-            checked={selectedId == item.id ? true : false}
-            onPress={() => {
-              clickBehavior(item.id);
+        <FlatList
+          data={dataFiltered}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <ExerciseListedForSwap
+              {...item}
+              checked={selectedId == item.id ? true : false}
+              onPress={() => {
+                clickBehavior(item.id);
+              }}
+            />
+          )}
+          ListEmptyComponent={() => <EmptyState subtitle="No results found" />}
+        />
+        <View className="mt-2 flex-row justify-around">
+          <PrimaryButton
+            title={`Swap Exercise`}
+            containerStyles={"px-4 py-2 w-[150px]"}
+            textStyles={"text-sm"}
+            disabled={selectedId == null}
+            handlePress={() => {
+              router.back();
             }}
           />
-        )}
-        ListEmptyComponent={() => <EmptyState subtitle="No results found" />}
-      />
-      <View className="mt-2 flex-row justify-around">
-        <PrimaryButton
-          title={`Swap Exercise`}
-          containerStyles={"px-4 py-2 w-[150px]"}
-          textStyles={"text-sm"}
-          disabled={selectedId == null}
-          handlePress={() => {
-            router.back();
-          }}
-        />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

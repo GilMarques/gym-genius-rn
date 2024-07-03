@@ -13,10 +13,10 @@ import {
   VisibleModals,
 } from "components/PopUpModals/stores/ModalStore";
 import WorkoutBottomSheetButton from "components/WorkoutBottomSheetButton";
+import { useForm } from "react-hook-form";
 import { useWorkoutStore } from "stores/workoutStore";
 import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
-
 const fullConfig = resolveConfig(tailwindConfig);
 
 const components = {
@@ -44,6 +44,9 @@ const TabsLayout = () => {
   const exercises = useWorkoutStore((state) => state.exercises);
   const modalVisible = useModalStore((state) => state.visible);
   const setVisible = useModalStore((state) => state.setVisible);
+
+  const { control, handleSubmit } = useForm();
+
   return (
     <>
       <Tabs
@@ -129,7 +132,7 @@ const TabsLayout = () => {
       <RestTimerModal
         visible={modalVisible == VisibleModals.SetRestTimer}
         onSubmit={(value) => {
-          setAutoRestTimer(value);
+          // setAutoRestTimer(value);
           setVisible(VisibleModals.None);
         }}
         onClose={() => setVisible(VisibleModals.None)}
@@ -137,7 +140,6 @@ const TabsLayout = () => {
 
       <NoteModal
         visible={modalVisible == VisibleModals.AddExerciseNote}
-        note={""}
         onSubmit={(value) => {
           setExerciseNote(value);
           setVisible(VisibleModals.None);

@@ -9,7 +9,9 @@ import PrimaryButton from "components/Buttons/PrimaryButton";
 import DropdownSearch from "components/DropdownSearch";
 import EmptyState from "components/EmptyState";
 import ExerciseListed from "components/Exercises/ExerciseListed";
+import AddExercisesHeader from "components/Headers/AddExercisesHeader";
 import { router } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useWorkoutStore } from "stores/workoutStore";
 
 const exerciseList = () => {
@@ -41,54 +43,57 @@ const exerciseList = () => {
     useWorkoutStore((state) => state.addExercises(selectedIds));
 
   return (
-    <View style={{ flex: 1 }}>
-      <DropdownSearch
-        value={value}
-        onChangeText={setValue}
-        tags={tags}
-        setTags={setTags}
-      />
+    <SafeAreaView>
+      <AddExercisesHeader />
+      <View style={{ flex: 1 }}>
+        <DropdownSearch
+          value={value}
+          onChangeText={setValue}
+          tags={tags}
+          setTags={setTags}
+        />
 
-      <FlatList
-        data={dataFiltered}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <ExerciseListed
-            {...item}
-            checkedIndex={selectedIds.indexOf(item.id)}
-            onPress={() => {
-              clickBehavior(item.id);
+        <FlatList
+          data={dataFiltered}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <ExerciseListed
+              {...item}
+              checkedIndex={selectedIds.indexOf(item.id)}
+              onPress={() => {
+                clickBehavior(item.id);
+              }}
+            />
+          )}
+          ListEmptyComponent={() => <EmptyState subtitle="No results found" />}
+        />
+        <View className="mt-2 flex-row justify-around">
+          <OutlineButton
+            title="Add as Superset"
+            containerStyles={"px-4 py-2 border-[0.5px] w-[150px]"}
+            textStyles={"text-sm"}
+            disabled={true}
+            handlePress={() => {
+              console.log(selectedIds);
+              router.back();
             }}
           />
-        )}
-        ListEmptyComponent={() => <EmptyState subtitle="No results found" />}
-      />
-      <View className="mt-2 flex-row justify-around">
-        <OutlineButton
-          title="Add as Superset"
-          containerStyles={"px-4 py-2 border-[0.5px] w-[150px]"}
-          textStyles={"text-sm"}
-          disabled={true}
-          handlePress={() => {
-            console.log(selectedIds);
-            router.back();
-          }}
-        />
-        <PrimaryButton
-          title={`Add Exercises ${
-            selectedIds.length ? "(" + selectedIds.length + ")" : ""
-          }`}
-          containerStyles={"px-4 py-2 w-[150px]"}
-          textStyles={"text-sm"}
-          // disabled={selectedIds.length == 0}
-          disabled={false}
-          handlePress={() => {
-            addExercises(selectedIds);
-            router.back();
-          }}
-        />
+          <PrimaryButton
+            title={`Add Exercises ${
+              selectedIds.length ? "(" + selectedIds.length + ")" : ""
+            }`}
+            containerStyles={"px-4 py-2 w-[150px]"}
+            textStyles={"text-sm"}
+            // disabled={selectedIds.length == 0}
+            disabled={false}
+            handlePress={() => {
+              addExercises(selectedIds);
+              router.back();
+            }}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,4 +1,5 @@
 import Exercise from "components/Exercises/Exercise";
+import CurrentTemplateHeader from "components/Headers/currentTemplateHeader";
 import { router } from "expo-router";
 import React, { useRef } from "react";
 import { Text, View } from "react-native";
@@ -17,7 +18,8 @@ const currentTemplate = () => {
 
   return (
     <SafeAreaView className="h-full bg-background">
-      <View className="px-4">
+      <CurrentTemplateHeader />
+      <View className="mt-4 px-4">
         <ScrollView showsVerticalScrollIndicator={false} ref={scrollRef}>
           <View className="mb-2 flex self-center">
             <Text className="text-2xl font-bold text-white">{title}</Text>

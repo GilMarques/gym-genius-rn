@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import ReorderHeader from "components/Headers/ReorderHeader";
 import React from "react";
 import { Text, View } from "react-native";
 import DraggableFlatList, {
@@ -14,6 +15,7 @@ const reorderExercises = () => {
 
   return (
     <SafeAreaView>
+      <ReorderHeader />
       <DraggableFlatList
         data={exercises}
         keyExtractor={(item) => item.id}

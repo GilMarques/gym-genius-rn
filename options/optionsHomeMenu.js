@@ -1,5 +1,4 @@
 import { TransitionPresets } from "@react-navigation/stack";
-import { View } from "react-native";
 
 export const optionsHomeMenu = {
   ...TransitionPresets.ModalPresentationIOS,
@@ -7,14 +6,8 @@ export const optionsHomeMenu = {
   gestureEnabled: true,
   presentation: "modal",
 
-  headerShown: true,
+  headerShown: false,
   title: "Exercises",
-
-  header: () => (
-    <View className="mt-4 flex w-[20%] self-center">
-      <View className="rounded-md border-2 border-primary"></View>
-    </View>
-  ),
 
   cardStyle: { backgroundColor: "#1a1a1a" },
   overlayStyle: { borderColor: "#1a1a1a" },
