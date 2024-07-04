@@ -25,7 +25,15 @@ const TRANSLATE_X_THRESHOLD = SCREEN_WIDTH * 0.1;
 
 const LIST_ITEM_HEIGHT = 30;
 
-const Set = ({ id, previous, setIndex, scrollRef, exerciseId, restTime }) => {
+const Set = ({
+  id,
+  previous,
+  setIndex,
+  scrollRef,
+  exerciseId,
+  restTime,
+  control,
+}) => {
   const [isComplete, setIsComplete] = useState(false);
 
   const translateX = useSharedValue(0);
@@ -97,6 +105,8 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, restTime }) => {
 
           <View style={styles.fieldElement}>
             <CustomTextInput
+              name={`${exerciseId}.${setIndex}.weight`}
+              control={control}
               placeholder={previous ? previous.weight.toString() : ""}
               isComplete={isComplete}
             />
@@ -104,6 +114,8 @@ const Set = ({ id, previous, setIndex, scrollRef, exerciseId, restTime }) => {
 
           <View style={styles.fieldElement}>
             <CustomTextInput
+              name={`${exerciseId}.${setIndex}.reps`}
+              control={control}
               placeholder={previous ? previous.reps.toString() : ""}
               isComplete={isComplete}
             />

@@ -5,15 +5,7 @@ import { Text, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import { FontAwesome6, Ionicons } from "@expo/vector-icons";
-import FinishWorkoutModal from "components/PopUpModals/FinishWorkoutModal";
-import NoteModal from "components/PopUpModals/NoteModal";
-import RestTimerModal from "components/PopUpModals/RestTimerModal";
-import {
-  useModalStore,
-  VisibleModals,
-} from "components/PopUpModals/stores/ModalStore";
 import WorkoutBottomSheetButton from "components/WorkoutBottomSheetButton";
-import { useForm } from "react-hook-form";
 import { useWorkoutStore } from "stores/workoutStore";
 import tailwindConfig from "tailwind.config.js";
 import resolveConfig from "tailwindcss/resolveConfig";
@@ -42,10 +34,6 @@ const TabIcon = ({ icon_family, icon_name, color, name, focused }) => {
 
 const TabsLayout = () => {
   const exercises = useWorkoutStore((state) => state.exercises);
-  const modalVisible = useModalStore((state) => state.visible);
-  const setVisible = useModalStore((state) => state.setVisible);
-
-  const { control, handleSubmit } = useForm();
 
   return (
     <>
@@ -117,41 +105,6 @@ const TabsLayout = () => {
           }
         />
       )}
-
-      <RestTimerModal
-        // visible={restTimerModalVisible}
-        visible={modalVisible == VisibleModals.StartRestTimer}
-        buttonTitle={"Start"}
-        onSubmit={(value) => {
-          // startRestTimer(value);
-          setVisible(VisibleModals.None);
-        }}
-        onClose={() => setVisible(VisibleModals.None)}
-      />
-
-      <RestTimerModal
-        visible={modalVisible == VisibleModals.SetRestTimer}
-        onSubmit={(value) => {
-          // setAutoRestTimer(value);
-          setVisible(VisibleModals.None);
-        }}
-        onClose={() => setVisible(VisibleModals.None)}
-      />
-
-      <NoteModal
-        visible={modalVisible == VisibleModals.AddExerciseNote}
-        onSubmit={(value) => {
-          setExerciseNote(value);
-          setVisible(VisibleModals.None);
-        }}
-        onClose={() => setVisible(VisibleModals.None)}
-      />
-
-      <FinishWorkoutModal
-        visible={modalVisible == VisibleModals.FinishWorkout}
-        onSubmit={() => setVisible(VisibleModals.None)}
-        onCancel={() => setVisible(VisibleModals.None)}
-      />
 
       <StatusBar style="light" />
     </>

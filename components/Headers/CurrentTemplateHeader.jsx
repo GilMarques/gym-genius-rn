@@ -8,7 +8,7 @@ import TimerDisplay from "components/TimerDisplay";
 import React from "react";
 import { View } from "react-native";
 
-const CurrentTemplateHeader = () => {
+const CurrentTemplateHeader = ({ handleSubmit }) => {
   const { setVisible } = useModalStore((state) => state.setVisible);
   return (
     <View

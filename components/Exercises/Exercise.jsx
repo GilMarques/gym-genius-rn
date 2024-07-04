@@ -11,7 +11,7 @@ import { useWorkoutStore } from "stores/workoutStore";
 import ExerciseMenu from "./ExerciseMenu";
 import Set from "./Set";
 
-const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
+const Exercise = ({ id, restTime, name, sets, scrollRef, control, note }) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
 
   const [autoRestTimer, setAutoRestTimer] = useState(restTime);
@@ -30,6 +30,7 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
   };
 
   const noteRef = useRef(null);
+
   return (
     <>
       <View className="mb-4">
@@ -63,8 +64,9 @@ const Exercise = ({ id, restTime, name, sets, scrollRef, note }) => {
         {sets.map((set, setIndex) => (
           <Set
             key={set.id}
-            setIndex={setIndex}
+            control={control}
             exerciseId={id}
+            setIndex={setIndex}
             scrollRef={scrollRef}
             restTime={autoRestTimer}
             {...set}

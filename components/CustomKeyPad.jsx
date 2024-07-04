@@ -78,23 +78,23 @@ const CustomKeyPad = () => {
   const ref = useRef(null);
 
   const backspaceBehavior = useCallback(() => {
-    if (dispatch.current) {
-      dispatch.current({ type: "BACKSPACE" });
+    if (dispatch) {
+      dispatch({ type: "BACKSPACE" });
     }
   }, [dispatch]);
 
   const pressBehavior = useCallback(
     (text) => {
-      if (dispatch.current) {
-        dispatch.current({ type: "PRESS", text: text });
+      if (dispatch) {
+        dispatch({ type: "PRESS", text: text });
       }
     },
     [dispatch]
   );
 
   const dotBehavior = useCallback(() => {
-    if (dispatch.current) {
-      dispatch.current({ type: "DOT" });
+    if (dispatch) {
+      dispatch({ type: "DOT" });
     }
   }, [dispatch]);
 
@@ -135,10 +135,15 @@ const CustomKeyPad = () => {
         <TextButton text={"RPE"} visible={false} />
         <TextButton text={"Next"} />
       </View>
-      <View className="bg-background-dark">
+      <View className="border-t border-background-dark bg-background">
         <View className="mt-2 flex-row justify-around">
           <KeyPadButton text="1" onPress={() => pressBehavior("1")} />
-          <KeyPadButton text="2" onPress={() => pressBehavior("2")} />
+          <KeyPadButton
+            text="2"
+            onPress={() => {
+              pressBehavior("2");
+            }}
+          />
           <KeyPadButton text="3" onPress={() => pressBehavior("3")} />
         </View>
         <View className="mt-2 flex-row justify-around">

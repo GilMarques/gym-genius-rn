@@ -13,7 +13,9 @@ export const useKeypadStore = create<keypadState>((set) => ({
   visible: false,
   setVisible: (visible) => set({ visible }),
   dispatch: null,
-  setInputDispatch: (dispatch) => set({ dispatch }),
+  setInputDispatch: (dispatch) => {
+    set({ dispatch });
+  },
   close: () => set({ visible: false }),
   open: () => set({ visible: true }),
 }));
