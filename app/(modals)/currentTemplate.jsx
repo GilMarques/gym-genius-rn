@@ -1,4 +1,3 @@
-import PrimaryButton from "components/Buttons/PrimaryButton";
 import Exercise from "components/Exercises/Exercise";
 import CurrentTemplateHeader from "components/Headers/CurrentTemplateHeader";
 import FinishWorkoutModal from "components/PopUpModals/FinishWorkoutModal";
@@ -8,6 +7,7 @@ import {
   useModalStore,
   VisibleModals,
 } from "components/PopUpModals/stores/ModalStore";
+import RestTimerMenu from "components/RestTimerMenu";
 import { router } from "expo-router";
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
@@ -39,17 +39,13 @@ const currentTemplate = () => {
         <View>
           <CurrentTemplateHeader handleSubmit={handleSubmit} />
 
-          <PrimaryButton
-            title={"Temporary Submit"}
-            handlePress={() => {
-              handleSubmit(onSubmit)();
-            }}
-          />
           <View className="mt-4 px-4">
+            <RestTimerMenu />
             <ScrollView showsVerticalScrollIndicator={false} ref={scrollRef}>
               <View className="mb-2 flex self-center">
                 <Text className="text-2xl font-bold text-white">{title}</Text>
               </View>
+
               {exercises.map((exercise, exerciseIndex) => (
                 <Exercise
                   key={exercise.id}

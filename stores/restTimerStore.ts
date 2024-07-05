@@ -6,17 +6,25 @@ interface RestTimerState {
   current: number;
   duration: number;
   setRef: (ref) => void;
+  setNewTimer: (duration) => void;
   decrease: () => void;
   increaseDuration: () => void;
   decreaseDuration: () => void;
 }
 
-export const useStore = create<RestTimerState>((set) => ({
+export const useRestTimerStore = create<RestTimerState>((set) => ({
   startDate: new Date(),
   intervalRef: null,
   current: 0,
   duration: 0,
-  setRef: (ref) => set((state) => ({ ...state, ref: ref })),
+  setRef: (ref) => set((state) => ({ ...state, intervalRef: ref })),
+  setNewTimer: (duration) =>
+    set((state) => ({
+      ...state,
+      duration: duration,
+      current: duration,
+      startDate: new Date(),
+    })),
   decrease: () =>
     set((state) => {
       if (state.current === 0) {
@@ -28,7 +36,7 @@ export const useStore = create<RestTimerState>((set) => ({
           current: 0,
         };
       }
-      return { ...state, time: state.current - 1 };
+      return { ...state, current: state.current - 1 };
     }),
   decreaseDuration: () => {
     set((state) => {
@@ -57,10 +65,24 @@ export const useStore = create<RestTimerState>((set) => ({
   },
 }));
 
-export const startTimer = (decrease: () => void, setRef: (ref) => void) => {
+export const startRestTimer = (
+  duration: number,
+  ref,
+  setNewTimer: (duration) => void,
+  decrease: () => void,
+  setRef: (ref) => void
+) => {
+  if (ref) clearInterval(ref);
+  setNewTimer(duration);
   const intervalRef = setInterval(() => {
     decrease();
   }, 1000);
+
   setRef(intervalRef);
-  return () => clearInterval(intervalRef);
+  return intervalRef;
+};
+
+export const stopRestTimer = (ref, setRef: (ref) => void) => {
+  clearInterval(ref);
+  setRef(null);
 };

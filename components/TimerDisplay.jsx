@@ -1,19 +1,31 @@
 import { FontAwesome6 } from "@expo/vector-icons";
-import { secondsToHourMinuteSecond, secondsToms } from "lib/helper";
+import { secondsToHourMinuteSecond } from "lib/helper";
 import { Text, View } from "react-native";
+import { useRestTimerStore } from "stores/restTimerStore";
 import { useStore } from "stores/timerStore";
-import RestTimerProgressBar from "./RestTimerProgressBar";
 export default TimerDisplay = () => {
   const workoutTimer = useStore((state) => state.time);
-  const state = "play";
+  const active = useStore((state) => state.active);
+  const restTimerRef = useRestTimerStore((state) => state.intervalRef);
+  const currentRestTime = useRestTimerStore((state) => state.current);
+
   return (
     <View className="w-18 rounded-md bg-gray-500">
-      {state === "rest" && <RestTimerProgressBar />}
+      {/* {restTimerRef != null && <RestTimerProgressBar />} */}
       <View
         className="flex-row items-center justify-between p-2"
         style={{ gap: 10 }}
       >
-        {state === "play" && (
+        {/* {restTimerRef !== null && (
+          <>
+            <FontAwesome6 name="stopwatch" size={15} color="white" />
+            <Text className="font-bold text-white">
+              {secondsToms(currentRestTime)}
+            </Text>
+          </>
+        )} */}
+
+        {active === true && (
           <>
             <FontAwesome6 name="play" size={15} color="white" />
             <Text className="font-bold text-white">
@@ -22,20 +34,11 @@ export default TimerDisplay = () => {
           </>
         )}
 
-        {state === "pause" && (
+        {active === false && (
           <>
             <FontAwesome6 name="pause" size={15} color="white" />
             <Text className="font-bold text-white">
               {secondsToHourMinuteSecond(workoutTimer)}
-            </Text>
-          </>
-        )}
-
-        {state === "rest" && (
-          <>
-            <FontAwesome6 name="stopwatch" size={15} color="white" />
-            <Text className="font-bold text-white">
-              {secondsToms(restTimer.current)}
             </Text>
           </>
         )}

@@ -7,41 +7,50 @@ import {
 import TimerDisplay from "components/TimerDisplay";
 import React from "react";
 import { View } from "react-native";
+import { useRestTimerStore } from "stores/restTimerStore";
 
 const CurrentTemplateHeader = ({ handleSubmit }) => {
-  const { setVisible } = useModalStore((state) => state.setVisible);
+  const setVisible = useModalStore((state) => state.setVisible);
+  const increaseDuration = useRestTimerStore((state) => state.increaseDuration);
+  const decreaseDuration = useRestTimerStore((state) => state.decreaseDuration);
+
+  const current = useRestTimerStore((state) => state.current);
+  const intervalRef = useRestTimerStore((state) => state.intervalRef);
+
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginHorizontal: 20,
-      }}
-    >
+    <View>
       <View
-        className="flex-row items-center justify-between"
         style={{
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-
-          gap: 10,
+          marginHorizontal: 20,
         }}
       >
-        <TimerDisplay />
+        <View
+          className="flex-row items-center justify-between"
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+
+            gap: 10,
+          }}
+        >
+          <TimerDisplay />
+          <PrimaryButton
+            title={<MaterialIcons name="alarm" size={20} color="white" />}
+            containerStyles={"px-2"}
+            handlePress={() => setVisible(VisibleModals.StartRestTimer)}
+          />
+        </View>
+
         <PrimaryButton
-          title={<MaterialIcons name="alarm" size={20} color="white" />}
-          containerStyles={"px-2"}
-          handlePress={() => setVisible(VisibleModals.StartRestTimer)}
+          title="Finish"
+          containerStyles={"px-4"}
+          handlePress={() => setVisible(VisibleModals.FinishWorkout)}
         />
       </View>
-
-      <PrimaryButton
-        title="Finish"
-        containerStyles={"px-4"}
-        handlePress={() => setVisible(VisibleModals.FinishWorkout)}
-      />
     </View>
   );
 };

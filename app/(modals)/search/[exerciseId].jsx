@@ -33,7 +33,9 @@ const RecordsRoute = () => <View />;
 const renderTabBar = (props) => (
   <TabBar
     {...props}
-    indicatorStyle={{ backgroundColor: fullConfig.theme.colors.secondary }}
+    indicatorStyle={{
+      backgroundColor: fullConfig.theme.colors.primary.DEFAULT,
+    }}
     style={{ backgroundColor: fullConfig.theme.colors.background.DEFAULT }}
   />
 );

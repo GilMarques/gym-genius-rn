@@ -108,7 +108,7 @@ const CustomTextInput = ({ name, control, placeholder, isComplete }) => {
         className="rounded-md border text-center text-white"
         style={{
           backgroundColor: isComplete
-            ? config.theme.colors.secondary
+            ? config.theme.colors.primary.DEFAULT
             : "transparent",
           borderColor: isComplete ? config.theme.colors.primary.dark : "white",
         }}

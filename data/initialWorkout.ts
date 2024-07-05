@@ -6,7 +6,7 @@ export const initialWorkout: WorkoutProps = {
     {
       id: 1,
       name: "Squats",
-      note: "Note NOTE NOTE",
+      note: "This is a note",
       restTime: 120,
       sets: [
         {
@@ -25,7 +25,7 @@ export const initialWorkout: WorkoutProps = {
     },
     {
       id: 2,
-      name: "Deadlifts",
+      name: "Bulgarian Split Squats",
       restTime: 0,
       sets: [
         {

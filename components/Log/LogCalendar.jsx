@@ -10,19 +10,19 @@ const LogCalendar = () => {
     "2024-05-22": {
       startingDay: true,
       endingDay: true,
-      color: fullConfig.theme.colors.secondary,
+      color: fullConfig.theme.colors.primary.DEFAULT,
       textColor: "black",
     },
     "2024-05-23": {
       startingDay: true,
       endingDay: true,
-      color: fullConfig.theme.colors.secondary,
+      color: fullConfig.theme.colors.primary.DEFAULT,
       textColor: "black",
     },
     "2024-05-14": {
       startingDay: true,
       endingDay: true,
-      color: fullConfig.theme.colors.secondary,
+      color: fullConfig.theme.colors.primary.DEFAULT,
       textColor: "black",
       disabled: true,
     },

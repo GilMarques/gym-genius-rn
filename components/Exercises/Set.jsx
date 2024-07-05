@@ -1,5 +1,5 @@
 import { Feather, Ionicons } from "@expo/vector-icons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 import {
@@ -16,6 +16,7 @@ import Animated, {
 import resolveConfig from "tailwindcss/resolveConfig";
 
 import CustomTextInput from "components/CustomTextInput";
+import { startRestTimer, useRestTimerStore } from "stores/restTimerStore";
 import { useWorkoutStore } from "stores/workoutStore";
 import tailwindConfig from "../../tailwind.config";
 const fullConfig = resolveConfig(tailwindConfig);
@@ -42,6 +43,11 @@ const Set = ({
   const opacity = useSharedValue(1);
 
   const removeSet = useWorkoutStore((state) => state.removeSet);
+
+  const timerRef = useRestTimerStore((state) => state.intervalRef);
+  const setRef = useRestTimerStore((state) => state.setRef);
+  const decrease = useRestTimerStore((state) => state.decrease);
+  const setNewTimer = useRestTimerStore((state) => state.setNewTimer);
 
   const panGesture = Gesture.Pan()
     .onUpdate((event) => {
@@ -84,6 +90,18 @@ const Set = ({
     };
   });
 
+  useEffect(() => {
+    if (isComplete) {
+      const ref = startRestTimer(
+        restTime,
+        timerRef,
+        setNewTimer,
+        decrease,
+        setRef
+      );
+    }
+  }, [isComplete]);
+
   return (
     <Animated.View style={[rContainerStyle]}>
       <Animated.View style={[styles.trashIconContainer, rIconContainerStyle]}>
@@ -122,24 +140,15 @@ const Set = ({
           </View>
 
           <View className="w-[20%] flex-row justify-end">
-            <TouchableOpacity
-              onPress={() => {
-                setIsComplete((prev) => {
-                  if (prev) {
-                    return false;
-                  } else {
-                    startRestTimer(restTime);
-                    return true;
-                  }
-                });
-              }}
-            >
+            <TouchableOpacity onPress={() => setIsComplete((prev) => !prev)}>
               <Ionicons
                 name={
                   isComplete ? "checkmark-circle" : "checkmark-circle-outline"
                 }
                 size={24}
-                color={isComplete ? fullConfig.theme.colors.secondary : "white"}
+                color={
+                  isComplete ? fullConfig.theme.colors.primary.DEFAULT : "white"
+                }
               />
             </TouchableOpacity>
           </View>
